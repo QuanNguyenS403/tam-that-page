@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react'
+import img from '@/assets/7.png.asset.json'
 
 const bullets = [
   'No raw herb preparation required',
@@ -14,7 +15,7 @@ export function WellnessRoutine() {
     <section id="wellness" aria-label="Wellness routine" className="container-tt py-16 md:py-24">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="aspect-square rounded-2xl overflow-hidden bg-[hsl(var(--secondary))]">
-          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1000&q=80" alt="A calm morning ritual" className="w-full h-full object-cover" loading="lazy" />
+          <img src={img.url} alt="A calm morning ritual" className="w-full h-full object-cover" loading="lazy" />
         </div>
         <div>
           <p className="eyebrow mb-4">Daily Wellness</p>

@@ -1,3 +1,5 @@
+import img from '@/assets/6.png.asset.json'
+
 export function GiftCallout() {
   return (
     <section aria-label="Gift positioning" className="bg-[hsl(var(--dark))] text-white">
@@ -14,7 +16,7 @@ export function GiftCallout() {
             </div>
           </div>
           <div className="aspect-square rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1000&q=80" alt="Elegant gift packaging" className="w-full h-full object-cover" loading="lazy" />
+            <img src={img.url} alt="Elegant gift packaging" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
       </div>

@@ -1,8 +1,10 @@
+import img from '@/assets/2.png.asset.json'
+
 export function HeritageBanner() {
   return (
     <section aria-label="Heritage" className="relative py-24 md:py-40 overflow-hidden">
       <div className="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1596496638481-46e0e05e9e11?w=1800&q=80" alt="" className="w-full h-full object-cover" loading="lazy" />
+        <img src={img.url} alt="" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-black/55" />
       </div>
       <div className="relative container-tt text-center text-white">
