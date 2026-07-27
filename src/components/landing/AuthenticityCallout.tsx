@@ -1,9 +1,11 @@
+import img from '@/assets/9.png.asset.json'
+
 export function AuthenticityCallout() {
   return (
     <section id="story" aria-label="Authenticity" className="container-tt py-16 md:py-24">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[hsl(var(--secondary))] order-2 lg:order-1">
-          <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1000&q=80" alt="Careful herbal preparation" className="w-full h-full object-cover" loading="lazy" />
+          <img src={img.url} alt="Careful herbal preparation" className="w-full h-full object-cover" loading="lazy" />
         </div>
         <div className="order-1 lg:order-2">
           <p className="eyebrow mb-4">Why It Matters</p>
