@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { Heart, Share2, Lock, RotateCcw, Award, Truck } from 'lucide-react'
+import img1 from '@/assets/1.png.asset.json'
+import img5 from '@/assets/5.png.asset.json'
+import img8 from '@/assets/8.png.asset.json'
+import img3 from '@/assets/3.png.asset.json'
 
 const variants = [
   { id: 'std', label: 'Standard Pack', desc: '1 Pack', price: '$29.99', note: '' },
@@ -12,12 +16,7 @@ const badges = ['Traditional Herbal', 'Fine Powder', 'Gift-Ready', 'Daily Wellne
 export function ProductHero() {
   const [selected, setSelected] = useState('std')
   const [imgIdx, setImgIdx] = useState(0)
-  const images = [
-    'https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=900&q=80',
-    'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=900&q=80',
-    'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&q=80',
-    'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=900&q=80',
-  ]
+  const images = [img1.url, img5.url, img8.url, img3.url]
   return (
     <section id="hero" aria-label="Product hero" className="container-tt py-6 md:py-10">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
