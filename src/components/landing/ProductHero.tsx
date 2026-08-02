@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Heart, Share2, Lock, RotateCcw, Award, Truck } from 'lucide-react'
+import { Heart, Share2, Truck } from 'lucide-react'
 import img1 from '@/assets/1.png.asset.json'
 import img5 from '@/assets/5.png.asset.json'
 import img8 from '@/assets/8.png.asset.json'
@@ -17,11 +17,13 @@ export function ProductHero() {
   const [selected, setSelected] = useState('std')
   const [imgIdx, setImgIdx] = useState(0)
   const images = [img1.url, img5.url, img8.url, img3.url]
+  const activeVariant = variants.find(v => v.id === selected) || variants[0]
+
   return (
     <section id="hero" aria-label="Product hero" className="container-tt py-6 md:py-10">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
         {/* Gallery */}
-        <div className="fade-in">
+        <div className="fade-in" style={{ animationDelay: '0ms' }}>
           <div className="aspect-square rounded-2xl bg-[hsl(var(--secondary))] overflow-hidden">
             <img src={images[imgIdx]} alt="Tam Thất Quân Nguyễn Premium Panax Notoginseng Powder" className="w-full h-full object-cover" loading="eager" />
           </div>
@@ -36,7 +38,7 @@ export function ProductHero() {
         </div>
 
         {/* Info */}
-        <div className="fade-in">
+        <div className="fade-in" style={{ animationDelay: '150ms' }}>
           <h1 className="mb-3">
             Tam Thất Quân Nguyễn
             <span className="block text-xl md:text-2xl font-normal text-[hsl(var(--muted-foreground))] mt-2 font-sans">
@@ -59,11 +61,11 @@ export function ProductHero() {
 
           <div className="mb-6 pb-6 border-b border-[hsl(var(--border))]">
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl md:text-4xl font-semibold">$29.99</span>
-              <span className="text-sm text-[hsl(var(--muted-foreground))]">Standard Pack</span>
+              <span className="text-3xl md:text-4xl font-semibold">{activeVariant.price}</span>
+              <span className="text-sm text-[hsl(var(--muted-foreground))]">{activeVariant.label}</span>
             </div>
             <p className="text-sm text-[hsl(var(--muted-foreground))] mt-2">
-              Or from <span className="text-[hsl(var(--foreground))] font-semibold">$26.66/pack</span> with the Family Pack — <span className="text-[hsl(var(--accent))] font-semibold">Best Value</span>
+              Or from <span className="text-[hsl(var(--foreground))] font-semibold">$24.99/pack</span> with the Family Pack — <span className="text-[hsl(var(--accent))] font-semibold">Best Value</span>
             </p>
             <p className="text-xs text-[hsl(var(--muted-foreground))] mt-1">Flexible payment options available at checkout.</p>
           </div>
@@ -90,16 +92,10 @@ export function ProductHero() {
             <Truck className="w-4 h-4" /> Free shipping on orders over $75 · Estimated delivery 3–5 business days
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mb-5">
+          <div className="flex flex-col sm:flex-row gap-3">
             <button className="btn-primary flex-1">Shop Now</button>
             <button className="btn-outline sm:w-auto" aria-label="Add to wishlist"><Heart className="w-4 h-4" /> Wishlist</button>
             <button className="btn-outline sm:w-auto" aria-label="Share"><Share2 className="w-4 h-4" /> Share</button>
-          </div>
-
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-[hsl(var(--muted-foreground))]">
-            <span className="flex items-center gap-1.5"><Lock className="w-3.5 h-3.5" /> Secure Checkout</span>
-            <span className="flex items-center gap-1.5"><RotateCcw className="w-3.5 h-3.5" /> 30-Day Return Policy</span>
-            <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5" /> Premium Quality Guaranteed</span>
           </div>
         </div>
       </div>

@@ -33,11 +33,11 @@ export function ComparisonTable() {
               </tr>
             </thead>
             <tbody>
-              {rows.map(([label, ...cells], i) => (
-                <tr key={i} className="border-b border-[hsl(var(--border))] last:border-0">
+              {rows.map(([label, ...cells]) => (
+                <tr key={label} className="border-b border-[hsl(var(--border))] last:border-0">
                   <td className="p-4 md:p-6 font-semibold text-left">{label}</td>
                   {cells.map((c, j) => (
-                    <td key={j} className={`p-4 md:p-6 text-center text-[hsl(var(--muted-foreground))] ${j===1 ? 'bg-[hsl(var(--accent))]/5' : j===2 ? 'bg-[hsl(var(--accent))]/10' : ''}`}>
+                    <td key={`${label}-${j}`} className={`p-4 md:p-6 text-center text-[hsl(var(--muted-foreground))] ${j===1 ? 'bg-[hsl(var(--accent))]/5' : j===2 ? 'bg-[hsl(var(--accent))]/10' : ''}`}>
                       {c === '✓' ? <Check className="w-5 h-5 text-[hsl(var(--accent))] mx-auto" /> : c}
                     </td>
                   ))}
@@ -48,8 +48,8 @@ export function ComparisonTable() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <button className="btn-outline">Order Standard Pack — $29.99</button>
-          <button className="btn-primary">Order Family Pack — Best Value</button>
+          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="btn-outline">Order Standard Pack — $29.99</button>
+          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary">Order Family Pack — Best Value</button>
         </div>
       </div>
     </section>

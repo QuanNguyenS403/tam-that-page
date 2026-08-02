@@ -24,7 +24,7 @@ export function FAQ() {
       </div>
       <div className="max-w-3xl mx-auto divide-y divide-[hsl(var(--border))] border-y border-[hsl(var(--border))]">
         {faqs.map((f, i) => (
-          <div key={i}>
+          <div key={f.q}>
             <button onClick={() => setOpen(open===i ? null : i)} aria-expanded={open===i}
               className="w-full flex items-center justify-between gap-4 py-5 text-left group">
               <span className="font-semibold text-base md:text-lg group-hover:text-[hsl(var(--accent))] transition-colors">{f.q}</span>

@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[hsl(var(--background))]/90 backdrop-blur border-b border-[hsl(var(--border))]">
       <nav className="container-tt flex items-center justify-between h-16 md:h-20" aria-label="Main navigation">
-        <a href="#hero" className="font-serif text-xl md:text-2xl font-semibold tracking-tight" style={{fontFamily:'Cormorant Garamond, serif'}}>
+        <a href="#hero" className="font-serif text-xl md:text-2xl font-semibold tracking-tight">
           Tam Thất <span className="text-[hsl(var(--accent))]">Quân Nguyễn</span>
         </a>
         <ul className="hidden lg:flex items-center gap-8">

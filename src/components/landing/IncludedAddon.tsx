@@ -10,15 +10,25 @@ export function IncludedAddon() {
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 rounded-2xl bg-white border border-[hsl(var(--border))] p-6 md:p-8">
           <div role="tablist" className="flex gap-2 border-b border-[hsl(var(--border))] mb-6">
-            {tabs.map(t => (
-              <button key={t} role="tab" aria-selected={tab===t} onClick={() => setTab(t)}
-                className={`px-4 py-3 text-sm font-semibold border-b-2 -mb-px transition ${tab===t ? 'border-[hsl(var(--accent))] text-[hsl(var(--accent))]' : 'border-transparent text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'}`}>
-                {t}
-              </button>
-            ))}
+            {tabs.map(t => {
+              const tabKey = t === "What's Included" ? 'included' : 'serving'
+              return (
+                <button
+                  key={t}
+                  id={`tab-${tabKey}`}
+                  role="tab"
+                  aria-controls={`panel-${tabKey}`}
+                  aria-selected={tab === t}
+                  onClick={() => setTab(t)}
+                  className={`px-4 py-3 text-sm font-semibold border-b-2 -mb-px transition ${tab===t ? 'border-[hsl(var(--accent))] text-[hsl(var(--accent))]' : 'border-transparent text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'}`}
+                >
+                  {t}
+                </button>
+              )
+            })}
           </div>
           {tab === 'What\'s Included' ? (
-            <div>
+            <div role="tabpanel" id="panel-included" aria-labelledby="tab-included">
               <h3 className="mb-4">Standard Pack — $29.99</h3>
               <ul className="space-y-3">
                 {[
@@ -36,7 +46,7 @@ export function IncludedAddon() {
               </ul>
             </div>
           ) : (
-            <div>
+            <div role="tabpanel" id="panel-serving" aria-labelledby="tab-serving">
               <h3 className="mb-4">How to prepare your daily serving:</h3>
               <ol className="space-y-3">
                 {[
