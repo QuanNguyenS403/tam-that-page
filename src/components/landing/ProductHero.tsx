@@ -36,9 +36,10 @@ export function ProductHero() {
       className="bg-canvas py-section-sm md:py-section-md"
     >
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
           <div className="flex flex-col gap-3">
-            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[5/4]">
+
               <img
                 src={THUMBNAILS[activeImg]}
                 alt="Tam Thất Bắc Nguyên Chất Hà Giang"
@@ -74,9 +75,10 @@ export function ProductHero() {
               TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT
             </p>
 
-            <h1 className="font-display text-display-lg text-forest leading-[1.15]">
-              Tam thất nguyên chất 7 năm tuổi.{"\u00a0"}Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên
+            <h1 className="font-display text-display-lg text-forest leading-[1.35] tracking-[0.01em] font-normal text-balance">
+              Tam thất nguyên chất 7 năm tuổi. Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên.
             </h1>
+
 
             <div className="flex items-center gap-3">
               <span className="text-gold text-body-lg tracking-tight" aria-label="5 sao">★★★★★</span>
@@ -101,16 +103,17 @@ export function ProductHero() {
                     key={i}
                     onClick={() => setVariant(i)}
                     aria-pressed={activeVariant === i}
-                    className={`relative flex-1 text-left px-4 py-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
+                    className={`relative flex-1 flex flex-col items-center justify-center text-center px-4 pt-5 pb-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
                   >
                     {v.best && (
-                      <span className="absolute -top-2.5 right-3 bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
                         Tiết Kiệm Nhất
                       </span>
                     )}
                     <span className="block font-body text-body-sm font-semibold text-stone-900">{v.label}</span>
                     <span className="block font-mono text-body-sm text-forest font-medium mt-0.5">{v.price}</span>
                   </button>
+
                 ))}
               </div>
             </div>

@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Play } from 'lucide-react'
 import img6 from '@/assets/6.png.asset.json'
+import videoAsset from '@/assets/tam-that-video.mp4.asset.json'
 
 export function VideoModule() {
   const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   return (
     <section
@@ -20,26 +22,24 @@ export function VideoModule() {
         </h2>
 
         <div className="relative w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-video bg-dark shadow-glass">
-          {isPlaying ? (
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-              title="Quy trình thu hoạch Tam Thất"
-              className="w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          ) : (
+          <video
+            ref={videoRef}
+            src={videoAsset.url}
+            poster={img6.url}
+            className="w-full h-full object-cover"
+            controls={isPlaying}
+            playsInline
+            preload="metadata"
+          />
+          {!isPlaying && (
             <>
-              <img
-                src={img6.url || "/images/video-thumbnail.jpg"}
-                alt="Hình ảnh quy trình thu hoạch Tam Thất"
-                className="w-full h-full object-cover opacity-80"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-dark/30 backdrop-blur-[2px]" />
+              <div className="absolute inset-0 bg-dark/30 backdrop-blur-[2px] pointer-events-none" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
-                  onClick={() => setIsPlaying(true)}
+                  onClick={() => {
+                    setIsPlaying(true)
+                    videoRef.current?.play()
+                  }}
                   className="bg-amber/90 hover:bg-amber text-dark w-16 h-16 rounded-full flex items-center justify-center shadow-gold transition-all duration-200 hover:scale-110"
                   aria-label="Phát video quy trình sản xuất"
                 >
@@ -49,6 +49,7 @@ export function VideoModule() {
             </>
           )}
         </div>
+
 
         <p className="text-center font-body text-body-sm text-stone-600 mt-3">
           {"\n"}
