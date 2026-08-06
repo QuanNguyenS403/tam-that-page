@@ -46,7 +46,7 @@ export function ProductHero() {
                 loading="eager"
               />
               <div className="absolute top-4 left-4 bg-forest/80 backdrop-blur-glass text-amber font-body text-label-sm font-semibold uppercase tracking-widest px-3 py-1.5 rounded-badge">
-                Hàng Chính Hãng · QR Truy Xuất
+                {"\n"}
               </div>
             </div>
 
@@ -71,13 +71,11 @@ export function ProductHero() {
             className="flex flex-col gap-5"
           >
             <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage">
-              Tam Thất Bắc · Hà Giang Nguyên Chất
+              TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT
             </p>
 
             <h1 className="font-display text-display-lg text-forest leading-[1.15]">
-              Bồi bổ từ gốc rễ —{' '}
-              <em className="not-italic text-jade">Tam Thất núi đá</em>{' '}
-              7 năm tuổi, nguyên chất không pha trộn
+              Tam thất nguyên chất 7 năm tuổi.{"\u00a0"}Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên
             </h1>
 
             <div className="flex items-center gap-3">
@@ -90,8 +88,7 @@ export function ProductHero() {
             </div>
 
             <p className="font-body text-body-lg text-stone-600 leading-relaxed max-w-content">
-              Được thu hái tay tại vùng cao Bắc Hà Giang, phơi sấy truyền thống.
-              Mỗi củ là một năm kiên nhẫn của đất trời.
+              Tam thất là một dược liệu được sử dụng lâu đời trong y học cổ truyền. Chất lượng của củ phụ thuộc vào vùng trồng, thời gian sinh trưởng, quy trình sơ chế và cách bảo quản sau thu hoạch.
             </p>
 
             <div>
@@ -158,14 +155,14 @@ export function ProductHero() {
             </div>
 
             <p className="font-body text-body-sm text-stone-600">
-              🚚 Đặt trước 15:00 → Giao ngay hôm nay (Hà Nội, TP.HCM)
+              🚚 Đặt trước 15:00 → Giao ngay hôm nay
             </p>
 
             <div className="flex flex-wrap gap-2 pt-1">
               {[
-                '✓ Hoàn tiền 100% sau 30 ngày',
-                '✓ Tem QR truy xuất nguồn gốc',
-                '✓ Kiểm nghiệm QUATEST 3',
+                '✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH',
+                '🏔️ CÓ TEM QR TRUY XUẤT NGUỒN GỐC',
+                'Tam thất Bắc được tuyển chọn từ vùng núi cao Hà Giang, sơ chế cẩn thận và nghiền theo từng mẻ nhỏ nhằm giữ trọn hương thơm tự nhiên của dược liệu.',
               ].map((t) => (
                 <span
                   key={t}

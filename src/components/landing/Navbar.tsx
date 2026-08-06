@@ -23,7 +23,7 @@ export function Navbar() {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-canvas/95 backdrop-blur-glass shadow-sm border-b border-stone-300' : 'bg-transparent'}`}>
       <nav className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 flex items-center justify-between h-16 md:h-20" aria-label="Điều hướng chính">
         <a href="/" className="font-display text-display-sm text-forest font-bold">
-          Tam Thất Quân Nguyễn
+          QuanNguyenS
         </a>
         <ul className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map(l => (

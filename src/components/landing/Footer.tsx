@@ -54,9 +54,9 @@ export function Footer() {
       <div className="max-w-wide mx-auto px-4 sm:px-8 py-section-sm md:py-section-md">
         <div className="mb-12 pb-8 border-b border-stone-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
-            <h3 className="font-display text-display-sm text-amber font-bold mb-2">Tam Thất Quân Nguyễn</h3>
+            <h3 className="font-display text-display-sm text-amber font-bold mb-2">QuanNguyenS</h3>
             <p className="font-body text-body-base text-stone-300 max-w-xl">
-              Dược liệu nguyên chất từ núi đá Bắc Hà Giang. Phơi sấy truyền thống — Bảo tồn dưỡng chất thiên nhiên.
+              Tam Thất Bắc được tuyển chọn từ vùng nguyên liệu Hà Giang, chế biến và đóng gói theo tiêu chuẩn của Tam Thất Quân Nguyễn.
             </p>
           </div>
           <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto">
@@ -113,7 +113,7 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col justify-end items-start md:items-end gap-2 text-stone-300">
-            <p className="font-semibold text-amber">Chung tay bảo tồn nguồn dược liệu bản địa Việt Nam</p>
+            <p className="font-semibold text-amber">"BÁN SỰ MINH BẠCH, CHẤT LƯỢNG VÀ NIỀM TIN."</p>
             <p>© 2026 Tam Thất Quân Nguyễn. Bảo lưu mọi quyền.</p>
           </div>
         </div>

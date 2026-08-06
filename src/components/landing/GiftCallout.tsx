@@ -23,7 +23,7 @@ export function GiftCallout() {
               Món Quà Ý Nghĩa
             </p>
             <h2 className="font-display text-display-md text-amber mb-6 leading-[1.2]">
-              Trao sức khỏe — Món quà vượt xa mọi giỏ quà truyền thống
+              Món quà dành cho những người bạn quan tâm
             </h2>
             <div className="space-y-4 font-body text-body-lg text-stone-300 leading-relaxed">
               <p>Rượu rồi sẽ cạn. Bánh ngọt thưởng thức một lần rồi qua. Giỏ quà trang trí thường bị xếp vào một góc.</p>

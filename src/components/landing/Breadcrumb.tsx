@@ -1,7 +1,7 @@
 const CRUMBS = [
   { href: '/', label: 'Trang Chủ' },
   { href: '/san-pham', label: 'Sản Phẩm' },
-  { href: '#', label: 'Tam Thất Bắc Nguyên Chất' },
+  { href: '#', label: 'TAM THẤT QUÂN NGUYỄN' },
 ]
 
 export function Breadcrumb() {

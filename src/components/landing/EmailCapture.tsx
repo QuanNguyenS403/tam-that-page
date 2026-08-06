@@ -14,7 +14,7 @@ export function EmailCapture() {
       <div className="max-w-content mx-auto px-4 sm:px-8 text-center">
         <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">Đồng Hành Cùng Chúng Tôi</p>
         <h2 className="font-display text-display-md text-amber mb-4 leading-[1.2]">
-          Nhận bí quyết chăm sóc sức khỏe & ưu đãi độc quyền
+          Nhận kiến thức về Tam thất và dưỡng sinh
         </h2>
         <p className="font-body text-body-lg text-stone-300 mb-8 leading-relaxed">
           Đăng ký để nhận các bài viết kiến thức y học cổ truyền, hướng dẫn dưỡng sinh mùa lạnh và mã giảm giá cho đơn hàng tiếp theo.

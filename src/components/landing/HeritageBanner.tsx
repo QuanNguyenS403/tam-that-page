@@ -26,7 +26,7 @@ export function HeritageBanner() {
           transition={{ duration: 0.5 }}
           className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-4"
         >
-          Di Sản Dược Liệu · Bắc Hà Giang
+          GIÁ TRỊ CỦA TAM THẤT BẮT ĐẦU TỪ VÙNG NGUYÊN LIỆU
         </motion.p>
 
         <motion.blockquote
@@ -35,8 +35,7 @@ export function HeritageBanner() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-display text-display-md text-amber leading-[1.3] max-w-content mx-auto mb-6"
         >
-          "Người Hà Giang trồng Tam Thất như nuôi con — bảy năm mới một mùa thu hoạch,
-          bảy năm mới một lần gửi xuống núi."
+          Chúng tôi lựa chọn nguồn Tam thất từ vùng núi cao Hà Giang, nơi có khí hậu mát mẻ quanh năm và điều kiện tự nhiên phù hợp để cây phát triển ổn định. Mỗi lô nguyên liệu đều được tuyển chọn và kiểm tra trước khi đưa vào chế biến.
         </motion.blockquote>
 
         <motion.cite

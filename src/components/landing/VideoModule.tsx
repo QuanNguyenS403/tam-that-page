@@ -13,10 +13,10 @@ export function VideoModule() {
     >
       <div className="max-w-wide mx-auto px-4 sm:px-8">
         <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3 text-center">
-          Quy Trình Thu Hoạch & Sơ Chế
+          {"\n"}
         </p>
         <h2 className="font-display text-display-md text-forest text-center max-w-content mx-auto leading-[1.2] mb-10">
-          Từ núi đá Đồng Văn đến tay bạn — không một công đoạn nào bị bỏ qua
+          {"\n"}
         </h2>
 
         <div className="relative w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-video bg-dark shadow-glass">
@@ -51,7 +51,7 @@ export function VideoModule() {
         </div>
 
         <p className="text-center font-body text-body-sm text-stone-600 mt-3">
-          ▶ Xem Hành Trình 3 Phút Của Củ Tam Thất
+          {"\n"}
         </p>
       </div>
     </section>
