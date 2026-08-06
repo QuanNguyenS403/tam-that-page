@@ -1,6 +1,7 @@
 import { useInView } from '../../hooks/useInView'
 import { useCountUp } from '../../hooks/useCountUp'
 import { motion } from 'framer-motion'
+import img2 from '@/assets/2.png.asset.json'
 
 const STATS = [
   { value: 10000, suffix: '+', label: 'Khách hàng tin dùng' },
@@ -46,6 +47,17 @@ export function HeritageBanner() {
         >
           — Ông Vàng Mí Chứ, người trồng Tam Thất, Đồng Văn, Hà Giang
         </motion.cite>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="rounded-card overflow-hidden mb-12 max-w-4xl mx-auto bg-forest/40"
+        >
+          <img src={img2.url} alt="Lợi ích sức khỏe của Tam Thất Bắc nguyên chất" className="w-full h-auto object-cover" loading="lazy" />
+        </motion.div>
+
+
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-stone-600 pt-10">
           {STATS.map((s, i) => {

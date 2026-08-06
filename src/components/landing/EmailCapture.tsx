@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react'
+import img8 from '@/assets/8.png.asset.json'
 
 export function EmailCapture() {
   const [email, setEmail] = useState('')
