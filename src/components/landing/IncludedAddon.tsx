@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Check } from 'lucide-react'
+import img5 from '@/assets/5.png.asset.json'
+import img7 from '@/assets/7.png.asset.json'
 
 const TABS = ['Bộ Sản Phẩm Bao Gồm', 'Hướng Dẫn Sử Dụng'] as const
 
@@ -34,7 +36,7 @@ export function IncludedAddon() {
                     'Bao bì chống ẩm cao cấp chuẩn bảo quản dược liệu',
                     'Hộp đựng thiết kế tối giản làm quà biếu',
                     'Thẻ hướng dẫn liều lượng và cách dùng chuẩn y học cổ truyền',
-                    'Tem QR truy xuất nguồn gốc từng lô hàng',
+                    'Nguyên liệu Tam thất Bắc tuyển chọn từ Hà Giang',
                   ].map(i => (
                     <li key={i} className="flex gap-3 items-start">
                       <Check className="w-5 h-5 text-trust-green shrink-0 mt-0.5" />
