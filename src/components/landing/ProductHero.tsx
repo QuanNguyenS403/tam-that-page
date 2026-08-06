@@ -161,8 +161,8 @@ export function ProductHero() {
             <div className="flex flex-wrap gap-2 pt-1">
               {[
                 '✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH',
-                '🏔️ CÓ TEM QR TRUY XUẤT NGUỒN GỐC',
-                'Tam thất Bắc được tuyển chọn từ vùng núi cao Hà Giang, sơ chế cẩn thận và nghiền theo từng mẻ nhỏ nhằm giữ trọn hương thơm tự nhiên của dược liệu.',
+                '✓ TUYỂN CHỌN TỪ VÙNG NGUYÊN LIỆU HÀ GIANG',
+                'Tam thất Bắc tuyển chọn từ Hà Giang, xay mịn từ củ nguyên chất',
               ].map((t) => (
                 <span
                   key={t}

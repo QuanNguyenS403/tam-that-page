@@ -21,10 +21,10 @@ const FEATURES = [
     body: 'Người Mông Hà Giang phơi Tam Thất trên giàn tre trong gió núi 45–60 ngày. Không lò sấy công nghiệp. Không tắt dưỡng khí.',
   },
   {
-    icon: '📋',
-    label: 'MINH BẠCH NGUỒN GỐC',
-    title: 'Có tem QR và thông tin lô sản xuất.',
-    body: 'Mỗi lô hàng được kiểm nghiệm bởi QUATEST 3 (Bộ KH&CN). Kết quả công khai — quét QR là thấy ngay.',
+    icon: '🌿',
+    label: 'TUYỂN CHỌN NGUYÊN LIỆU',
+    title: 'Chỉ sử dụng Tam thất Bắc được lựa chọn kỹ trước khi xay.',
+    body: 'Nguyên liệu được lựa chọn từ vùng nguyên liệu Hà Giang và kiểm tra trước khi đưa vào chế biến.',
   },
   {
     icon: '🌱',
