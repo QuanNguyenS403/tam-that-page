@@ -63,12 +63,18 @@ export function IncludedAddon() {
                     </li>
                   ))}
                 </ol>
+                <div className="rounded-card overflow-hidden bg-pale-fern mt-2">
+                  <img src={img7.url} alt="Hướng dẫn pha Tam Thất với mật ong và nước ấm" className="w-full h-auto object-cover" loading="lazy" />
+                </div>
                 <p className="mt-6 font-body text-body-sm italic text-stone-600">Đơn giản. Đều đặn. Chuẩn bị chưa tới 2 phút mỗi ngày.</p>
               </div>
             )}
           </div>
 
           <aside className="rounded-card bg-pale-fern/50 border border-sage/40 p-6 md:p-8 flex flex-col gap-4">
+            <div className="rounded-card overflow-hidden aspect-[4/3] bg-canvas">
+              <img src={img5.url} alt="Các quy cách đóng gói Tam Thất Quân Nguyễn và hộp quà cao cấp" className="w-full h-full object-cover" loading="lazy" />
+            </div>
             <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-forest">Dịch Vụ Đi Kèm</p>
             <h3 className="font-display text-display-sm text-forest font-bold">Tùy Chọn Hộp Quà Biếu Cao Cấp</h3>
             <p className="font-body text-body-sm text-stone-600 leading-relaxed">
