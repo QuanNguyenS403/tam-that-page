@@ -87,12 +87,6 @@ export function AuthenticityCallout() {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <div className="absolute bottom-4 left-4 right-4 bg-dark/70 backdrop-blur-glass rounded-card p-4">
-              <p className="font-display text-amber text-display-sm font-bold">Bắc Hà · Đồng Văn</p>
-              <p className="font-body text-stone-300 text-body-sm mt-0.5">
-                Độ cao 1.400–1.800m · Khí hậu á nhiệt đới núi đá
-              </p>
-            </div>
           </motion.div>
         </div>
       </div>
