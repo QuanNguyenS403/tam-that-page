@@ -1,22 +1,22 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../../hooks/useInView'
-import img5 from '@/assets/5.png.asset.json'
+import img9 from '@/assets/9.png.asset.json'
 
 const PROOF_POINTS = [
   {
-    icon: '🔍',
-    title: 'Mã QR Truy Xuất Nguồn Gốc',
-    body: 'Mỗi sản phẩm đều có tem QR giúp truy xuất thông tin lô hàng và nguồn nguyên liệu.',
+    icon: '🌿',
+    title: 'Nguyên liệu tuyển chọn',
+    body: 'Tam thất Bắc được lựa chọn từ vùng nguyên liệu Hà Giang trước khi đưa vào chế biến.',
   },
   {
-    icon: '🧪',
-    title: 'Kết Quả Kiểm Nghiệm Saponin',
-    body: 'Mỗi lô sản phẩm được kiểm tra chất lượng theo tiêu chuẩn công bố trước khi đưa ra thị trường.',
+    icon: '📦',
+    title: 'Đóng gói cẩn thận',
+    body: 'Sản phẩm được đóng gói kín giúp giữ hương thơm và hạn chế ẩm trong quá trình bảo quản.',
   },
   {
-    icon: '📸',
-    title: 'Ảnh Thực Từ Vườn Trồng',
-    body: 'Hình ảnh nguyên liệu và quá trình sản xuất được ghi nhận trực tiếp từ vùng trồng.',
+    icon: '🔬',
+    title: 'Kiểm tra chất lượng',
+    body: 'Nguyên liệu được kiểm tra trước khi đóng gói nhằm đảm bảo chất lượng ổn định.',
   },
 ]
 
@@ -44,7 +44,7 @@ export function AuthenticityCallout() {
               Điều gì giúp bạn nhận biết một sản phẩm Tam thất đáng tin cậy?
             </h2>
             <p className="font-body text-body-lg text-stone-600 mb-8 max-w-content leading-relaxed">
-              Mỗi sản phẩm đều có tem QR giúp truy xuất thông tin lô hàng và nguồn nguyên liệu.
+              Tam thất Bắc được tuyển chọn từ vùng nguyên liệu Hà Giang, kiểm tra và đóng gói cẩn thận trước khi đến tay bạn.
             </p>
 
             <div className="flex flex-col gap-5">
@@ -71,7 +71,7 @@ export function AuthenticityCallout() {
               href="#tinh-xac-thuc"
               className="inline-flex items-center gap-2 mt-8 text-forest font-body font-semibold text-body-sm border-b-2 border-gold hover:border-forest transition-colors duration-200 pb-0.5"
             >
-              Xem Chứng Chỉ Kiểm Nghiệm Đầy Đủ →
+              Tìm hiểu quy trình tuyển chọn nguyên liệu →
             </a>
           </motion.div>
 
@@ -82,8 +82,8 @@ export function AuthenticityCallout() {
             className="relative rounded-card overflow-hidden aspect-[4/3] bg-pale-fern"
           >
             <img
-              src={img5.url || "/images/ha-giang-origin.jpg"}
-              alt="Củ Tam Thất nguyên củ, bột Tam Thất và Hộp quà Premium Gift"
+              src={img9.url}
+              alt="Hình ảnh thực tế nguyên liệu Tam Thất Bắc Hà Giang"
               className="w-full h-full object-cover"
               loading="lazy"
             />
