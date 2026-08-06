@@ -103,16 +103,17 @@ export function ProductHero() {
                     key={i}
                     onClick={() => setVariant(i)}
                     aria-pressed={activeVariant === i}
-                    className={`relative flex-1 text-left px-4 py-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
+                    className={`relative flex-1 flex flex-col items-center justify-center text-center px-4 pt-5 pb-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
                   >
                     {v.best && (
-                      <span className="absolute -top-2.5 right-3 bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
                         Tiết Kiệm Nhất
                       </span>
                     )}
                     <span className="block font-body text-body-sm font-semibold text-stone-900">{v.label}</span>
                     <span className="block font-mono text-body-sm text-forest font-medium mt-0.5">{v.price}</span>
                   </button>
+
                 ))}
               </div>
             </div>
