@@ -75,9 +75,10 @@ export function ProductHero() {
               TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT
             </p>
 
-            <h1 className="font-display text-display-lg text-forest leading-[1.15]">
-              Tam thất nguyên chất 7 năm tuổi.{"\u00a0"}Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên
+            <h1 className="font-display text-display-lg text-forest leading-[1.35] tracking-[0.01em] font-normal text-balance">
+              Tam thất nguyên chất 7 năm tuổi. Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên.
             </h1>
+
 
             <div className="flex items-center gap-3">
               <span className="text-gold text-body-lg tracking-tight" aria-label="5 sao">★★★★★</span>
