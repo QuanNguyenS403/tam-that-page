@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react'
+import img8 from '@/assets/8.png.asset.json'
 
 export function EmailCapture() {
   const [email, setEmail] = useState('')
@@ -12,6 +13,9 @@ export function EmailCapture() {
   return (
     <section id="dang-ky-tin" aria-label="Đăng ký nhận ưu đãi và tin tức" className="bg-dark text-stone-100 py-section-sm md:py-section-md">
       <div className="max-w-content mx-auto px-4 sm:px-8 text-center">
+        <div className="rounded-card overflow-hidden mb-8 max-w-md mx-auto">
+          <img src={img8.url} alt="Bột Tam Thất Quân Nguyễn đồng hành cùng nhịp sống hằng ngày" className="w-full h-auto object-cover" loading="lazy" />
+        </div>
         <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">Đồng Hành Cùng Chúng Tôi</p>
         <h2 className="font-display text-display-md text-amber mb-4 leading-[1.2]">
           Nhận kiến thức về Tam thất và dưỡng sinh

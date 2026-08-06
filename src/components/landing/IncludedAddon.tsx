@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Check } from 'lucide-react'
+import img5 from '@/assets/5.png.asset.json'
+import img7 from '@/assets/7.png.asset.json'
 
 const TABS = ['Bộ Sản Phẩm Bao Gồm', 'Hướng Dẫn Sử Dụng'] as const
 
@@ -34,7 +36,7 @@ export function IncludedAddon() {
                     'Bao bì chống ẩm cao cấp chuẩn bảo quản dược liệu',
                     'Hộp đựng thiết kế tối giản làm quà biếu',
                     'Thẻ hướng dẫn liều lượng và cách dùng chuẩn y học cổ truyền',
-                    'Tem QR truy xuất nguồn gốc từng lô hàng',
+                    'Nguyên liệu Tam thất Bắc tuyển chọn từ Hà Giang',
                   ].map(i => (
                     <li key={i} className="flex gap-3 items-start">
                       <Check className="w-5 h-5 text-trust-green shrink-0 mt-0.5" />
@@ -61,12 +63,18 @@ export function IncludedAddon() {
                     </li>
                   ))}
                 </ol>
+                <div className="rounded-card overflow-hidden bg-pale-fern mt-2">
+                  <img src={img7.url} alt="Hướng dẫn pha Tam Thất với mật ong và nước ấm" className="w-full h-auto object-cover" loading="lazy" />
+                </div>
                 <p className="mt-6 font-body text-body-sm italic text-stone-600">Đơn giản. Đều đặn. Chuẩn bị chưa tới 2 phút mỗi ngày.</p>
               </div>
             )}
           </div>
 
           <aside className="rounded-card bg-pale-fern/50 border border-sage/40 p-6 md:p-8 flex flex-col gap-4">
+            <div className="rounded-card overflow-hidden aspect-[4/3] bg-canvas">
+              <img src={img5.url} alt="Các quy cách đóng gói Tam Thất Quân Nguyễn và hộp quà cao cấp" className="w-full h-full object-cover" loading="lazy" />
+            </div>
             <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-forest">Dịch Vụ Đi Kèm</p>
             <h3 className="font-display text-display-sm text-forest font-bold">Tùy Chọn Hộp Quà Biếu Cao Cấp</h3>
             <p className="font-body text-body-sm text-stone-600 leading-relaxed">
