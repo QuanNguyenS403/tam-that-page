@@ -36,9 +36,10 @@ export function ProductHero() {
       className="bg-canvas py-section-sm md:py-section-md"
     >
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
           <div className="flex flex-col gap-3">
-            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[5/4]">
+
               <img
                 src={THUMBNAILS[activeImg]}
                 alt="Tam Thất Bắc Nguyên Chất Hà Giang"
