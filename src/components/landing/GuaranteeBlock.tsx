@@ -1,21 +1,36 @@
-import { Lock, Package, RotateCcw, Star } from 'lucide-react'
+import { ShieldCheck, Truck, RotateCcw, Award } from 'lucide-react'
 
 export function GuaranteeBlock() {
   return (
-    <section aria-label="Guarantee" className="container-tt py-10 md:py-14">
-      <div className="rounded-2xl bg-[hsl(var(--secondary))] p-8 md:p-12">
-        <p className="eyebrow mb-3">Our Promise to You</p>
-        <h2 className="mb-5 max-w-3xl">Premium quality — or we make it right.</h2>
-        <div className="max-w-3xl space-y-4 text-[hsl(var(--muted-foreground))] leading-relaxed">
-          <p>We built Tam Thất Quân Nguyễn around one commitment: every order should arrive exactly as described — premium in quality, elegant in presentation, and worthy of the trust you placed in us.</p>
-          <p>If your order arrives damaged or does not meet your expectations due to a quality issue, contact our team within 7 days of delivery. We will resolve it — no complicated process, no long waiting.</p>
-          <p>Unopened products can be returned within 30 days, no questions asked. A premium product should come with a premium experience from the first click to the last serving.</p>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-          <span className="flex items-center gap-2"><Lock className="w-4 h-4 text-[hsl(var(--accent))]" /> Secure Checkout</span>
-          <span className="flex items-center gap-2"><Package className="w-4 h-4 text-[hsl(var(--accent))]" /> Tracked Delivery</span>
-          <span className="flex items-center gap-2"><RotateCcw className="w-4 h-4 text-[hsl(var(--accent))]" /> 30-Day Return Policy</span>
-          <span className="flex items-center gap-2"><Star className="w-4 h-4 text-[hsl(var(--accent))]" /> Premium Quality Standard</span>
+    <section id="cam-ket" aria-label="Cam kết chất lượng và chính sách hoàn tiền" className="bg-canvas py-section-sm md:py-section-md">
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <div className="rounded-card bg-forest text-stone-100 p-8 md:p-14 shadow-glass">
+          <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-amber mb-3">Cam Kết Từ Quân Nguyễn</p>
+          <h2 className="font-display text-display-md text-amber mb-6 leading-[1.2]">
+            Chất lượng tuyệt hảo — Hoặc chúng tôi hoàn tiền 100%
+          </h2>
+          <div className="max-w-content space-y-4 font-body text-body-lg text-stone-300 leading-relaxed mb-10">
+            <p>Chúng tôi xây dựng thương hiệu Tam Thất Quân Nguyễn trên một lời hứa: Mỗi hộp sản phẩm đến tay bạn phải đạt chuẩn mực cao nhất về nguồn gốc, độ tinh khiết và trải nghiệm đóng gói.</p>
+            <p>Nếu sản phẩm gặp sự cố trong quá trình vận chuyển hoặc không đạt chất lượng cam kết, vui lòng liên hệ trong vòng 30 ngày. Chúng tôi sẽ đổi trả hoặc hoàn tiền 100% ngay lập tức — không thủ tục rườm rà.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-jade/50 font-body text-body-sm">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-6 h-6 text-gold shrink-0" />
+              <span>Thanh toán an toàn bảo mật</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Truck className="w-6 h-6 text-gold shrink-0" />
+              <span>Giao hàng nhanh có mã vận đơn</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <RotateCcw className="w-6 h-6 text-gold shrink-0" />
+              <span>Đổi trả 30 ngày không lý do</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Award className="w-6 h-6 text-gold shrink-0" />
+              <span>Chuẩn kiểm nghiệm QUATEST 3</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

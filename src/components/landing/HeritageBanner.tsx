@@ -1,19 +1,74 @@
-import img from '@/assets/2.png.asset.json'
+import { useInView } from '../../hooks/useInView'
+import { useCountUp } from '../../hooks/useCountUp'
+import { motion } from 'framer-motion'
+
+const STATS = [
+  { value: 10000, suffix: '+', label: 'Khách hàng tin dùng' },
+  { value: 7, suffix: ' năm', label: 'Tuổi cây tối thiểu' },
+  { value: 5000, suffix: '+', label: 'Đơn hàng thành công' },
+  { value: 30, suffix: ' ngày', label: 'Cam kết hoàn tiền' },
+]
 
 export function HeritageBanner() {
+  const { ref, inView } = useInView(0.2)
+
   return (
-    <section aria-label="Heritage" className="relative py-24 md:py-40 overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={img.url} alt="" className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-black/55" />
-      </div>
-      <div className="relative container-tt text-center text-white">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight max-w-4xl mx-auto">
-          “A tradition of care.<br/>Now in the most refined form it has ever taken.”
-        </h2>
-        <p className="mt-6 text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-          Tam Thất — trusted across generations of Vietnamese herbal wellness practice.
-        </p>
+    <section
+      id="gia-tri-thuong-hieu"
+      aria-label="Giá trị thương hiệu"
+      ref={ref as React.RefObject<HTMLElement>}
+      className="bg-dark py-section-sm md:py-section-md overflow-hidden"
+    >
+      <div className="max-w-wide mx-auto px-4 sm:px-8 text-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+          className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-4"
+        >
+          Di Sản Dược Liệu · Bắc Hà Giang
+        </motion.p>
+
+        <motion.blockquote
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-display text-display-md text-amber leading-[1.3] max-w-content mx-auto mb-6"
+        >
+          "Người Hà Giang trồng Tam Thất như nuôi con — bảy năm mới một mùa thu hoạch,
+          bảy năm mới một lần gửi xuống núi."
+        </motion.blockquote>
+
+        <motion.cite
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="not-italic font-body text-body-sm text-stone-300 block mb-12"
+        >
+          — Ông Vàng Mí Chứ, người trồng Tam Thất, Đồng Văn, Hà Giang
+        </motion.cite>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-stone-600 pt-10">
+          {STATS.map((s, i) => {
+            const count = useCountUp(s.value, 1800, inView)
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.15 * i + 0.4 }}
+                className="flex flex-col items-center gap-1"
+              >
+                <span className="font-mono text-display-md text-gold font-bold">
+                  {count.toLocaleString('vi-VN')}{s.suffix}
+                </span>
+                <span className="font-body text-label-lg uppercase tracking-wide text-stone-300">
+                  {s.label}
+                </span>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

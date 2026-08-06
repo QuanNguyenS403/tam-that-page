@@ -1,21 +1,101 @@
-import img from '@/assets/9.png.asset.json'
+import { motion } from 'framer-motion'
+import { useInView } from '../../hooks/useInView'
+import img5 from '@/assets/5.png.asset.json'
+
+const PROOF_POINTS = [
+  {
+    icon: '🔍',
+    title: 'Mã QR Truy Xuất Nguồn Gốc',
+    body: 'Quét mã in trên mỗi hộp — xem ngay: tên vườn trồng, xã, ngày thu hoạch và tên người thu hái.',
+  },
+  {
+    icon: '🧪',
+    title: 'Kết Quả Kiểm Nghiệm Saponin',
+    body: 'Hàm lượng Saponin ≥ 3,2% được xác nhận bởi lab độc lập QUATEST 3 — không mù quáng tin lời quảng cáo.',
+  },
+  {
+    icon: '📸',
+    title: 'Ảnh Thực Từ Vườn Trồng',
+    body: 'Ảnh chụp thực tế mỗi vụ thu hoạch từ Bắc Hà, Đồng Văn — không dùng ảnh kho hay ảnh chỉnh sửa.',
+  },
+]
 
 export function AuthenticityCallout() {
+  const { ref, inView } = useInView()
+
   return (
-    <section id="story" aria-label="Authenticity" className="container-tt py-16 md:py-24">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[hsl(var(--secondary))] order-2 lg:order-1">
-          <img src={img.url} alt="Careful herbal preparation" className="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <div className="order-1 lg:order-2">
-          <p className="eyebrow mb-4">Why It Matters</p>
-          <h2 className="mb-6">In a market full of imitations, authenticity is the real luxury.</h2>
-          <div className="space-y-4 text-[hsl(var(--muted-foreground))] leading-relaxed">
-            <p>Walk into any marketplace today and you will find dozens of Tam Thất powders — all claiming to be premium, all competing on price alone.</p>
-            <p>What most do not offer is transparency about their sourcing, consistency in their quality, or packaging that reflects the value of what is inside.</p>
-            <p>Tam Thất Quân Nguyễn was built precisely for this gap. Every element — from the way we select our roots, to the way we seal and present each pack — is designed to give you complete confidence in what you are choosing.</p>
-            <p>Because when you buy this for yourself, or give it to someone you love, it should be something you are genuinely proud of.</p>
-          </div>
+    <section
+      id="tinh-xac-thuc"
+      aria-label="Bằng chứng chất lượng"
+      ref={ref as React.RefObject<HTMLElement>}
+      className="bg-canvas py-section-sm md:py-section-md"
+    >
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.65 }}
+          >
+            <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">
+              Chứng Minh Không Bằng Lời Nói
+            </p>
+            <h2 className="font-display text-display-md text-forest mb-5 leading-[1.2]">
+              Thị trường đầy hàng giả —{' '}
+              <span className="text-jade">đây là cách bạn phân biệt Tam Thất thật</span>
+            </h2>
+            <p className="font-body text-body-lg text-stone-600 mb-8 max-w-content leading-relaxed">
+              Mỗi lô hàng của chúng tôi đều có thể kiểm chứng độc lập. Chúng tôi không chỉ
+              nói "nguyên chất" — chúng tôi chứng minh điều đó bằng dữ liệu cụ thể.
+            </p>
+
+            <div className="flex flex-col gap-5">
+              {PROOF_POINTS.map((p, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.12 * i + 0.2 }}
+                  className="flex gap-4 items-start"
+                >
+                  <span className="text-2xl mt-0.5 flex-shrink-0" role="img" aria-hidden="true">
+                    {p.icon}
+                  </span>
+                  <div>
+                    <h3 className="font-body text-body-base font-bold text-stone-900 mb-1">{p.title}</h3>
+                    <p className="font-body text-body-sm text-stone-600 leading-relaxed">{p.body}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <a
+              href="#tinh-xac-thuc"
+              className="inline-flex items-center gap-2 mt-8 text-forest font-body font-semibold text-body-sm border-b-2 border-gold hover:border-forest transition-colors duration-200 pb-0.5"
+            >
+              Xem Chứng Chỉ Kiểm Nghiệm Đầy Đủ →
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="relative rounded-card overflow-hidden aspect-[4/3] bg-pale-fern"
+          >
+            <img
+              src={img5.url || "/images/ha-giang-origin.jpg"}
+              alt="Củ Tam Thất nguyên củ, bột Tam Thất và Hộp quà Premium Gift"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute bottom-4 left-4 right-4 bg-dark/70 backdrop-blur-glass rounded-card p-4">
+              <p className="font-display text-amber text-display-sm font-bold">Bắc Hà · Đồng Văn</p>
+              <p className="font-body text-stone-300 text-body-sm mt-0.5">
+                Độ cao 1.400–1.800m · Khí hậu á nhiệt đới núi đá
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

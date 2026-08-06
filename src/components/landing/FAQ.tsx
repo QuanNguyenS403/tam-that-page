@@ -1,40 +1,79 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
-const faqs = [
-  { q: 'What exactly is Panax notoginseng (Tam Thất)?', a: 'Panax notoginseng, known in Vietnamese as Tam Thất, is a traditional herbal root with a long history of use in Vietnamese and East Asian herbal wellness traditions. Tam Thất Quân Nguyễn uses this ingredient in a finely milled powder form for convenient daily use. Our product is a traditional herbal wellness product and is not a medicine.' },
-  { q: 'How do I prepare a serving?', a: 'Add one serving of Tam Thất Quân Nguyễn powder to a cup of warm water. Stir gently until dissolved. Drink as part of your morning or daily routine. Full preparation instructions are included inside every pack.' },
-  { q: 'How is Tam Thất Quân Nguyễn different from other Tam Thất products online?', a: 'Most Tam Thất powders sold on general marketplaces compete primarily on price. This means inconsistent sourcing, unclear origins, and generic presentation. Tam Thất Quân Nguyễn is positioned differently — we prioritize careful ingredient selection, a fine powder texture, moisture-resistant packaging, and an elegant gift-ready presentation that generic sellers do not offer.' },
-  { q: 'Is this product safe for daily use?', a: 'Tam Thất Quân Nguyễn is a traditional herbal wellness product intended for daily use by healthy adults as part of a balanced lifestyle. If you are pregnant, nursing, taking medications, or managing a health condition, please consult your healthcare provider before use.' },
-  { q: 'Can I give this as a gift?', a: 'Absolutely — gifting is one of the primary purposes this product was designed for. The packaging is premium, presentation-ready, and suitable for Lunar New Year, Mid-Autumn Festival, birthdays, retirement celebrations, business appreciation gifts, and more. An optional gift card and ribbon upgrade is available at checkout.' },
-  { q: 'Which pack should I choose?', a: 'Standard Pack ($29.99): Ideal for first-time buyers or a single meaningful gift. Value Pack ($79.99 — 3 packs): Perfect for regular personal use or multiple gift recipients. Family Pack ($124.99 — 5 packs): Best value for family wellness routines or corporate gifting.' },
-  { q: 'How long does one pack last?', a: 'This depends on your daily serving frequency. Exact serving count per pack is printed clearly on the packaging. Most customers using one serving per day find a single pack lasts approximately 30 days.' },
-  { q: 'What is your return and satisfaction policy?', a: 'If your order arrives damaged or incorrect, contact our customer service team within 7 days of delivery and we will make it right. Unopened products may be returned within 30 days of purchase. Opened consumable products are generally not eligible for return unless there is a product quality issue. Full details are available on our Refund Policy page.' },
-  { q: 'How long does shipping take?', a: 'We typically process and dispatch orders within 1–2 business days. Estimated delivery is 3–5 business days after dispatch. Orders over $75 qualify for free shipping. You will receive a tracking number by email once your order is dispatched.' },
-  { q: 'Where can I follow Tam Thất Quân Nguyễn for updates and wellness content?', a: 'Follow us on Facebook, TikTok, YouTube, and Instagram for wellness guidance, product updates, seasonal gift inspiration, and exclusive subscriber offers. Links are in the footer of every page.' },
+const FAQS = [
+  {
+    q: 'Tam Thất Bắc Quân Nguyễn có nguồn gốc từ đâu?',
+    a: 'Tam Thất Quân Nguyễn được thu hái trực tiếp tại các vùng núi đá cao 1.400m–1.800m thuộc Bắc Hà Giang (Đồng Văn, Mèo Vạc, Hoàng Su Phì). Cây được trồng tự nhiên đủ 7 năm tuổi trở lên trước khi thu hoạch.',
+  },
+  {
+    q: 'Làm thế nào để truy xuất nguồn gốc sản phẩm?',
+    a: 'Mỗi hộp sản phẩm đều được dán tem chống hàng giả tích hợp mã QR. Bạn chỉ cần dùng camera điện thoại hoặc Zalo quét mã QR để xem ngay vị trí vườn trồng, thông tin lô thu hoạch và chứng nhận kiểm nghiệm độc lập.',
+  },
+  {
+    q: 'Cách pha và thời điểm uống Tam Thất tốt nhất là khi nào?',
+    a: 'Bạn dùng 3–5g bột Tam Thất (khoảng 1 thìa cà phê) hòa với 100–150ml nước ấm. Uống vào buổi sáng trước khi ăn 30 phút hoặc buổi tối trước khi đi ngủ. Có thể thêm 1 thìa mật ong để tăng thêm công dụng bồi bổ.',
+  },
+  {
+    q: 'Tam Thất Quân Nguyễn có khác gì so với Tam Thất bán ngoài chợ?',
+    a: 'Tam Thất chợ thường trôi nổi, pha trộn ngô/sắn xay, phơi sấy bằng lưu huỳnh độc hại hoặc củ chưa đủ 7 năm tuổi. Tam Thất Quân Nguyễn cam kết 100% nguyên chất, phơi sấy truyền thống bằng gió núi, hàm lượng Saponin ≥ 3,2% kiểm nghiệm bởi QUATEST 3.',
+  },
+  {
+    q: 'Những ai nên sử dụng và ai cần lưu ý?',
+    a: 'Sản phẩm rất tốt cho người cần bồi bổ cơ thể, người sau phẫu thuật, phụ nữ sau sinh, người ngủ kém, huyết áp không ổn định. Phụ nữ đang mang thai hoặc người đang bị xuất huyết cấp tính nên tham khảo ý kiến bác sĩ trước khi dùng.',
+  },
+  {
+    q: 'Thời gian giao hàng mất bao lâu và phí vận chuyển thế nào?',
+    a: 'Đơn hàng tại Hà Nội và TP.HCM giao trong 1–2 ngày. Các tỉnh thành khác từ 2–3 ngày làm việc. Miễn phí vận chuyển toàn quốc cho đơn hàng từ 500.000 ₫.',
+  },
+  {
+    q: 'Chính sách đổi trả và hoàn tiền áp dụng ra sao?',
+    a: 'Chúng tôi cam kết hoàn tiền 100% trong vòng 30 ngày nếu bạn phát hiện hàng giả, hàng kém chất lượng hoặc không hài lòng với sản phẩm.',
+  },
 ]
 
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
+
   return (
-    <section aria-label="FAQ" className="container-tt py-16 md:py-24">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2 className="mb-4">Frequently Asked Questions</h2>
-        <p className="text-[hsl(var(--muted-foreground))]">Everything you need to know before your first order.</p>
-      </div>
-      <div className="max-w-3xl mx-auto divide-y divide-[hsl(var(--border))] border-y border-[hsl(var(--border))]">
-        {faqs.map((f, i) => (
-          <div key={f.q}>
-            <button onClick={() => setOpen(open===i ? null : i)} aria-expanded={open===i}
-              className="w-full flex items-center justify-between gap-4 py-5 text-left group">
-              <span className="font-semibold text-base md:text-lg group-hover:text-[hsl(var(--accent))] transition-colors">{f.q}</span>
-              <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open===i ? 'rotate-180' : ''}`} />
-            </button>
-            {open===i && (
-              <p className="pb-5 text-[hsl(var(--muted-foreground))] leading-relaxed">{f.a}</p>
-            )}
-          </div>
-        ))}
+    <section id="faq" aria-label="Câu hỏi thường gặp" className="bg-canvas py-section-sm md:py-section-md">
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <div className="text-center max-w-content mx-auto mb-10 md:mb-14">
+          <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">
+            Giải Đáp Thắc Mắc
+          </p>
+          <h2 className="font-display text-display-md text-forest leading-[1.2] mb-4">
+            Những câu hỏi thường gặp về Tam Thất Quân Nguyễn
+          </h2>
+          <p className="font-body text-body-lg text-stone-600">
+            Mọi điều bạn cần biết trước khi đặt mua sản phẩm.
+          </p>
+        </div>
+
+        <div className="max-w-content mx-auto space-y-4">
+          {FAQS.map((f, i) => (
+            <div
+              key={i}
+              className="bg-cream border border-stone-300 rounded-card overflow-hidden transition-colors"
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left group"
+              >
+                <span className="font-body text-body-lg font-bold text-stone-900 group-hover:text-forest transition-colors">
+                  {f.q}
+                </span>
+                <ChevronDown className={`w-5 h-5 text-forest shrink-0 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`} />
+              </button>
+              {open === i && (
+                <div className="px-5 pb-5 md:px-6 md:pb-6 font-body text-body-base text-stone-600 leading-relaxed border-t border-stone-300/60 pt-4">
+                  {f.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

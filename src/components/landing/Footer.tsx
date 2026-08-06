@@ -1,67 +1,43 @@
 import { useState, FormEvent } from 'react'
-import { Facebook, Youtube, Instagram, Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 
-const cols = [
+const COLS = [
   {
-    title: 'Shop',
+    title: 'Sản Phẩm',
     links: [
-      { name: 'Standard Pack', href: '#hero' },
-      { name: 'Value Pack', href: '#hero' },
-      { name: 'Family Pack', href: '#hero' },
-      { name: 'Gift Sets', href: '#comparison' },
-      { name: 'New Arrivals', href: '#hero' },
-      { name: 'Best Sellers', href: '#hero' },
+      { name: 'Gói Dùng Thử 100g', href: '#san-pham' },
+      { name: 'Gói Gia Đình 300g', href: '#san-pham' },
+      { name: 'Gói Tích Lũy 500g', href: '#san-pham' },
+      { name: 'Hộp Quà Biếu Tặng', href: '#san-pham' },
     ],
   },
   {
-    title: 'Learn',
+    title: 'Tìm Hiểu',
     links: [
-      { name: 'What is Panax Notoginseng?', href: '#story' },
-      { name: 'Daily Wellness Guide', href: '#wellness' },
-      { name: 'How to Prepare Tam Thất Powder', href: '#wellness' },
-      { name: 'Gifting Guide', href: '#comparison' },
-      { name: 'Our Story', href: '#story' },
-      { name: 'Blog / Wellness Articles', href: '#story' },
+      { name: 'Công Dụng Tam Thất', href: '#cong-dung' },
+      { name: 'Hướng Dẫn Sử Dụng', href: '#cach-dung' },
+      { name: 'Quy Trình Thu Hoạch', href: '#quy-trinh-san-xuat' },
+      { name: 'Nguồn Gốc Hà Giang', href: '#tinh-xac-thuc' },
     ],
   },
   {
-    title: 'Company',
+    title: 'Thương Hiệu',
     links: [
-      { name: 'About Us', href: '#story' },
-      { name: 'Our Quality Standards', href: '#hero' },
-      { name: 'Brand Values', href: '#story' },
-      { name: 'Press Enquiries', href: '#footer' },
-      { name: 'Wholesale & Corporate Gifting', href: '#comparison' },
-      { name: 'Careers', href: '#footer' },
+      { name: 'Giá Trị Thương Hiệu', href: '#gia-tri-thuong-hieu' },
+      { name: 'Chứng Chỉ QUATEST 3', href: '#tinh-xac-thuc' },
+      { name: 'Cam Kết Chất Lượng', href: '#cam-ket' },
+      { name: 'Đánh Giá Khách Hàng', href: '#danh-gia' },
     ],
   },
   {
-    title: 'Support',
+    title: 'Hỗ Trợ',
     links: [
-      { name: 'Customer Service', href: '#footer' },
-      { name: 'Shipping Information', href: '#faq' },
-      { name: 'Track Your Order', href: '#footer' },
-      { name: 'FAQs', href: '#faq' },
-      { name: 'Contact Us', href: '#footer' },
-      { name: 'Returns & Exchanges', href: '#faq' },
+      { name: 'Hỏi & Đáp (FAQ)', href: '#faq' },
+      { name: 'Chính Sách Vận Chuyển', href: '#cam-ket' },
+      { name: 'Chính Sách Đổi Trả', href: '#cam-ket' },
+      { name: 'Liên Hệ Đặt Hàng', href: '#footer' },
     ],
   },
-]
-
-const legal = [
-  { name: 'Privacy Policy', href: '#footer' },
-  { name: 'Refund Policy', href: '#footer' },
-  { name: 'Return Policy', href: '#footer' },
-  { name: 'Terms & Conditions', href: '#footer' },
-  { name: 'Shipping Policy', href: '#footer' },
-  { name: 'Payment Policy', href: '#footer' },
-  { name: 'Cookie Policy', href: '#footer' },
-]
-
-const socialLinks = [
-  { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
-  { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
-  { Icon: Youtube, label: 'YouTube', href: 'https://youtube.com' },
 ]
 
 export function Footer() {
@@ -74,66 +50,77 @@ export function Footer() {
   }
 
   return (
-    <footer id="footer" className="bg-[hsl(var(--dark))] text-white/80">
-      <div className="container-tt py-16">
-        <div className="mb-12 pb-12 border-b border-white/10">
-          <h3 className="font-serif text-white text-2xl md:text-3xl mb-3">Tam Thất Quân Nguyễn</h3>
-          <p className="text-white/60 max-w-xl">Premium Herbal Wellness. Crafted with Care. Given with Meaning.</p>
+    <footer id="footer" aria-label="Chân trang" className="bg-dark text-stone-300 border-t border-stone-600">
+      <div className="max-w-wide mx-auto px-4 sm:px-8 py-section-sm md:py-section-md">
+        <div className="mb-12 pb-8 border-b border-stone-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <h3 className="font-display text-display-sm text-amber font-bold mb-2">Tam Thất Quân Nguyễn</h3>
+            <p className="font-body text-body-base text-stone-300 max-w-xl">
+              Dược liệu nguyên chất từ núi đá Bắc Hà Giang. Phơi sấy truyền thống — Bảo tồn dưỡng chất thiên nhiên.
+            </p>
+          </div>
+          <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto">
+            <label htmlFor="footer-email" className="sr-only">Email nhận ưu đãi</label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Nhập email của bạn"
+              className="px-4 py-2.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 text-body-sm outline-none focus:border-gold"
+            />
+            <button type="submit" className="bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-5 py-2.5 rounded-btn transition-colors shrink-0">
+              {subscribed ? 'Đã Nhận ✓' : 'Đăng Ký'}
+            </button>
+          </form>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-          {cols.map(c => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          {COLS.map(c => (
             <div key={c.title}>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{c.title}</h4>
+              <h4 className="font-body text-label-lg font-bold text-amber uppercase tracking-wider mb-4">{c.title}</h4>
               <ul className="space-y-2.5">
                 {c.links.map(l => (
-                  <li key={l.name}><a href={l.href} className="text-sm hover:text-[hsl(var(--accent))] transition-colors">{l.name}</a></li>
+                  <li key={l.name}>
+                    <a href={l.href} className="font-body text-body-sm text-stone-300 hover:text-gold transition-colors">
+                      {l.name}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 py-8 border-t border-white/10">
-          <div className="space-y-3 text-sm">
-            <div className="flex items-center gap-3"><Mail className="w-4 h-4 text-[hsl(var(--accent))]" /> ducquan16102006@gmail.com</div>
-            <div className="flex items-center gap-3"><Phone className="w-4 h-4 text-[hsl(var(--accent))]" /> 0981753082</div>
-            <div className="flex items-start gap-3"><MapPin className="w-4 h-4 text-[hsl(var(--accent))] mt-0.5" /> Amber Riverside, 622 Minh Khai, Vinh Tuy, Ha Noi, Viet Nam</div>
-            <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-[hsl(var(--accent))]" /> Monday – Saturday, 7h – 22h</div>
-          </div>
-          <div>
-            <p className="text-sm text-white/60 mb-3">Get wellness tips and exclusive offers</p>
-            <form className="flex gap-2" onSubmit={handleSubmit}>
-              <label htmlFor="footer-email" className="sr-only">Email address</label>
-              <input
-                id="footer-email"
-                type="email"
-                required
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2.5 rounded-full text-[hsl(var(--foreground))] text-sm outline-none"
-              />
-              <button type="submit" className="btn-accent px-6 py-2.5 text-sm">{subscribed ? 'Subscribed ✓' : 'Subscribe'}</button>
-            </form>
-            <div className="flex gap-3 mt-5">
-              {socialLinks.map(({ Icon, label, href }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[hsl(var(--accent))] hover:border-[hsl(var(--accent))] transition">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[hsl(var(--accent))] hover:border-[hsl(var(--accent))] transition text-sm font-bold">TT</a>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-stone-600 font-body text-body-sm">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-gold shrink-0" />
+              <span>ducquan16102006@gmail.com</span>
             </div>
+            <div className="flex items-center gap-3">
+              <Phone className="w-4 h-4 text-gold shrink-0" />
+              <span>0981 753 082</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+              <span>Amber Riverside, 622 Minh Khai, Vĩnh Tuy, Hai Bà Trưng, Hà Nội</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Clock className="w-4 h-4 text-gold shrink-0" />
+              <span>Thứ Hai – Chủ Nhật: 7:00 – 22:00</span>
+            </div>
+          </div>
+          <div className="flex flex-col justify-end items-start md:items-end gap-2 text-stone-300">
+            <p className="font-semibold text-amber">Chung tay bảo tồn nguồn dược liệu bản địa Việt Nam</p>
+            <p>© 2026 Tam Thất Quân Nguyễn. Bảo lưu mọi quyền.</p>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 space-y-4">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/60">
-            {legal.map(l => <li key={l.name}><a href={l.href} className="hover:text-[hsl(var(--accent))]">{l.name}</a></li>)}
-          </ul>
-          <p className="text-xs text-white/50">© 2026 Tam Thất Quân Nguyễn. All Rights Reserved.</p>
-          <p className="text-xs text-white/40 max-w-3xl leading-relaxed">
-            Tam Thất Quân Nguyễn products are traditional herbal wellness products and are not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider before beginning any new supplement routine.
+        <div className="pt-6 border-t border-stone-600 text-label-sm text-stone-300">
+          <p className="leading-relaxed">
+            * Khuyến cáo: Sản phẩm Tam Thất Quân Nguyễn là dược liệu truyền thống bồi bổ sức khỏe, không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.
           </p>
         </div>
       </div>

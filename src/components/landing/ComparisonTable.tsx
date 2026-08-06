@@ -1,55 +1,108 @@
-import { Check } from 'lucide-react'
+import { useInView } from '../../hooks/useInView'
+import { motion } from 'framer-motion'
 
-const rows = [
-  ['Price', '$29.99', '$79.99', '$124.99'],
-  ['Quantity', '1 Pack', '3 Packs', '5 Packs'],
-  ['Savings', '—', 'Save 10%', 'Best Value'],
-  ['Gift-Ready Packaging', '✓', '✓', '✓'],
-  ['Free Shipping', 'On orders $75+', '✓ Included', '✓ Included'],
-  ['Best For', 'First-time buyer / Single gift', 'Regular personal use / Multiple gifts', 'Family wellness / Corporate gifting'],
-  ['Gift Card Option', 'Add-on available', 'Add-on available', 'Add-on available'],
+const ROWS = [
+  { label: 'Giá', vals: ['299.000 ₫', '750.000 ₫', '1.150.000 ₫'] },
+  { label: 'Trọng lượng', vals: ['100g', '300g', '500g'] },
+  { label: 'Tiết kiệm', vals: ['—', '17%', '23%'] },
+  { label: 'Phù hợp cho', vals: ['Dùng thử lần đầu', '1–2 người / tháng', 'Cả gia đình'] },
+  { label: 'Thời gian sử dụng', vals: ['2–3 tuần', '2–3 tháng', '4–5 tháng'] },
+  { label: 'Giao hàng miễn phí', vals: ['—', '✓', '✓'] },
+  { label: 'Hộp quà cao cấp', vals: ['—', '—', '✓'] },
 ]
+const HEADERS = ['Gói Dùng Thử 100g', 'Gói Gia Đình 300g', 'Gói Tích Lũy 500g']
+const BEST_COL = 2
 
 export function ComparisonTable() {
-  return (
-    <section id="comparison" aria-label="Pack comparison" className="bg-[hsl(var(--secondary))]">
-      <div className="container-tt py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="mb-4">Choose the pack that fits your life.</h2>
-          <p className="text-[hsl(var(--muted-foreground))]">Whether you are starting your wellness routine or looking for the best gifting option, there is a Tam Thất Quân Nguyễn pack designed for you.</p>
-        </div>
+  const { ref, inView } = useInView()
 
-        <div className="rounded-2xl bg-white border border-[hsl(var(--border))] overflow-x-auto">
-          <table className="w-full text-sm min-w-[640px]">
-            <thead>
-              <tr className="border-b border-[hsl(var(--border))]">
-                <th className="text-left p-4 md:p-6 font-semibold"></th>
-                <th className="p-4 md:p-6 font-semibold">Standard Pack</th>
-                <th className="p-4 md:p-6 font-semibold bg-[hsl(var(--accent))]/5">Value Pack</th>
-                <th className="p-4 md:p-6 font-semibold bg-[hsl(var(--accent))]/10">
-                  Family Pack
-                  <div className="text-xs text-[hsl(var(--accent))] mt-1">Best Value</div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(([label, ...cells]) => (
-                <tr key={label} className="border-b border-[hsl(var(--border))] last:border-0">
-                  <td className="p-4 md:p-6 font-semibold text-left">{label}</td>
-                  {cells.map((c, j) => (
-                    <td key={`${label}-${j}`} className={`p-4 md:p-6 text-center text-[hsl(var(--muted-foreground))] ${j===1 ? 'bg-[hsl(var(--accent))]/5' : j===2 ? 'bg-[hsl(var(--accent))]/10' : ''}`}>
-                      {c === '✓' ? <Check className="w-5 h-5 text-[hsl(var(--accent))] mx-auto" /> : c}
+  return (
+    <section
+      id="bang-so-sanh"
+      aria-label="Bảng so sánh các gói sản phẩm"
+      ref={ref as React.RefObject<HTMLElement>}
+      className="bg-cream py-section-sm md:py-section-md"
+    >
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 md:mb-12"
+        >
+          <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">
+            So Sánh Các Gói
+          </p>
+          <h2 className="font-display text-display-md text-forest max-w-content mx-auto leading-[1.2]">
+            Chọn đúng lượng cho nhu cầu của bạn
+          </h2>
+        </motion.div>
+
+        <div className="relative">
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:bg-stone-300 [&::-webkit-scrollbar-track]:bg-transparent">
+            <table className="w-full min-w-[560px] border-separate border-spacing-0 rounded-card overflow-hidden shadow-card">
+              <thead>
+                <tr className="bg-forest">
+                  <th className="text-left font-body text-label-lg font-semibold uppercase tracking-wide text-sage py-4 px-5 w-[36%]">
+                    Tiêu Chí
+                  </th>
+                  {HEADERS.map((h, i) => (
+                    <th
+                      key={i}
+                      className={`font-body text-label-lg font-bold uppercase tracking-wide py-4 px-4 text-center relative ${i === BEST_COL ? 'text-amber' : 'text-stone-300'}`}
+                    >
+                      {i === BEST_COL && (
+                        <span className="absolute -top-0 left-1/2 -translate-x-1/2 bg-gold text-dark text-label-sm font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-b-badge whitespace-nowrap">
+                          Tiết Kiệm Nhất
+                        </span>
+                      )}
+                      <span className="mt-2 block">{h}</span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {ROWS.map((row, ri) => (
+                  <tr
+                    key={ri}
+                    className={`${ri % 2 === 0 ? 'bg-canvas' : 'bg-cream'} hover:bg-pale-fern transition-colors duration-150`}
+                  >
+                    <td className="font-body text-body-sm font-semibold text-stone-900 py-3.5 px-5 border-b border-stone-300">
+                      {row.label}
+                    </td>
+                    {row.vals.map((v, vi) => (
+                      <td
+                        key={vi}
+                        className={`font-mono text-body-sm text-center py-3.5 px-4 border-b border-stone-300 ${vi === BEST_COL ? 'text-forest font-bold bg-pale-fern/60' : 'text-stone-600'}`}
+                      >
+                        {v}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-pale-fern">
+                  <td className="py-4 px-5 font-body text-body-sm font-semibold text-forest">
+                    Đặt Ngay
+                  </td>
+                  {HEADERS.map((_, i) => (
+                    <td key={i} className="py-4 px-4 text-center">
+                      <a
+                        href="#san-pham"
+                        className={`inline-block font-body text-label-lg font-bold uppercase tracking-wide px-4 py-2.5 rounded-btn transition-all duration-200 w-full ${i === BEST_COL ? 'bg-forest text-amber hover:bg-jade shadow-gold' : 'border-2 border-forest text-forest hover:bg-pale-fern'}`}
+                      >
+                        Chọn Gói
+                      </a>
                     </td>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="btn-outline">Order Standard Pack — $29.99</button>
-          <button onClick={() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary">Order Family Pack — Best Value</button>
+              </tfoot>
+            </table>
+          </div>
+          <p className="sm:hidden text-center font-body text-label-sm text-stone-600 mt-2">
+            ← Vuốt ngang để xem đầy đủ →
+          </p>
         </div>
       </div>
     </section>

@@ -1,40 +1,43 @@
 import { Check } from 'lucide-react'
-import img from '@/assets/7.png.asset.json'
+import img4 from '@/assets/4.png.asset.json'
 
-const bullets = [
-  'No raw herb preparation required',
-  'No boiling, slicing, or lengthy process',
-  'Consistent fine powder texture in every pack',
-  'Portable packaging — at home or while traveling',
-  'Clear serving instructions on every package',
-  'Long shelf life for worry-free storage',
+const BULLETS = [
+  'Không cần đun sắc hay chế biến phức tạp',
+  'Bột mịn hòa tan nhanh, mùi thơm tự nhiên',
+  'Bao bì khóa zip chống ẩm tiện mang đi làm hoặc du lịch',
+  'Hướng dẫn liều lượng rõ ràng trên từng bao bì',
+  'Hạn sử dụng 18 tháng bảo quản dễ dàng',
 ]
 
 export function WellnessRoutine() {
   return (
-    <section id="wellness" aria-label="Wellness routine" className="container-tt py-16 md:py-24">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="aspect-square rounded-2xl overflow-hidden bg-[hsl(var(--secondary))]">
-          <img src={img.url} alt="A calm morning ritual" className="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <div>
-          <p className="eyebrow mb-4">Daily Wellness</p>
-          <h2 className="mb-6">The simplest healthy habit you will actually keep.</h2>
-          <div className="space-y-4 text-[hsl(var(--muted-foreground))] leading-relaxed mb-8">
-            <p>Most wellness routines fail because they are too complex, too time-consuming, or too expensive to maintain.</p>
-            <p>Tam Thất Quân Nguyễn was designed around one principle: a high-quality herbal wellness habit should fit your life as it already is — not the other way around.</p>
-            <p className="font-semibold text-[hsl(var(--foreground))]">One serving. Warm water. Two minutes.</p>
-            <p>That is it. And because the preparation is effortless, the habit becomes sustainable.</p>
+    <section id="cach-dung" aria-label="Thói quen chăm sóc sức khỏe hàng ngày" className="bg-cream py-section-sm md:py-section-md">
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="aspect-square rounded-card overflow-hidden bg-pale-fern shadow-card">
+            <img src={img4.url || "/images/4.png"} alt="Nguyên liệu Tam Thất củ, bột và trà nguyên chất" className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <ul className="space-y-2.5 mb-6">
-            {bullets.map(b => (
-              <li key={b} className="flex gap-3">
-                <Check className="w-5 h-5 text-[hsl(var(--accent))] shrink-0 mt-0.5" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="text-sm italic text-[hsl(var(--muted-foreground))]">A traditional herbal ingredient. A modern daily habit.</p>
+          <div>
+            <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">Thói Quen Mỗi Ngày</p>
+            <h2 className="font-display text-display-md text-forest leading-[1.2] mb-6">
+              Thói quen dưỡng sinh đơn giản nhất bạn có thể duy trì mỗi ngày
+            </h2>
+            <div className="space-y-4 font-body text-body-lg text-stone-600 leading-relaxed mb-8">
+              <p>Hầu hết các phương pháp dưỡng sinh đều thất bại vì quá phức tạp, mất nhiều thời gian hoặc tốn kém.</p>
+              <p>Tam Thất Quân Nguyễn được thiết kế theo một nguyên tắc: sản phẩm dược liệu tốt nhất phải dễ dàng hòa nhập vào nhịp sống của bạn.</p>
+              <p className="font-semibold text-forest">Một thìa bột. Nước ấm. Hai phút mỗi sáng.</p>
+              <p>Chỉ đơn giản như vậy. Và vì chuẩn bị nhanh chóng, thói quen tốt này sẽ đồng hành cùng bạn mỗi ngày.</p>
+            </div>
+            <ul className="space-y-3 mb-8">
+              {BULLETS.map(b => (
+                <li key={b} className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-trust-green shrink-0 mt-0.5" />
+                  <span className="font-body text-body-base text-stone-900">{b}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="font-body text-body-sm italic text-stone-600">Dược liệu cổ truyền — Phong cách sống hiện đại.</p>
+          </div>
         </div>
       </div>
     </section>

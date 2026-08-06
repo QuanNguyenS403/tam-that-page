@@ -1,13 +1,36 @@
+const CRUMBS = [
+  { href: '/', label: 'Trang Chủ' },
+  { href: '/san-pham', label: 'Sản Phẩm' },
+  { href: '#', label: 'Tam Thất Bắc Nguyên Chất' },
+]
+
 export function Breadcrumb() {
   return (
-    <nav aria-label="Breadcrumb" className="container-tt py-4 text-xs md:text-sm text-[hsl(var(--muted-foreground))]">
-      <ol className="flex items-center gap-2 flex-wrap">
-        <li><a href="#hero" className="hover:text-[hsl(var(--accent))]">Home</a></li>
-        <li><span aria-hidden="true">→</span></li>
-        <li><a href="#hero" className="hover:text-[hsl(var(--accent))]">Herbal Supplements</a></li>
-        <li><span aria-hidden="true">→</span></li>
-        <li className="text-[hsl(var(--foreground))] font-medium">Tam Thất Premium Powder</li>
-      </ol>
-    </nav>
+    <div className="bg-cream border-b border-stone-300 py-2.5 px-4 md:px-8">
+      <nav aria-label="Breadcrumb" className="max-w-full mx-auto">
+        <ol className="flex items-center flex-wrap">
+          {CRUMBS.map((crumb, idx) => {
+            const isLast = idx === CRUMBS.length - 1
+            return (
+              <li key={crumb.label} className="inline-flex items-center">
+                {idx > 0 && <span className="text-stone-300 mx-2" aria-hidden="true">/</span>}
+                {isLast ? (
+                  <span className="font-body text-label-sm uppercase tracking-wide text-forest font-semibold" aria-current="page">
+                    {crumb.label}
+                  </span>
+                ) : (
+                  <a
+                    href={crumb.href}
+                    className="font-body text-label-sm text-stone-600 hover:text-forest transition-colors duration-150 uppercase tracking-wide"
+                  >
+                    {crumb.label}
+                  </a>
+                )}
+              </li>
+            )
+          })}
+        </ol>
+      </nav>
+    </div>
   )
 }

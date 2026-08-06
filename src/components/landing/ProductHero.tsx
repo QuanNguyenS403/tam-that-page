@@ -1,102 +1,181 @@
 import { useState } from 'react'
-import { Heart, Share2, Truck } from 'lucide-react'
+import { motion } from 'framer-motion'
 import img1 from '@/assets/1.png.asset.json'
+import img2 from '@/assets/2.png.asset.json'
 import img5 from '@/assets/5.png.asset.json'
-import img8 from '@/assets/8.png.asset.json'
 import img3 from '@/assets/3.png.asset.json'
 
-const variants = [
-  { id: 'std', label: 'Standard Pack', desc: '1 Pack', price: '$29.99', note: '' },
-  { id: 'val', label: 'Value Pack', desc: '3 Packs', price: '$79.99', note: 'Save 10%' },
-  { id: 'fam', label: 'Family Pack', desc: '5 Packs', price: '$124.99', note: 'Best Value' },
+const THUMBNAILS = [
+  img1.url || '/images/1.png',
+  img2.url || '/images/2.png',
+  img5.url || '/images/5.png',
+  img3.url || '/images/3.png',
 ]
 
-const badges = ['Traditional Herbal', 'Fine Powder', 'Gift-Ready', 'Daily Wellness']
+const VARIANTS = [
+  { label: 'Gói Dùng Thử 100g', price: '299.000 ₫', original: '450.000 ₫', savings: '33%', stock: 23 },
+  { label: 'Gói Gia Đình 300g', price: '750.000 ₫', original: '900.000 ₫', savings: '17%', stock: 41 },
+  { label: 'Gói Tích Lũy 500g', price: '1.150.000 ₫', original: '1.500.000 ₫', savings: '23%', stock: 15, best: true },
+]
 
 export function ProductHero() {
-  const [selected, setSelected] = useState('std')
-  const [imgIdx, setImgIdx] = useState(0)
-  const images = [img1.url, img5.url, img8.url, img3.url]
-  const activeVariant = variants.find(v => v.id === selected) || variants[0]
+  const [activeImg, setActiveImg] = useState(0)
+  const [activeVariant, setVariant] = useState(0)
+  const [added, setAdded] = useState(false)
+  const variant = VARIANTS[activeVariant]
+
+  function handleAddToCart() {
+    setAdded(true)
+    setTimeout(() => setAdded(false), 2500)
+  }
 
   return (
-    <section id="hero" aria-label="Product hero" className="container-tt py-6 md:py-10">
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
-        {/* Gallery */}
-        <div className="fade-in" style={{ animationDelay: '0ms' }}>
-          <div className="aspect-square rounded-2xl bg-[hsl(var(--secondary))] overflow-hidden">
-            <img src={images[imgIdx]} alt="Tam Thất Quân Nguyễn Premium Panax Notoginseng Powder" className="w-full h-full object-cover" loading="eager" />
-          </div>
-          <div className="mt-4 grid grid-cols-4 gap-3">
-            {images.map((src, i) => (
-              <button key={i} onClick={() => setImgIdx(i)} aria-label={`View image ${i+1}`}
-                className={`aspect-square rounded-lg overflow-hidden border-2 transition ${imgIdx===i ? 'border-[hsl(var(--accent))]' : 'border-transparent hover:border-[hsl(var(--border))]'}`}>
-                <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Info */}
-        <div className="fade-in" style={{ animationDelay: '150ms' }}>
-          <h1 className="mb-3">
-            Tam Thất Quân Nguyễn
-            <span className="block text-xl md:text-2xl font-normal text-[hsl(var(--muted-foreground))] mt-2 font-sans">
-              Premium Panax Notoginseng Powder
-            </span>
-          </h1>
-
-          <div className="flex items-center gap-2 mb-4">
-            <div className="flex text-[hsl(var(--star))]" aria-label="5 star rating">
-              {'★★★★★'.split('').map((s,i) => <span key={i}>{s}</span>)}
+    <section
+      id="san-pham"
+      aria-label="Thông tin sản phẩm"
+      className="bg-canvas py-section-sm md:py-section-md"
+    >
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-16 items-start">
+          <div className="flex flex-col gap-3">
+            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[4/3]">
+              <img
+                src={THUMBNAILS[activeImg]}
+                alt="Tam Thất Bắc Nguyên Chất Hà Giang"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="eager"
+              />
+              <div className="absolute top-4 left-4 bg-forest/80 backdrop-blur-glass text-amber font-body text-label-sm font-semibold uppercase tracking-widest px-3 py-1.5 rounded-badge">
+                Hàng Chính Hãng · QR Truy Xuất
+              </div>
             </div>
-            <span className="text-sm text-[hsl(var(--muted-foreground))]">Reviews loading soon</span>
-          </div>
 
-          <div className="flex flex-wrap gap-2 mb-6">
-            {badges.map(b => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full bg-[hsl(var(--secondary))] font-medium">{b}</span>
-            ))}
-          </div>
-
-          <div className="mb-6 pb-6 border-b border-[hsl(var(--border))]">
-            <div className="flex items-baseline gap-3">
-              <span className="text-3xl md:text-4xl font-semibold">{activeVariant.price}</span>
-              <span className="text-sm text-[hsl(var(--muted-foreground))]">{activeVariant.label}</span>
-            </div>
-            <p className="text-sm text-[hsl(var(--muted-foreground))] mt-2">
-              Or from <span className="text-[hsl(var(--foreground))] font-semibold">$24.99/pack</span> with the Family Pack — <span className="text-[hsl(var(--accent))] font-semibold">Best Value</span>
-            </p>
-            <p className="text-xs text-[hsl(var(--muted-foreground))] mt-1">Flexible payment options available at checkout.</p>
-          </div>
-
-          <fieldset className="mb-6">
-            <legend className="text-sm font-semibold mb-3">Choose your pack</legend>
-            <div className="space-y-2">
-              {variants.map(v => (
-                <label key={v.id} className={`flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition ${selected===v.id ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/5' : 'border-[hsl(var(--border))] hover:border-[hsl(var(--foreground))]/40'}`}>
-                  <div className="flex items-center gap-3">
-                    <input type="radio" name="variant" value={v.id} checked={selected===v.id} onChange={() => setSelected(v.id)} className="accent-[hsl(var(--accent))]" />
-                    <div>
-                      <div className="font-semibold text-sm">{v.label} — {v.desc}</div>
-                      {v.note && <div className="text-xs text-[hsl(var(--accent))] font-semibold">{v.note}</div>}
-                    </div>
-                  </div>
-                  <div className="font-semibold">{v.price}</div>
-                </label>
+            <div className="grid grid-cols-4 gap-2">
+              {THUMBNAILS.map((src, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveImg(i)}
+                  aria-label={`Xem ảnh ${i + 1}`}
+                  className={`aspect-square rounded-[8px] overflow-hidden border-2 transition-all duration-200 ${activeImg === i ? 'border-gold shadow-gold' : 'border-stone-300 hover:border-sage'}`}
+                >
+                  <img src={src} alt={`Thumbnail Tam Thất ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                </button>
               ))}
             </div>
-          </fieldset>
-
-          <p className="text-sm text-[hsl(var(--muted-foreground))] mb-5 flex items-center gap-2">
-            <Truck className="w-4 h-4" /> Free shipping on orders over $75 · Estimated delivery 3–5 business days
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button className="btn-primary flex-1">Shop Now</button>
-            <button className="btn-outline sm:w-auto" aria-label="Add to wishlist"><Heart className="w-4 h-4" /> Wishlist</button>
-            <button className="btn-outline sm:w-auto" aria-label="Share"><Share2 className="w-4 h-4" /> Share</button>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="flex flex-col gap-5"
+          >
+            <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-sage">
+              Tam Thất Bắc · Hà Giang Nguyên Chất
+            </p>
+
+            <h1 className="font-display text-display-lg text-forest leading-[1.15]">
+              Bồi bổ từ gốc rễ —{' '}
+              <em className="not-italic text-jade">Tam Thất núi đá</em>{' '}
+              7 năm tuổi, nguyên chất không pha trộn
+            </h1>
+
+            <div className="flex items-center gap-3">
+              <span className="text-gold text-body-lg tracking-tight" aria-label="5 sao">★★★★★</span>
+              <a href="#danh-gia" className="font-body text-body-sm text-stone-600 underline underline-offset-2 hover:text-forest transition-colors">
+                1.248 đánh giá thực
+              </a>
+              <span className="w-px h-4 bg-stone-300" />
+              <span className="font-body text-body-sm text-trust-green font-semibold">Đã bán 5.000+ đơn</span>
+            </div>
+
+            <p className="font-body text-body-lg text-stone-600 leading-relaxed max-w-content">
+              Được thu hái tay tại vùng cao Bắc Hà Giang, phơi sấy truyền thống.
+              Mỗi củ là một năm kiên nhẫn của đất trời.
+            </p>
+
+            <div>
+              <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-stone-600 mb-2">
+                Chọn Gói:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2">
+                {VARIANTS.map((v, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setVariant(i)}
+                    aria-pressed={activeVariant === i}
+                    className={`relative flex-1 text-left px-4 py-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
+                  >
+                    {v.best && (
+                      <span className="absolute -top-2.5 right-3 bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
+                        Tiết Kiệm Nhất
+                      </span>
+                    )}
+                    <span className="block font-body text-body-sm font-semibold text-stone-900">{v.label}</span>
+                    <span className="block font-mono text-body-sm text-forest font-medium mt-0.5">{v.price}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-baseline gap-3 flex-wrap">
+              <span className="font-mono text-price-xl font-bold text-forest">
+                {variant.price}
+              </span>
+              <span className="font-body text-body-base text-stone-600 line-through">
+                {variant.original}
+              </span>
+              <span className="bg-amber/30 text-stone-900 font-body text-label-lg font-bold uppercase tracking-wide px-2.5 py-1 rounded-badge">
+                Tiết kiệm {variant.savings}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-alert-amber animate-pulse inline-block" />
+              <p className="font-body text-body-sm text-alert-amber font-semibold">
+                Chỉ còn {variant.stock} hộp trong kho — đặt ngay để đảm bảo hàng
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={handleAddToCart}
+                className="relative flex-1 overflow-hidden bg-forest text-amber font-body font-bold text-body-base uppercase tracking-widest py-4 px-6 rounded-btn hover:bg-jade transition-colors duration-200 animate-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                aria-label="Thêm vào giỏ hàng và đặt mua ngay"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-amber/20 to-transparent bg-[length:200%_100%] animate-shimmer pointer-events-none" />
+                <span className="relative">
+                  {added ? '✓ Đã Thêm Vào Giỏ!' : '🛒 Đặt Mua Ngay — Giao Trong 2 Ngày'}
+                </span>
+              </button>
+
+              <a
+                href="#cach-dung"
+                className="flex-shrink-0 border-2 border-forest text-forest font-body font-semibold text-body-sm uppercase tracking-widest py-4 px-5 rounded-btn text-center hover:bg-pale-fern transition-colors duration-200"
+              >
+                Xem Cách Dùng ↓
+              </a>
+            </div>
+
+            <p className="font-body text-body-sm text-stone-600">
+              🚚 Đặt trước 15:00 → Giao ngay hôm nay (Hà Nội, TP.HCM)
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              {[
+                '✓ Hoàn tiền 100% sau 30 ngày',
+                '✓ Tem QR truy xuất nguồn gốc',
+                '✓ Kiểm nghiệm QUATEST 3',
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="bg-pale-fern text-forest font-body text-label-sm font-semibold uppercase tracking-wide px-3 py-1.5 rounded-badge border border-sage/30"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

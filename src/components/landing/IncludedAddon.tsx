@@ -1,78 +1,82 @@
 import { useState } from 'react'
 import { Check } from 'lucide-react'
 
-const tabs = ['What\'s Included', 'Serving Guide'] as const
+const TABS = ['Bộ Sản Phẩm Bao Gồm', 'Hướng Dẫn Sử Dụng'] as const
 
 export function IncludedAddon() {
-  const [tab, setTab] = useState<typeof tabs[number]>(tabs[0])
+  const [tab, setTab] = useState<typeof TABS[number]>(TABS[0])
+
   return (
-    <section aria-label="What's included" className="container-tt py-16 md:py-24">
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 rounded-2xl bg-white border border-[hsl(var(--border))] p-6 md:p-8">
-          <div role="tablist" className="flex gap-2 border-b border-[hsl(var(--border))] mb-6">
-            {tabs.map(t => {
-              const tabKey = t === "What's Included" ? 'included' : 'serving'
-              return (
+    <section id="quy-cach-dong-goi" aria-label="Quy cách đóng gói và hướng dẫn sử dụng" className="bg-canvas py-section-sm md:py-section-md">
+      <div className="max-w-wide mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="lg:col-span-2 rounded-card bg-cream border border-stone-300 p-6 md:p-8">
+            <div role="tablist" className="flex gap-4 border-b border-stone-300 mb-6">
+              {TABS.map(t => (
                 <button
                   key={t}
-                  id={`tab-${tabKey}`}
                   role="tab"
-                  aria-controls={`panel-${tabKey}`}
                   aria-selected={tab === t}
                   onClick={() => setTab(t)}
-                  className={`px-4 py-3 text-sm font-semibold border-b-2 -mb-px transition ${tab===t ? 'border-[hsl(var(--accent))] text-[hsl(var(--accent))]' : 'border-transparent text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'}`}
+                  className={`pb-3 font-body text-body-base font-semibold border-b-2 -mb-px transition-colors ${tab === t ? 'border-forest text-forest' : 'border-transparent text-stone-600 hover:text-stone-900'}`}
                 >
                   {t}
                 </button>
-              )
-            })}
-          </div>
-          {tab === 'What\'s Included' ? (
-            <div role="tabpanel" id="panel-included" aria-labelledby="tab-included">
-              <h3 className="mb-4">Standard Pack — $29.99</h3>
-              <ul className="space-y-3">
-                {[
-                  '1 × Tam Thất Quân Nguyễn Premium Panax Notoginseng Powder',
-                  'Premium moisture-resistant sealed packaging',
-                  'Minimalist gift-ready presentation box',
-                  'Preparation guide card',
-                  'Certificate of quality (included with each order)',
-                ].map(i => (
-                  <li key={i} className="flex gap-3">
-                    <Check className="w-5 h-5 text-[hsl(var(--accent))] shrink-0 mt-0.5" />
-                    <span className="text-[hsl(var(--muted-foreground))]">{i}</span>
-                  </li>
-                ))}
-              </ul>
+              ))}
             </div>
-          ) : (
-            <div role="tabpanel" id="panel-serving" aria-labelledby="tab-serving">
-              <h3 className="mb-4">How to prepare your daily serving:</h3>
-              <ol className="space-y-3">
-                {[
-                  'Add one serving of Tam Thất powder to a cup',
-                  'Pour warm water (not boiling) and stir gently',
-                  'Drink in the morning or as part of your daily routine',
-                  'Store in a cool, dry place after opening',
-                ].map((s, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="w-7 h-7 rounded-full bg-[hsl(var(--accent))] text-white text-sm font-semibold flex items-center justify-center shrink-0">{i+1}</span>
-                    <span className="text-[hsl(var(--muted-foreground))] pt-0.5">{s}</span>
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-6 text-sm italic text-[hsl(var(--muted-foreground))]">Simple. Consistent. Ready in under two minutes.</p>
-            </div>
-          )}
-        </div>
 
-        <aside className="rounded-2xl bg-[hsl(var(--accent))]/10 border border-[hsl(var(--accent))]/30 p-6 md:p-8">
-          <p className="eyebrow mb-2">Perfect Pairing</p>
-          <h3 className="mb-3 text-lg">Gift Presentation Upgrade</h3>
-          <p className="text-sm text-[hsl(var(--muted-foreground))] mb-4">Premium Ribbon & Gift Card. Elevate your order into a complete gifting experience. Add a handwritten-style gift message card and premium ribbon wrap at checkout.</p>
-          <button className="btn-accent w-full mb-3">Add to Order — $4.99</button>
-          <p className="text-xs text-[hsl(var(--muted-foreground))]">Popular with customers purchasing for Lunar New Year and business gifts.</p>
-        </aside>
+            {tab === 'Bộ Sản Phẩm Bao Gồm' ? (
+              <div role="tabpanel" className="space-y-4">
+                <h3 className="font-display text-display-sm text-forest font-bold">Gói Tam Thất Bắc Nguyên Chất 100g / 300g / 500g</h3>
+                <ul className="space-y-3">
+                  {[
+                    '1 × Túi Tam Thất Bắc Hà Giang xay mịn nguyên chất',
+                    'Bao bì chống ẩm cao cấp chuẩn bảo quản dược liệu',
+                    'Hộp đựng thiết kế tối giản làm quà biếu',
+                    'Thẻ hướng dẫn liều lượng và cách dùng chuẩn y học cổ truyền',
+                    'Tem QR truy xuất nguồn gốc từng lô hàng',
+                  ].map(i => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <Check className="w-5 h-5 text-trust-green shrink-0 mt-0.5" />
+                      <span className="font-body text-body-base text-stone-900">{i}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div role="tabpanel" className="space-y-4">
+                <h3 className="font-display text-display-sm text-forest font-bold">Cách pha uống mỗi ngày đơn giản:</h3>
+                <ol className="space-y-3">
+                  {[
+                    'Lấy 3–5g bột Tam Thất (khoảng 1 thìa cà phê nhỏ) vào cốc',
+                    'Rót 100–150ml nước ấm (khoảng 60–70°C), khuấy đều cho tan hoàn toàn',
+                    'Uống vào buổi sáng trước bữa ăn 30 phút hoặc buổi tối trước khi đi ngủ',
+                    'Có thể kết hợp cùng mật ong nguyên chất để tăng hương vị và công dụng',
+                  ].map((s, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="w-7 h-7 rounded-badge bg-forest text-amber font-mono text-body-sm font-bold flex items-center justify-center shrink-0">
+                        {i + 1}
+                      </span>
+                      <span className="font-body text-body-base text-stone-900 pt-0.5">{s}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p className="mt-6 font-body text-body-sm italic text-stone-600">Đơn giản. Đều đặn. Chuẩn bị chưa tới 2 phút mỗi ngày.</p>
+              </div>
+            )}
+          </div>
+
+          <aside className="rounded-card bg-pale-fern/50 border border-sage/40 p-6 md:p-8 flex flex-col gap-4">
+            <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-forest">Dịch Vụ Đi Kèm</p>
+            <h3 className="font-display text-display-sm text-forest font-bold">Tùy Chọn Hộp Quà Biếu Cao Cấp</h3>
+            <p className="font-body text-body-sm text-stone-600 leading-relaxed">
+              Thêm nơ gấm thủ công và thiệp viết tay cá nhân hóa. Biến đơn hàng của bạn thành món quà trang trọng chuẩn bị chu đáo.
+            </p>
+            <a href="#san-pham" className="bg-forest text-amber font-body font-bold text-label-lg uppercase tracking-widest py-3 px-4 rounded-btn text-center hover:bg-jade transition-colors">
+              Miễn Phí Cho Đơn Từ 2 Sản Phẩm
+            </a>
+          </aside>
+        </div>
       </div>
     </section>
   )
