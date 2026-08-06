@@ -1,8 +1,8 @@
 export function AnnouncementBar() {
   const messages = [
     '🌿 Miễn phí vận chuyển đơn từ 500K',
-    '✓ Hoàn tiền 100% nếu không hài lòng',
-    '🏔️ Cam kết nguồn gốc Bắc Hà Giang — Có tem QR truy xuất',
+    '✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH',
+    '🏔️ CÓ TEM QR TRUY XUẤT NGUỒN GỐC',
     '🎁 Miễn phí hộp quà cao cấp cho đơn từ 2 sản phẩm',
   ]
   const repeated = [...messages, ...messages]

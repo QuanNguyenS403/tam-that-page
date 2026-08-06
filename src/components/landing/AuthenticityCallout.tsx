@@ -6,17 +6,17 @@ const PROOF_POINTS = [
   {
     icon: '🔍',
     title: 'Mã QR Truy Xuất Nguồn Gốc',
-    body: 'Quét mã in trên mỗi hộp — xem ngay: tên vườn trồng, xã, ngày thu hoạch và tên người thu hái.',
+    body: 'Mỗi sản phẩm đều có tem QR giúp truy xuất thông tin lô hàng và nguồn nguyên liệu.',
   },
   {
     icon: '🧪',
     title: 'Kết Quả Kiểm Nghiệm Saponin',
-    body: 'Hàm lượng Saponin ≥ 3,2% được xác nhận bởi lab độc lập QUATEST 3 — không mù quáng tin lời quảng cáo.',
+    body: 'Mỗi lô sản phẩm được kiểm tra chất lượng theo tiêu chuẩn công bố trước khi đưa ra thị trường.',
   },
   {
     icon: '📸',
     title: 'Ảnh Thực Từ Vườn Trồng',
-    body: 'Ảnh chụp thực tế mỗi vụ thu hoạch từ Bắc Hà, Đồng Văn — không dùng ảnh kho hay ảnh chỉnh sửa.',
+    body: 'Hình ảnh nguyên liệu và quá trình sản xuất được ghi nhận trực tiếp từ vùng trồng.',
   },
 ]
 
@@ -41,12 +41,10 @@ export function AuthenticityCallout() {
               Chứng Minh Không Bằng Lời Nói
             </p>
             <h2 className="font-display text-display-md text-forest mb-5 leading-[1.2]">
-              Thị trường đầy hàng giả —{' '}
-              <span className="text-jade">đây là cách bạn phân biệt Tam Thất thật</span>
+              Điều gì giúp bạn nhận biết một sản phẩm Tam thất đáng tin cậy?
             </h2>
             <p className="font-body text-body-lg text-stone-600 mb-8 max-w-content leading-relaxed">
-              Mỗi lô hàng của chúng tôi đều có thể kiểm chứng độc lập. Chúng tôi không chỉ
-              nói "nguyên chất" — chúng tôi chứng minh điều đó bằng dữ liệu cụ thể.
+              Mỗi sản phẩm đều có tem QR giúp truy xuất thông tin lô hàng và nguồn nguyên liệu.
             </p>
 
             <div className="flex flex-col gap-5">
