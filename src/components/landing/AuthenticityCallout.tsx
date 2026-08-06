@@ -16,7 +16,7 @@ const PROOF_POINTS = [
   {
     icon: '📸',
     title: 'Ảnh Thực Từ Vườn Trồng',
-    body: 'Ảnh chụp thực tế mỗi vụ thu hoạch từ Bắc Hà, Đồng Văn — không dùng ảnh kho hay ảnh chỉnh sửa.',
+    body: 'Hình ảnh nguyên liệu và quá trình sản xuất được ghi nhận trực tiếp từ vùng trồng.',
   },
 ]
 
