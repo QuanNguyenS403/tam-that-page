@@ -38,12 +38,11 @@ export function ProductHero() {
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
           <div className="flex flex-col gap-3">
-            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[4/5]">
-
+            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square">
               <img
                 src={THUMBNAILS[activeImg]}
                 alt="Tam Thất Bắc Nguyên Chất Hà Giang"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-contain"
                 loading="eager"
               />
             </div>
@@ -54,9 +53,9 @@ export function ProductHero() {
                   key={i}
                   onClick={() => setActiveImg(i)}
                   aria-label={`Xem ảnh ${i + 1}`}
-                  className={`aspect-square rounded-[8px] overflow-hidden border-2 transition-all duration-200 ${activeImg === i ? 'border-gold shadow-gold' : 'border-stone-300 hover:border-sage'}`}
+                  className={`aspect-square rounded-[8px] overflow-hidden bg-parchment border-2 transition-all duration-200 ${activeImg === i ? 'border-gold shadow-gold' : 'border-stone-300 hover:border-sage'}`}
                 >
-                  <img src={src} alt={`Thumbnail Tam Thất ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={src} alt={`Thumbnail Tam Thất ${i + 1}`} className="w-full h-full object-contain" loading="lazy" />
                 </button>
               ))}
             </div>
