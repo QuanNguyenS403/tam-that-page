@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { Play } from 'lucide-react'
 import img6 from '@/assets/6.png.asset.json'
-import newVideo from 'C:/Users/ASUS/OneDrive/Hình ảnh/7809966088298.mp4'
+const newVideo = '/7809966088298.mp4'
 
 export function VideoModule() {
   const [isPlaying, setIsPlaying] = useState(false)
