@@ -38,7 +38,7 @@ export function ProductHero() {
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
           <div className="flex flex-col gap-3">
-            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[5/4]">
+            <div className="relative overflow-hidden rounded-card bg-parchment aspect-square lg:aspect-[4/5]">
 
               <img
                 src={THUMBNAILS[activeImg]}
@@ -46,9 +46,6 @@ export function ProductHero() {
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="eager"
               />
-              <div className="absolute top-4 left-4 bg-forest/80 backdrop-blur-glass text-amber font-body text-label-sm font-semibold uppercase tracking-widest px-3 py-1.5 rounded-badge">
-                {"\n"}
-              </div>
             </div>
 
             <div className="grid grid-cols-4 gap-2">
@@ -75,7 +72,7 @@ export function ProductHero() {
               TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT
             </p>
 
-            <h1 className="font-display text-display-lg text-forest leading-[1.35] tracking-[0.01em] font-normal text-balance">
+            <h1 className="font-body text-2xl sm:text-3xl font-bold text-forest leading-relaxed tracking-tight text-pretty">
               Tam thất nguyên chất 7 năm tuổi. Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên.
             </h1>
 
@@ -103,15 +100,15 @@ export function ProductHero() {
                     key={i}
                     onClick={() => setVariant(i)}
                     aria-pressed={activeVariant === i}
-                    className={`relative flex-1 flex flex-col items-center justify-center text-center px-4 pt-5 pb-3 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
+                    className={`relative flex-1 flex flex-col items-center justify-center text-center px-3 pt-5 pb-3.5 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
                   >
                     {v.best && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-label-sm font-bold uppercase tracking-widest px-2 py-0.5 rounded-badge">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-[10px] leading-tight font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-badge shadow-sm">
                         Tiết Kiệm Nhất
                       </span>
                     )}
-                    <span className="block font-body text-body-sm font-semibold text-stone-900">{v.label}</span>
-                    <span className="block font-mono text-body-sm text-forest font-medium mt-0.5">{v.price}</span>
+                    <span className="block font-body text-body-sm font-semibold text-stone-900 text-center leading-tight">{v.label}</span>
+                    <span className="block font-mono text-body-sm text-forest font-medium mt-1 text-center">{v.price}</span>
                   </button>
 
                 ))}

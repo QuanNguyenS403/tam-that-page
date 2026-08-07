@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { Play } from 'lucide-react'
 import img6 from '@/assets/6.png.asset.json'
-import videoAsset from '@/assets/tam-that-video.mp4.asset.json'
+import newVideo from 'C:/Users/ASUS/OneDrive/Hình ảnh/7809966088298.mp4'
 
 export function VideoModule() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -24,7 +24,7 @@ export function VideoModule() {
         <div className="relative w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-video bg-dark shadow-glass">
           <video
             ref={videoRef}
-            src={videoAsset.url}
+            src={newVideo}
             poster={img6.url}
             className="w-full h-full object-cover"
             controls={isPlaying}
