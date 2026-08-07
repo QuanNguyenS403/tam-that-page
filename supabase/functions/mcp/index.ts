@@ -3,7 +3,7 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.25.0";
 
 // src/lib/mcp/tools/get-product-info.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.0";
@@ -118,11 +118,16 @@ var get_wellness_guide_default = defineTool4({
 });
 
 // src/lib/mcp/index.ts
+var projectRef = "bwliajvzfzfzvakvhuqx";
 var mcp_default = defineMcp({
   name: "tam-that-quan-nguyen-mcp",
   title: "Tam Th\u1EA5t Qu\xE2n Nguy\u1EC5n MCP",
   version: "0.1.0",
-  instructions: "Tools for the Tam Th\u1EA5t Qu\xE2n Nguy\u1EC5n landing page. Use `get_product_info` for product/pricing, `list_faqs` for FAQs, `list_reviews` for customer reviews, and `get_wellness_guide` for the daily preparation routine. All data is publicly available on the marketing site.",
+  instructions: "Tools for the Tam Th\u1EA5t Qu\xE2n Nguy\u1EC5n landing page. Use `get_product_info` for product/pricing, `list_faqs` for FAQs, `list_reviews` for customer reviews, and `get_wellness_guide` for the daily preparation routine.",
+  auth: auth.oauth.issuer({
+    issuer: `https://${projectRef}.supabase.co/auth/v1`,
+    acceptedAudiences: "authenticated"
+  }),
   tools: [get_product_info_default, list_faqs_default, list_reviews_default, get_wellness_guide_default]
 });
 
