@@ -1,14 +1,21 @@
-import { defineMcp } from "@lovable.dev/mcp-js";
+import { auth, defineMcp } from "@lovable.dev/mcp-js";
 import getProductInfo from "./tools/get-product-info";
 import listFaqs from "./tools/list-faqs";
 import listReviews from "./tools/list-reviews";
 import getWellnessGuide from "./tools/get-wellness-guide";
+
+const projectRef = import.meta.env.VITE_SUPABASE_PROJECT_ID ?? "project-ref-unset";
 
 export default defineMcp({
   name: "tam-that-quan-nguyen-mcp",
   title: "Tam Thất Quân Nguyễn MCP",
   version: "0.1.0",
   instructions:
-    "Tools for the Tam Thất Quân Nguyễn landing page. Use `get_product_info` for product/pricing, `list_faqs` for FAQs, `list_reviews` for customer reviews, and `get_wellness_guide` for the daily preparation routine. All data is publicly available on the marketing site.",
+    "Tools for the Tam Thất Quân Nguyễn landing page. Use `get_product_info` for product/pricing, `list_faqs` for FAQs, `list_reviews` for customer reviews, and `get_wellness_guide` for the daily preparation routine.",
+  auth: auth.oauth.issuer({
+    issuer: `https://${projectRef}.supabase.co/auth/v1`,
+    acceptedAudiences: "authenticated",
+  }),
   tools: [getProductInfo, listFaqs, listReviews, getWellnessGuide],
 });
+
