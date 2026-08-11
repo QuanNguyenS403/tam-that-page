@@ -17,7 +17,7 @@ import { GuaranteeBlock } from './components/landing/GuaranteeBlock'
 import { EmailCapture } from './components/landing/EmailCapture'
 import { FAQ } from './components/landing/FAQ'
 import { Footer } from './components/landing/Footer'
-import { CartDrawer } from './components/landing/CartDrawer'
+
 import { useCartSync } from './hooks/useCartSync'
 import Auth from './pages/Auth'
 import OAuthConsent from './pages/OAuthConsent'
