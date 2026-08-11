@@ -22,7 +22,7 @@
 
     {% if section.settings.image != blank %}
       <div class="rounded-card overflow-hidden mb-12 max-w-4xl mx-auto bg-forest/40" style="border-radius: 12px; overflow: hidden; margin-bottom: 3rem; max-width: 896px; margin-left: auto; margin-right: auto;">
-        <img src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.quote | escape }}" class="w-full h-auto object-cover" style="width: 100%; height: auto; object-fit: cover;" loading="lazy">
+        <img src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.quote | escape }}" width="1000" height="562" class="w-full h-auto object-cover" style="width: 100%; height: auto; object-fit: cover;" loading="lazy">
       </div>
     {% endif %}
 

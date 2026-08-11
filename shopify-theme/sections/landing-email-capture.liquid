@@ -5,7 +5,7 @@
   <div class="max-w-content mx-auto px-4 sm:px-8 text-center" style="max-width: 720px; margin: 0 auto; padding: 0 2rem; text-align: center;">
     {% if section.settings.image != blank %}
       <div class="rounded-card overflow-hidden mb-8 max-w-md mx-auto" style="border-radius: 12px; overflow: hidden; margin-bottom: 2rem; max-width: 448px; margin-left: auto; margin-right: auto;">
-        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" class="w-full h-auto object-cover" style="width: 100%; height: auto; object-fit: cover;" loading="lazy">
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" width="800" height="450" class="w-full h-auto object-cover" style="width: 100%; height: auto; object-fit: cover;" loading="lazy">
       </div>
     {% endif %}
 
