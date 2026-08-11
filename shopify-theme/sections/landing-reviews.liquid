@@ -1,0 +1,174 @@
+{% comment %}
+  Landing Customer Reviews Section
+{% endcomment %}
+<section
+  id="danh-gia"
+  aria-label="Đánh giá của khách hàng"
+  class="bg-canvas py-section-sm md:py-section-md"
+  style="background-color: var(--canvas); padding: 4rem 0;"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+    <div class="text-center mb-10" style="text-align: center; margin-bottom: 2.5rem;">
+      <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3" style="color: var(--sage); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem;">
+        {{ section.settings.eyebrow | default: "Đánh Giá Thực Từ Khách Hàng" }}
+      </p>
+      <h2 class="font-display text-display-md text-forest max-w-content mx-auto leading-[1.2] mb-4" style="color: var(--forest); font-size: 2.25rem; max-width: 720px; margin: 0 auto 1rem auto;">
+        {{ section.settings.title | default: "1.248 người đã chọn Tam Thất Quân Nguyễn cho sức khỏe gia đình" }}
+      </h2>
+      <div class="flex justify-center items-center gap-2 mb-2" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <span class="text-gold text-2xl tracking-tight" style="color: var(--gold); font-size: 1.5rem;" aria-label="4.9 trên 5 sao">★★★★★</span>
+        <span class="font-mono font-bold text-forest text-body-lg" style="font-family: monospace; font-weight: 700; color: var(--forest); font-size: 1.125rem;">4.9 / 5.0</span>
+      </div>
+      <p class="font-body text-body-sm text-stone-600" style="color: var(--stone-600); font-size: 0.875rem; margin: 0;">(100% Đánh giá đã xác thực mua hàng)</p>
+    </div>
+
+    <!-- Rating Breakdown Summary -->
+    <div class="bg-cream border border-stone-300 rounded-card p-6 mb-10 max-w-content mx-auto" style="background-color: var(--cream); border: 1px solid var(--stone-300); border-radius: 12px; padding: 1.5rem; max-width: 720px; margin: 0 auto 2.5rem auto;">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: center;">
+        <div class="text-center sm:text-left" style="text-align: center;">
+          <p class="font-mono text-display-xl font-bold text-forest leading-none mb-1" style="font-family: monospace; font-size: 3.5rem; font-weight: 700; color: var(--forest); margin: 0 0 0.25rem 0;">4.9</p>
+          <div class="text-gold text-body-base mb-1" style="color: var(--gold);">★★★★★</div>
+          <p class="font-body text-body-sm text-stone-600" style="color: var(--stone-600); font-size: 0.875rem; margin: 0;">Dựa trên 1.248 đánh giá</p>
+        </div>
+        <div class="flex flex-col gap-1.5" style="display: flex; flex-direction: column; gap: 0.375rem;">
+          <button type="button" data-star-filter="all" class="text-left font-body text-body-sm text-stone-600 hover:text-forest" style="background: none; border: none; cursor: pointer; text-align: left; padding: 0.25rem 0; font-size: 0.875rem; color: var(--stone-600);">
+            Tất cả đánh giá (1.248)
+          </button>
+          <button type="button" data-star-filter="5" class="flex items-center gap-2 text-left" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; text-align: left; padding: 0;">
+            <span className="font-body text-body-sm text-stone-600 w-12 shrink-0" style="width: 3rem; font-size: 0.875rem; color: var(--stone-600);">5 sao</span>
+            <div className="flex-1 h-2 bg-stone-300 rounded-badge overflow-hidden" style="flex: 1; height: 0.5rem; background-color: var(--stone-300); border-radius: 999px; overflow: hidden;">
+              <div class="h-full bg-gold rounded-badge" style="height: 100%; width: 78%; background-color: var(--gold); border-radius: 999px;"></div>
+            </div>
+            <span className="font-mono text-body-sm text-stone-600 w-10 text-right shrink-0" style="width: 2.5rem; font-family: monospace; font-size: 0.875rem; text-align: right; color: var(--stone-600);">78%</span>
+          </button>
+          <button type="button" data-star-filter="4" class="flex items-center gap-2 text-left" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; text-align: left; padding: 0;">
+            <span className="font-body text-body-sm text-stone-600 w-12 shrink-0" style="width: 3rem; font-size: 0.875rem; color: var(--stone-600);">4 sao</span>
+            <div className="flex-1 h-2 bg-stone-300 rounded-badge overflow-hidden" style="flex: 1; height: 0.5rem; background-color: var(--stone-300); border-radius: 999px; overflow: hidden;">
+              <div class="h-full bg-gold rounded-badge" style="height: 100%; width: 15%; background-color: var(--gold); border-radius: 999px;"></div>
+            </div>
+            <span className="font-mono text-body-sm text-stone-600 w-10 text-right shrink-0" style="width: 2.5rem; font-family: monospace; font-size: 0.875rem; text-align: right; color: var(--stone-600);">15%</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      {% for block in section.blocks %}
+        <article
+          data-review-card
+          data-review-stars="{{ block.settings.stars }}"
+          class="bg-cream border border-stone-300 rounded-card p-6 flex flex-col justify-between"
+          style="background-color: var(--cream); border: 1px solid var(--stone-300); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;"
+          {{ block.shopify_attributes }}
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <div class="text-gold text-body-base" style="color: var(--gold);" aria-label="{{ block.settings.stars }} sao">
+                {% assign star_num = block.settings.stars | plus: 0 %}
+                {% for i in (1..star_num) %}★{% endfor %}
+              </div>
+              <span class="bg-pale-fern text-forest font-body text-label-sm font-semibold px-2.5 py-0.5 rounded-badge" style="background-color: var(--pale-fern); color: var(--forest); font-size: 0.6875rem; font-weight: 600; padding: 0.125rem 0.625rem; border-radius: 999px;">
+                {{ block.settings.variant_label }}
+              </span>
+            </div>
+            <p class="font-body text-body-base text-stone-900 leading-relaxed mb-4" style="color: var(--stone-900); font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+              "{{ block.settings.body }}"
+            </p>
+          </div>
+          <div class="border-t border-stone-300 pt-3 flex items-center justify-between text-body-sm text-stone-600" style="border-top: 1px solid var(--stone-300); padding-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.875rem; color: var(--stone-600);">
+            <div>
+              <span class="font-semibold text-stone-900" style="font-weight: 600; color: var(--stone-900);">{{ block.settings.name }}</span>
+              <span class="text-stone-600"> — {{ block.settings.city }}</span>
+            </div>
+            {% if block.settings.verified %}
+              <span class="text-trust-green font-semibold text-label-sm uppercase tracking-wide" style="color: var(--trust-green); font-weight: 600; font-size: 0.6875rem; text-transform: uppercase;">
+                ✓ Đã mua hàng
+              </span>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Đánh Giá Thực Từ Khách Hàng"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "1.248 người đã chọn Tam Thất Quân Nguyễn cho sức khỏe gia đình"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "default": "Chị Lan H."
+        },
+        {
+          "type": "text",
+          "id": "city",
+          "label": "City",
+          "default": "Hà Nội"
+        },
+        {
+          "type": "select",
+          "id": "stars",
+          "label": "Rating Stars",
+          "options": [
+            { "value": "5", "label": "5 Stars" },
+            { "value": "4", "label": "4 Stars" },
+            { "value": "3", "label": "3 Stars" }
+          ],
+          "default": "5"
+        },
+        {
+          "type": "text",
+          "id": "variant_label",
+          "label": "Purchased Package",
+          "default": "Gói 300g"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified Purchase Badge",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Review Text",
+          "default": "Mình mua cho ba uống sau ca phẫu thuật. Sau 3 tuần thấy ba khoẻ hơn hẳn, ngủ ngon hơn, bầm tím giảm nhanh."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Chị Lan H.", "city": "Hà Nội", "stars": "5", "variant_label": "Gói 300g", "verified": true, "body": "Mình mua cho ba uống sau ca phẫu thuật. Sau 3 tuần thấy ba khoẻ hơn hẳn, ngủ ngon hơn, bầm tím giảm nhanh. Tam Thất này khác hẳn loại mua ngoài chợ." } },
+        { "type": "review", "settings": { "name": "Anh Minh T.", "city": "TP. Hồ Chí Minh", "stars": "5", "variant_label": "Gói 500g", "verified": true, "body": "Đặt hàng lần thứ 3 rồi. Gia đình mình dùng mỗi sáng, bố mẹ và con nhỏ đều uống được. Hàng giao nhanh, đóng gói cẩn thận." } },
+        { "type": "review", "settings": { "name": "Chị Thu N.", "city": "Đà Nẵng", "stars": "5", "variant_label": "Gói 100g", "verified": true, "body": "Mua thử gói nhỏ trước, hài lòng quá. Uống Tam Thất này 1 tuần thấy vết thâm tan rất nhanh." } },
+        { "type": "review", "settings": { "name": "Chú Hùng V.", "city": "Cần Thơ", "stars": "4", "variant_label": "Gói 300g", "verified": true, "body": "Chất lượng tốt, giao hàng đúng hẹn. Củ xay rất mịn, dễ hòa tan trong nước ấm." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

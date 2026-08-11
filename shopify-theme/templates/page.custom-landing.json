@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "announcement_bar": {
+      "type": "landing-announcement-bar",
+      "settings": {
+        "bg_color": "#1B3A2D",
+        "text_color": "#E8B75A"
+      }
+    },
+    "navbar": {
+      "type": "landing-navbar",
+      "settings": {
+        "brand_text": "QuanNguyenS",
+        "cta_text": "Đặt Mua Ngay"
+      }
+    },
+    "hero": {
+      "type": "landing-product-hero",
+      "settings": {
+        "subheading": "TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT",
+        "title": "Tam thất nguyên chất 7 năm tuổi. Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên."
+      }
+    },
+    "trust_strip": {
+      "type": "landing-trust-strip",
+      "settings": {}
+    },
+    "heritage_banner": {
+      "type": "landing-heritage-banner",
+      "settings": {
+        "eyebrow": "GIÁ TRỊ CỦA TAM THẤT BẮT ĐẦU TỪ VÙNG NGUYÊN LIỆU",
+        "quote": "Chúng tôi lựa chọn nguồn Tam thất từ vùng núi cao Hà Giang, nơi có khí hậu mát mẻ quanh năm và điều kiện tự nhiên phù hợp để cây phát triển ổn định.",
+        "author": "Ông Vàng Mí Chứ, người trồng Tam Thất, Đồng Văn, Hà Giang"
+      }
+    },
+    "authenticity": {
+      "type": "landing-authenticity-callout",
+      "settings": {
+        "eyebrow": "Chứng Minh Không Bằng Lời Nói",
+        "title": "Điều gì giúp bạn nhận biết một sản phẩm Tam thất đáng tin cậy?",
+        "subtitle": "Tam thất Bắc được tuyển chọn từ vùng nguyên liệu Hà Giang, kiểm tra và đóng gói cẩn thận trước khi đến tay bạn.",
+        "link_text": "Tìm hiểu quy trình tuyển chọn nguyên liệu"
+      }
+    },
+    "video": {
+      "type": "landing-video-module",
+      "settings": {
+        "eyebrow": "Quy Trình Sản Xuất",
+        "title": "Hành trình từ vườn trồng đến hũ Tam thất nguyên chất",
+        "caption": "Video thực tế quy trình phơi sấy và nghiền bột Tam thất Bắc"
+      }
+    },
+    "features": {
+      "type": "landing-features-grid",
+      "settings": {
+        "eyebrow": "Tại Sao Khác Biệt",
+        "title": "Sáu lý do khiến Tam Thất Quân Nguyễn không thể so sánh với hàng chợ"
+      }
+    },
+    "comparison": {
+      "type": "landing-comparison-table",
+      "settings": {
+        "eyebrow": "So Sánh Các Gói",
+        "title": "Chọn đúng lượng cho nhu cầu của bạn"
+      }
+    },
+    "reviews": {
+      "type": "landing-reviews",
+      "settings": {
+        "eyebrow": "Đánh Giá Thực Từ Khách Hàng",
+        "title": "1.248 người đã chọn Tam Thất Quân Nguyễn cho sức khỏe gia đình"
+      }
+    },
+    "gift_callout": {
+      "type": "landing-gift-callout",
+      "settings": {
+        "eyebrow": "Món Quà Ý Nghĩa",
+        "title": "Món quà dành cho những người bạn quan tâm",
+        "highlight_text": "Bởi vì món quà tuyệt vời nhất không phải là đắt nhất, mà là tâm huyết nhất.",
+        "cta_text": "Chọn Quà Ngay →"
+      }
+    },
+    "included_addon": {
+      "type": "landing-included-addon",
+      "settings": {
+        "included_title": "Gói Tam Thất Bắc Nguyên Chất 100g / 300g / 500g",
+        "gift_box_title": "Tùy Chọn Hộp Quà Biếu Cao Cấp",
+        "gift_box_body": "Thêm nơ gấm thủ công và thiệp viết tay cá nhân hóa."
+      }
+    },
+    "wellness_routine": {
+      "type": "landing-wellness-routine",
+      "settings": {
+        "eyebrow": "Thói Quen Mỗi Ngày",
+        "title": "Thói quen dưỡng sinh đơn giản nhất bạn có thể duy trì mỗi ngày"
+      }
+    },
+    "guarantee": {
+      "type": "landing-guarantee-block",
+      "settings": {
+        "eyebrow": "CAM KẾT TỪ QUANNGUYENS",
+        "title": "✓ Tam thất Bắc nguyên chất · Tuyển chọn kỹ · Đóng gói cẩn thận · Đổi trả 30 ngày"
+      }
+    },
+    "email_capture": {
+      "type": "landing-email-capture",
+      "settings": {
+        "eyebrow": "Đồng Hành Cùng Chúng Tôi",
+        "title": "Nhận kiến thức về Tam thất và dưỡng sinh",
+        "button_text": "Đăng Ký Khuyến Mãi"
+      }
+    },
+    "faq": {
+      "type": "landing-faq",
+      "settings": {
+        "eyebrow": "Giải Đáp Thắc Mắc",
+        "title": "Những câu hỏi thường gặp về Tam Thất Quân Nguyễn",
+        "subtitle": "Mọi điều bạn cần biết trước khi đặt mua sản phẩm."
+      }
+    },
+    "footer": {
+      "type": "landing-footer",
+      "settings": {
+        "brand_title": "QuanNguyenS",
+        "email": "ducquan16102006@gmail.com",
+        "phone": "0981 753 082",
+        "address": "Amber Riverside, 622 Minh Khai, Vĩnh Tuy, Hai Bà Trưng, Hà Nội"
+      }
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "navbar",
+    "hero",
+    "trust_strip",
+    "heritage_banner",
+    "authenticity",
+    "video",
+    "features",
+    "comparison",
+    "reviews",
+    "gift_callout",
+    "included_addon",
+    "wellness_routine",
+    "guarantee",
+    "email_capture",
+    "faq",
+    "footer"
+  ]
+}

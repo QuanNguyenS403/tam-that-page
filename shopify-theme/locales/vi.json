@@ -1,0 +1,14 @@
+{
+  "general": {
+    "search": {
+      "search": "Tìm kiếm"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Đặt Mua Ngay",
+      "sold_out": "Hết hàng",
+      "unavailable": "Không khả dụng"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{% comment %}
+  Announcement Bar Section
+{% endcomment %}
+<div
+  role="banner"
+  aria-label="Thông báo khuyến mãi"
+  class="bg-forest text-amber overflow-hidden py-2"
+  style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}; overflow: hidden; padding: 0.5rem 0;"
+>
+  <div
+    class="flex whitespace-nowrap animate-marquee"
+    aria-hidden="true"
+    style="display: flex; white-space: nowrap;"
+  >
+    {% for i in (1..2) %}
+      {% for block in section.blocks %}
+        <span class="inline-block font-body text-label-lg font-medium uppercase tracking-widest px-12" style="display: inline-block; font-size: 0.8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; padding: 0 3rem;" {{ block.shopify_attributes }}>
+          {{ block.settings.text }}
+        </span>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Landing Announcement Bar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1B3A2D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#E8B75A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Announcement Text",
+          "default": "🌿 Miễn phí vận chuyển đơn từ 500K"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Announcement Bar",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": { "text": "🌿 Miễn phí vận chuyển đơn từ 500K" }
+        },
+        {
+          "type": "announcement",
+          "settings": { "text": "✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH" }
+        },
+        {
+          "type": "announcement",
+          "settings": { "text": "🏔️ TUYỂN CHỌN TỪ VÙNG NGUYÊN LIỆU HÀ GIANG" }
+        },
+        {
+          "type": "announcement",
+          "settings": { "text": "🎁 Miễn phí hộp quà cao cấp cho đơn từ 2 sản phẩm" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

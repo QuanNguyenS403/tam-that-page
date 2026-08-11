@@ -1,0 +1,89 @@
+{% comment %}
+  Landing Email Capture Section
+{% endcomment %}
+<section id="dang-ky-tin" aria-label="Đăng ký nhận ưu đãi và tin tức" class="bg-dark text-stone-100 py-section-sm md:py-section-md" style="background-color: var(--dark); color: var(--stone-100); padding: 4rem 0;">
+  <div class="max-w-content mx-auto px-4 sm:px-8 text-center" style="max-width: 720px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+    {% if section.settings.image != blank %}
+      <div class="rounded-card overflow-hidden mb-8 max-w-md mx-auto" style="border-radius: 12px; overflow: hidden; margin-bottom: 2rem; max-width: 448px; margin-left: auto; margin-right: auto;">
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" class="w-full h-auto object-cover" style="width: 100%; height: auto; object-fit: cover;" loading="lazy">
+      </div>
+    {% endif %}
+
+    <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3" style="color: var(--sage); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem;">
+      {{ section.settings.eyebrow | default: "Đồng Hành Cùng Chúng Tôi" }}
+    </p>
+    <h2 class="font-display text-display-md text-amber mb-4 leading-[1.2]" style="color: var(--amber); font-size: 2.25rem; line-height: 1.2; margin-bottom: 1rem;">
+      {{ section.settings.title | default: "Nhận kiến thức về Tam thất và dưỡng sinh" }}
+    </h2>
+    <p class="font-body text-body-lg text-stone-300 mb-8 leading-relaxed" style="color: var(--stone-300); font-size: 1.125rem; line-height: 1.65; margin-bottom: 2rem;">
+      {{ section.settings.subtitle | default: "Đăng ký để nhận các bài viết kiến thức y học cổ truyền, hướng dẫn dưỡng sinh mùa lạnh và mã giảm giá cho đơn hàng tiếp theo." }}
+    </p>
+
+    {% form 'customer', class: 'flex flex-col sm:flex-row gap-3 max-w-md mx-auto' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label for="nl-email-{{ section.id }}" class="sr-only">Địa chỉ email</label>
+      <input
+        id="nl-email-{{ section.id }}"
+        type="email"
+        name="contact[email]"
+        required
+        placeholder="Nhập địa chỉ email của bạn"
+        class="flex-1 px-5 py-3.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 outline-none font-body text-body-base"
+        style="flex: 1; padding: 0.875rem 1.25rem; border-radius: 8px; background-color: var(--stone-900); border: 1px solid var(--stone-600); color: var(--stone-100); font-size: 1rem;"
+      >
+      <button
+        type="submit"
+        class="bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-6 py-3.5 rounded-btn transition-colors duration-200 shadow-gold shrink-0"
+        style="background-color: var(--gold); color: var(--dark); font-weight: 700; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.875rem 1.5rem; border-radius: 8px; border: none; cursor: pointer;"
+      >
+        {{ section.settings.button_text | default: "Đăng Ký Khuyến Mãi" }}
+      </button>
+    {% endform %}
+
+    <p class="mt-4 font-body text-body-sm text-stone-300" style="color: var(--stone-300); font-size: 0.875rem; margin-top: 1rem;">
+      Không gửi spam. Bảo mật thông tin tuyệt đối.
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Email Capture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Đồng Hành Cùng Chúng Tôi"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Nhận kiến thức về Tam thất và dưỡng sinh"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Đăng ký để nhận các bài viết kiến thức y học cổ truyền, hướng dẫn dưỡng sinh mùa lạnh và mã giảm giá."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Submit Button Text",
+      "default": "Đăng Ký Khuyến Mãi"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Email Capture"
+    }
+  ]
+}
+{% endschema %}

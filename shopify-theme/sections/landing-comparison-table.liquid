@@ -1,0 +1,152 @@
+{% comment %}
+  Landing Package Comparison Table Section
+{% endcomment %}
+<section
+  id="bang-so-sanh"
+  aria-label="Bảng so sánh các gói sản phẩm"
+  class="bg-cream py-section-sm md:py-section-md"
+  style="background-color: var(--cream); padding: 4rem 0;"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+    <div class="text-center mb-8 md:mb-12" style="text-align: center; margin-bottom: 2.5rem;">
+      <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3" style="color: var(--sage); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem;">
+        {{ section.settings.eyebrow | default: "So Sánh Các Gói" }}
+      </p>
+      <h2 class="font-display text-display-md text-forest max-w-content mx-auto leading-[1.2]" style="color: var(--forest); font-size: 2.25rem; max-width: 720px; margin: 0 auto;">
+        {{ section.settings.title | default: "Chọn đúng lượng cho nhu cầu của bạn" }}
+      </h2>
+    </div>
+
+    <div class="relative">
+      <div class="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0" style="overflow-x: auto;">
+        <table class="w-full min-w-[560px] border-separate border-spacing-0 rounded-card overflow-hidden shadow-card" style="width: 100%; min-width: 560px; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; background-color: var(--canvas);">
+          <thead>
+            <tr class="bg-forest" style="background-color: var(--forest); color: white;">
+              <th class="text-left font-body text-label-lg font-semibold uppercase tracking-wide text-sage py-4 px-5 w-[36%]" style="text-align: left; font-size: 0.8125rem; text-transform: uppercase; color: var(--sage); padding: 1rem 1.25rem; width: 36%;">
+                Tiêu Chí
+              </th>
+              <th class="font-body text-label-lg font-bold uppercase tracking-wide py-4 px-4 text-center text-stone-300" style="text-align: center; font-size: 0.8125rem; text-transform: uppercase; color: var(--stone-300); padding: 1rem;">
+                Gói Dùng Thử 100g
+              </th>
+              <th class="font-body text-label-lg font-bold uppercase tracking-wide py-4 px-4 text-center text-stone-300" style="text-align: center; font-size: 0.8125rem; text-transform: uppercase; color: var(--stone-300); padding: 1rem;">
+                Gói Gia Đình 300g
+              </th>
+              <th class="font-body text-label-lg font-bold uppercase tracking-wide py-4 px-4 text-center relative text-amber" style="text-align: center; font-size: 0.8125rem; text-transform: uppercase; color: var(--amber); padding: 1rem; position: relative;">
+                <span class="bg-gold text-dark text-label-sm font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-b-badge whitespace-nowrap" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); background-color: var(--gold); color: var(--dark); font-size: 0.6875rem; padding: 0.125rem 0.625rem; border-radius: 0 0 999px 999px;">
+                  Tiết Kiệm Nhất
+                </span>
+                <span style="display: block; margin-top: 0.5rem;">Gói Tích Lũy 500g</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              <tr class="{% cycle 'bg-canvas', 'bg-cream' %}" style="background-color: {% cycle 'var(--canvas)', 'var(--cream)' %};" {{ block.shopify_attributes }}>
+                <td class="font-body text-body-sm font-semibold text-stone-900 py-3.5 px-5 border-b border-stone-300" style="font-size: 0.875rem; font-weight: 600; color: var(--stone-900); padding: 0.875rem 1.25rem; border-bottom: 1px solid var(--stone-300);">
+                  {{ block.settings.label }}
+                </td>
+                <td class="font-mono text-body-sm text-center py-3.5 px-4 border-b border-stone-300 text-stone-600" style="font-family: monospace; font-size: 0.875rem; text-align: center; padding: 0.875rem 1rem; border-bottom: 1px solid var(--stone-300); color: var(--stone-600);">
+                  {{ block.settings.val_1 }}
+                </td>
+                <td class="font-mono text-body-sm text-center py-3.5 px-4 border-b border-stone-300 text-stone-600" style="font-family: monospace; font-size: 0.875rem; text-align: center; padding: 0.875rem 1rem; border-bottom: 1px solid var(--stone-300); color: var(--stone-600);">
+                  {{ block.settings.val_2 }}
+                </td>
+                <td class="font-mono text-body-sm text-center py-3.5 px-4 border-b border-stone-300 text-forest font-bold bg-pale-fern/60" style="font-family: monospace; font-size: 0.875rem; text-align: center; padding: 0.875rem 1rem; border-bottom: 1px solid var(--stone-300); color: var(--forest); font-weight: 700; background-color: rgba(200, 221, 212, 0.6);">
+                  {{ block.settings.val_3 }}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr class="bg-pale-fern" style="background-color: var(--pale-fern);">
+              <td class="py-4 px-5 font-body text-body-sm font-semibold text-forest" style="padding: 1rem 1.25rem; font-size: 0.875rem; font-weight: 600; color: var(--forest);">
+                Đặt Ngay
+              </td>
+              <td class="py-4 px-4 text-center" style="padding: 1rem; text-align: center;">
+                <a href="#san-pham" class="inline-block font-body text-label-lg font-bold uppercase tracking-wide px-4 py-2.5 rounded-btn border-2 border-forest text-forest hover:bg-pale-fern" style="display: inline-block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; padding: 0.625rem 1rem; border-radius: 8px; border: 2px solid var(--forest); color: var(--forest); text-decoration: none; width: 100%;">
+                  Chọn Gói
+                </a>
+              </td>
+              <td class="py-4 px-4 text-center" style="padding: 1rem; text-align: center;">
+                <a href="#san-pham" class="inline-block font-body text-label-lg font-bold uppercase tracking-wide px-4 py-2.5 rounded-btn border-2 border-forest text-forest hover:bg-pale-fern" style="display: inline-block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; padding: 0.625rem 1rem; border-radius: 8px; border: 2px solid var(--forest); color: var(--forest); text-decoration: none; width: 100%;">
+                  Chọn Gói
+                </a>
+              </td>
+              <td class="py-4 px-4 text-center" style="padding: 1rem; text-align: center;">
+                <a href="#san-pham" class="inline-block font-body text-label-lg font-bold uppercase tracking-wide px-4 py-2.5 rounded-btn bg-forest text-amber hover:bg-jade shadow-gold" style="display: inline-block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; padding: 0.625rem 1rem; border-radius: 8px; background-color: var(--forest); color: var(--amber); text-decoration: none; width: 100%;">
+                  Chọn Gói
+                </a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Comparison Table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "So Sánh Các Gói"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Chọn đúng lượng cho nhu cầu của bạn"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Criteria Label",
+          "default": "Giá"
+        },
+        {
+          "type": "text",
+          "id": "val_1",
+          "label": "Value (Option 100g)",
+          "default": "299.000 ₫"
+        },
+        {
+          "type": "text",
+          "id": "val_2",
+          "label": "Value (Option 300g)",
+          "default": "750.000 ₫"
+        },
+        {
+          "type": "text",
+          "id": "val_3",
+          "label": "Value (Option 500g)",
+          "default": "1.150.000 ₫"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Comparison Table",
+      "blocks": [
+        { "type": "row", "settings": { "label": "Giá", "val_1": "299.000 ₫", "val_2": "750.000 ₫", "val_3": "1.150.000 ₫" } },
+        { "type": "row", "settings": { "label": "Trọng lượng", "val_1": "100g", "val_2": "300g", "val_3": "500g" } },
+        { "type": "row", "settings": { "label": "Tiết kiệm", "val_1": "—", "val_2": "17%", "val_3": "23%" } },
+        { "type": "row", "settings": { "label": "Phù hợp cho", "val_1": "Dùng thử lần đầu", "val_2": "1–2 người / tháng", "val_3": "Cả gia đình" } },
+        { "type": "row", "settings": { "label": "Thời gian sử dụng", "val_1": "2–3 tuần", "val_2": "2–3 tháng", "val_3": "4–5 tháng" } },
+        { "type": "row", "settings": { "label": "Giao hàng miễn phí", "val_1": "—", "val_2": "✓", "val_3": "✓" } },
+        { "type": "row", "settings": { "label": "Hộp quà cao cấp", "val_1": "—", "val_2": "—", "val_3": "✓" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
