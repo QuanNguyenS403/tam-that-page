@@ -67,7 +67,7 @@ function ProductPage() {
 export default function App() {
   return (
     <BrowserRouter>
-      <CartDrawer />
+      
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/product/:handle" element={<ProductPage />} />
