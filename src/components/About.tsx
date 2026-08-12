@@ -133,7 +133,7 @@ export function About() {
             </div>
 
             {/* Film Frames Container - Scrolling Animation */}
-            <div className="relative py-6 px-8 overflow-hidden h-64 max-w-full">
+            <div className="relative py-6 px-8 overflow-hidden h-64 max-w-[1400px]">
               <div className={`flex transition-transform duration-1000 ease-in-out ${
                 animationStarted ? 'film-scroll-animation' : ''
               }`} style={{ width: 'max-content', gap: '32px' }}>
@@ -269,7 +269,7 @@ export function About() {
 
         {/* Film Controls */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-6 bg-card/80 backdrop-blur-sm clean-border rounded-2xl px-8 py-4 subtle-shadow">
+          <div className="inline-flex items-center gap-6 bg-card/80 backdrop-blur-xs clean-border rounded-2xl px-8 py-4 subtle-shadow">
             
             {/* Film Speed Indicator */}
             <div className="flex items-center gap-3">

@@ -35,7 +35,7 @@ export function ProductHero() {
       aria-label="Thông tin sản phẩm"
       className="bg-canvas py-section-sm md:py-section-md"
     >
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
           <div className="flex flex-col gap-3">
             <div className="relative overflow-hidden rounded-card bg-parchment aspect-square">
@@ -102,7 +102,7 @@ export function ProductHero() {
                     className={`relative flex-1 flex flex-col items-center justify-center text-center px-3 pt-5 pb-3.5 rounded-card border-2 transition-all duration-200 ${activeVariant === i ? 'border-forest bg-pale-fern' : 'border-stone-300 hover:border-sage bg-canvas'}`}
                   >
                     {v.best && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-[10px] leading-tight font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-badge shadow-sm">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-[10px] leading-tight font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-badge shadow-xs">
                         Tiết Kiệm Nhất
                       </span>
                     )}
@@ -136,7 +136,7 @@ export function ProductHero() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleAddToCart}
-                className="relative flex-1 overflow-hidden bg-forest text-amber font-body font-bold text-body-base uppercase tracking-widest py-4 px-6 rounded-btn hover:bg-jade transition-colors duration-200 animate-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="relative flex-1 overflow-hidden bg-forest text-amber font-body font-bold text-body-base uppercase tracking-widest py-4 px-6 rounded-btn hover:bg-jade transition-colors duration-200 animate-pulse focus:outline-hidden focus-visible:ring-2 focus-visible:ring-gold"
                 aria-label="Thêm vào giỏ hàng và đặt mua ngay"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-amber/20 to-transparent bg-[length:200%_100%] animate-shimmer pointer-events-none" />

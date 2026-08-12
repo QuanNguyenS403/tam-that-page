@@ -7,7 +7,7 @@ const CRUMBS = [
 export function Breadcrumb() {
   return (
     <div className="bg-cream border-b border-stone-300 py-2.5 px-4 md:px-8">
-      <nav aria-label="Breadcrumb" className="max-w-full mx-auto">
+      <nav aria-label="Breadcrumb" className="max-w-[1400px] mx-auto">
         <ol className="flex items-center flex-wrap">
           {CRUMBS.map((crumb, idx) => {
             const isLast = idx === CRUMBS.length - 1
