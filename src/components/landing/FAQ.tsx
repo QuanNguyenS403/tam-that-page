@@ -46,7 +46,7 @@ export function FAQ() {
             Những câu hỏi thường gặp về Tam Thất Quân Nguyễn
           </h2>
           <p className="font-body text-body-lg text-stone-600">
-            Mọi điều bạn cần biết trước khi đặt mua sản phẩm.
+            Mọi điều bạn cần biết trước khi đặt mua sản phẩm
           </p>
         </div>
 

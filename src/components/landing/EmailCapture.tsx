@@ -42,7 +42,7 @@ export function EmailCapture() {
             {sent ? 'Đã Đăng Ký ✓' : 'Đăng Ký Khuyến Mãi'}
           </button>
         </form>
-        <p className="mt-4 font-body text-body-sm text-stone-300">Không gửi spam. Bảo mật thông tin tuyệt đối.</p>
+        <p className="mt-4 font-body text-body-sm text-stone-300">Bảo mật thông tin tuyệt đối</p>
       </div>
     </section>
   )

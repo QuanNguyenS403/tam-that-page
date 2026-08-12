@@ -12,7 +12,7 @@ const RATING_BREAKDOWN = [
 
 const REVIEWS = [
   {
-    name: 'Chị Lan H.',
+    name: 'Anh Tomson',
     city: 'Hà Nội',
     stars: 5,
     variant: 'Gói 300g',
@@ -21,7 +21,7 @@ const REVIEWS = [
     body: 'Mình mua cho ba uống sau ca phẫu thuật. Sau 3 tuần thấy ba khoẻ hơn hẳn, ngủ ngon hơn, bầm tím giảm nhanh. Tam Thất này khác hẳn loại mua ngoài chợ — màu đậm hơn, mùi thơm đặc trưng. Sẽ mua thêm gói 500g lần sau.',
   },
   {
-    name: 'Anh Minh T.',
+    name: 'Ông Quân Nguyễn',
     city: 'TP. Hồ Chí Minh',
     stars: 5,
     variant: 'Gói 500g',
@@ -30,7 +30,7 @@ const REVIEWS = [
     body: 'Đặt hàng lần thứ 3 rồi. Gia đình mình dùng mỗi sáng, bố mẹ và con nhỏ đều uống được. Hàng giao nhanh, đóng gói cẩn thận, quan trọng là quét QR ra ngay thông tin vườn trồng — yên tâm hoàn toàn.',
   },
   {
-    name: 'Chị Thu N.',
+    name: 'Chị Vũ Phương Linh',
     city: 'Đà Nẵng',
     stars: 5,
     variant: 'Gói 100g',
@@ -39,8 +39,8 @@ const REVIEWS = [
     body: 'Mua thử gói nhỏ trước, hài lòng quá. Mình hay bị tụ máu chỗ tiêm sau khi truyền dịch, uống Tam Thất này 1 tuần thấy vết thâm tan rất nhanh. Bác sĩ bảo cũng không phản chỉ định với thuốc đang uống.',
   },
   {
-    name: 'Chú Hùng V.',
-    city: 'Cần Thơ',
+    name: 'Anh Đức Quân',
+    city: 'Hà Nội',
     stars: 4,
     variant: 'Gói 300g',
     date: 'Tháng 3, 2024',
@@ -48,8 +48,8 @@ const REVIEWS = [
     body: 'Chất lượng tốt, giao hàng đúng hẹn. Củ xay rất mịn, dễ hòa tan trong nước ấm. Ba mẹ tôi uống đều đặn mỗi sáng thấy huyết áp ổn định hơn.',
   },
   {
-    name: 'Anh Hoàng K.',
-    city: 'Hải Phòng',
+    name: 'Chị Jenne Vũ',
+    city: 'Hà Nội',
     stars: 5,
     variant: 'Gói 500g',
     date: 'Tháng 2, 2024',
