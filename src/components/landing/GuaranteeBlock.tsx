@@ -6,8 +6,8 @@ export function GuaranteeBlock() {
       <div className="max-w-wide mx-auto px-4 sm:px-8">
         <div className="rounded-card bg-forest text-stone-100 p-8 md:p-14 shadow-glass">
           <p className="font-body text-label-lg font-semibold uppercase tracking-widest text-amber mb-3">CAM KẾT TỪ QUANNGUYENS</p>
-          <h2 className="font-display text-display-md text-amber mb-6 leading-[1.2] whitespace-pre-line">
-            ✓ Tam thất Bắc nguyên chất{"\u00a0"}{"\n"}✓ Tuyển chọn kỹ nguyên liệu{"\u00a0"}{"\n"}✓ Đóng gói cẩn thận{"\u00a0"}{"\n"}✓ Hỗ trợ đổi trả theo chính sách
+          <h2 className="font-display text-display-md text-amber mb-6 leading-[1.2]">
+            ✓ Tam thất Bắc nguyên chất{"\n\n"}✓ Tuyển chọn kỹ nguyên liệu{"\n\n"}✓ Đóng gói cẩn thận{"\n\n"}✓ Hỗ trợ đổi trả theo chính sách
           </h2>
           <div className="max-w-content space-y-4 font-body text-body-lg text-stone-300 leading-relaxed mb-10">
             <p>Chúng tôi xây dựng thương hiệu Tam Thất Quân Nguyễn trên một lời hứa: Mỗi hộp sản phẩm đến tay bạn phải đạt chuẩn mực cao nhất về nguồn gốc, độ tinh khiết và trải nghiệm đóng gói.</p>
