@@ -154,14 +154,14 @@ export function ProductHero() {
             </div>
 
             <p className="font-body text-body-sm text-stone-600">
-              🚚 Đặt trước 15:00 → Giao ngay hôm nay
+              🚚 Đặt trước 17:00 → Giao ngay hôm nay
             </p>
 
             <div className="flex flex-wrap gap-2 pt-1">
               {[
                 '✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH',
                 '✓ TUYỂN CHỌN TỪ VÙNG NGUYÊN LIỆU HÀ GIANG',
-                'Tam thất Bắc tuyển chọn từ Hà Giang, xay mịn từ củ nguyên chất',
+                '✓ XAY MỊN TỪ CỦ NGUYÊN CHẤT',
               ].map((t) => (
                 <span
                   key={t}

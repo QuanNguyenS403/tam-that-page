@@ -114,7 +114,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col justify-end items-start md:items-end gap-2 text-stone-300">
             <p className="font-semibold text-amber">"BÁN SỰ MINH BẠCH, CHẤT LƯỢNG VÀ NIỀM TIN."</p>
-            <p>© 2026 Tam Thất Quân Nguyễn. Bảo lưu mọi quyền.</p>
+            <p>© 2026 Tam Thất Quân Nguyễn&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
           </div>
         </div>
 
