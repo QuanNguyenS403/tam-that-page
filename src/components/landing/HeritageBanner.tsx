@@ -43,9 +43,9 @@ export function HeritageBanner() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="not-italic font-body text-body-sm text-stone-300 block mb-12"
+          className="not-italic font-body text-body-sm text-stone-300 block mb-12 whitespace-pre-line"
         >
-          — Ông Vàng Mí Chứ, người trồng Tam Thất, Đồng Văn, Hà Giang
+          {"\n"}
         </motion.cite>
 
         <motion.div
