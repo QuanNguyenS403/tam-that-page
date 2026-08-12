@@ -1,0 +1,326 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition — Tam Thất Quân Nguyễn.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The semantic shadcn tokens keep the Classic theme's HSL triplet format
+ * (consumed as hsl(var(--token))) so existing arbitrary values like
+ * bg-[hsl(var(--primary))] keep working unchanged.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  /* ported from tailwind.config.ts borderRadius */
+  --radius-card: 12px;
+  --radius-badge: 999px;
+  --radius-btn: 8px;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-ring-offset-background: hsl(var(--background));
+  --color-star: hsl(var(--star));
+
+  /* ported brand palette from tailwind.config.ts */
+  --color-canvas: #faf7f2;
+  --color-cream: #f2ede3;
+  --color-dark: #1c1a16;
+  --color-parchment: #f5e6c3;
+  --color-pale-fern: #c8ddd4;
+  --color-forest: #1b3a2d;
+  --color-jade: #2d6a4f;
+  --color-sage: #5c8a72;
+  --color-gold: #c9983a;
+  --color-amber: #e8b75a;
+  --color-stone-900: #1c1a16;
+  --color-stone-600: #5c5750;
+  --color-stone-300: #c4bdb4;
+  --color-stone-100: #f0ede8;
+  --color-trust-green: #2e7d32;
+  --color-alert-amber: #e65100;
+
+  /* ported font families (all Outfit by design) */
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-serif: "Outfit", serif;
+  --font-mono: "Outfit", monospace;
+  --font-bagel: "Outfit", sans-serif;
+
+  /* ported type scale */
+  --text-display-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display-xl--line-height: 1.1;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(2rem, 4vw, 3.5rem);
+  --text-display-lg--line-height: 1.15;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-md: clamp(1.75rem, 3vw, 2.75rem);
+  --text-display-md--line-height: 1.2;
+  --text-display-md--letter-spacing: -0.015em;
+  --text-display-sm: clamp(1.375rem, 2vw, 2rem);
+  --text-display-sm--line-height: 1.25;
+  --text-display-sm--letter-spacing: -0.01em;
+  --text-body-xl: 1.25rem;
+  --text-body-xl--line-height: 1.7;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.65;
+  --text-body-base: 1rem;
+  --text-body-base--line-height: 1.6;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.55;
+  --text-label-lg: 0.8125rem;
+  --text-label-lg--line-height: 1;
+  --text-label-lg--letter-spacing: 0.1em;
+  --text-label-sm: 0.6875rem;
+  --text-label-sm--line-height: 1;
+  --text-label-sm--letter-spacing: 0.12em;
+  --text-price-xl: clamp(2rem, 4vw, 3rem);
+
+  /* ported section spacing */
+  --spacing-section-sm: 3rem;
+  --spacing-section-md: 5rem;
+  --spacing-section-lg: 7rem;
+  --spacing-section-xl: 9rem;
+
+  /* ported max-widths */
+  --container-content: 720px;
+  --container-wide: 1100px;
+
+  /* ported shadows */
+  --shadow-card: 0 2px 12px 0 rgba(27, 58, 45, 0.08);
+  --shadow-card-hover: 0 8px 32px 0 rgba(27, 58, 45, 0.16);
+  --shadow-gold: 0 4px 20px 0 rgba(201, 152, 58, 0.35);
+  --shadow-glass: 0 8px 32px 0 rgba(27, 58, 45, 0.12);
+
+  /* ported backdrop blur */
+  --blur-glass: 12px;
+
+  /* ported keyframes + animations */
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-fadeInUp: fadeInUp 0.6s ease-out forwards;
+  --animate-slideDown: slideDown 0.3s ease-out forwards;
+  --animate-pulse: pulse 2s ease-in-out infinite;
+  --animate-marquee: marquee 22s linear infinite;
+  --animate-fillBar: fillBar 1s ease-out forwards;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(201, 152, 58, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(201, 152, 58, 0);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes fillBar {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: var(--bar-width);
+    }
+  }
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* template chart/sidebar tokens */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* ported from src/index.css — HSL triplets, consumed as hsl(var(--token)) */
+  --background: 44 33% 93%; /* #F5F0E8 cream */
+  --foreground: 0 0% 10%; /* #1A1A1A */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 0 0% 10%; /* charcoal */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 44 25% 88%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 44 20% 90%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 14 63% 53%; /* #D4603A coral */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 80%;
+  --input: 0 0% 100%;
+  --ring: 14 63% 53%;
+  --star: 40 91% 55%; /* #F5A623 */
+  --dark: 0 0% 13%; /* #222 */
+  --radius: 0.5rem;
+
+  /* template defaults for chart/sidebar tokens (unused by the landing page) */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Outfit", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Outfit", sans-serif;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl font-semibold leading-tight;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold leading-tight;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+}
+
+/* ported custom utilities from src/index.css */
+@utility container-tt {
+  @apply max-w-[1280px] mx-auto px-5 md:px-8;
+}
+@utility btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-8 py-3.5 font-semibold text-sm tracking-wide transition-all hover:opacity-90 hover:-translate-y-0.5;
+}
+@utility btn-accent {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] px-8 py-3.5 font-semibold text-sm tracking-wide transition-all hover:opacity-90;
+}
+@utility btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--foreground))] text-[hsl(var(--foreground))] px-8 py-3.5 font-semibold text-sm tracking-wide transition-all hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))];
+}
+@utility eyebrow {
+  @apply uppercase tracking-[0.2em] text-xs font-semibold text-[hsl(var(--accent))];
+}
+@utility fade-in {
+  animation: fadeInUp 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
