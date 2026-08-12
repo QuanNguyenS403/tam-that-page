@@ -71,7 +71,7 @@ export function AuthenticityCallout() {
               href="#tinh-xac-thuc"
               className="inline-flex items-center gap-2 mt-8 text-forest font-body font-semibold text-body-sm border-b-2 border-gold hover:border-forest transition-colors duration-200 pb-0.5"
             >
-              Tìm hiểu quy trình tuyển chọn nguyên liệu →
+              
             </a>
           </motion.div>
 

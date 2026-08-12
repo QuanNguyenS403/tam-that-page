@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const ITEMS = [
   { icon: '🛡️', label: 'Hoàn Tiền 100%', sub: 'Trong 30 ngày' },
-  { icon: '📍', label: 'Xuất Xứ Bắc Hà Giang', sub: 'Có truy xuất QR' },
+  { icon: '📍', label: 'Xuất Xứ Bắc Hà Giang', sub: 'Chọn lọc kĩ lưỡng' },
   { icon: '🔬', label: 'Kiểm Nghiệm ISO', sub: 'QUATEST 3' },
   { icon: '🚚', label: 'Giao Toàn Quốc', sub: '2–3 ngày làm việc' },
   { icon: '🌿', label: 'Không Phụ Gia', sub: '100% Nguyên Chất' },
