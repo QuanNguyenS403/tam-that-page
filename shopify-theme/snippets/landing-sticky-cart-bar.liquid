@@ -2,20 +2,20 @@
   role="complementary"
   aria-label="Thanh đặt hàng nhanh"
   data-sticky-cart-bar
-  class="fixed bottom-0 inset-x-0 z-50 bg-forest/95 backdrop-blur-glass border-t border-jade shadow-glass transition-transform duration-300 ease-in-out translate-y-full"
+  className="fixed bottom-0 inset-x-0 z-50 bg-forest/95 backdrop-blur-glass border-t border-jade shadow-glass transition-transform duration-300 ease-in-out translate-y-full"
   style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; background-color: rgba(27, 58, 45, 0.95); backdrop-filter: blur(12px); border-top: 1px solid var(--jade);"
 >
-  <div class="max-w-full mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4" style="max-width: 1400px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
-    <div class="hidden sm:block">
-      <p class="font-display text-amber text-display-sm font-bold leading-none" style="color: var(--amber); font-weight: 700; margin: 0;">
+  <div className="max-w-full mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4" style="max-width: 1400px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+    <div className="hidden sm:block">
+      <p className="font-display text-amber text-display-sm font-bold leading-none" style="color: var(--amber); font-weight: 700; margin: 0;">
         {{ product.title | default: "Tam Thất Bắc Hà Giang" }}
       </p>
-      <p class="font-body text-sage text-label-lg uppercase tracking-wide mt-0.5" style="color: var(--sage); font-size: 0.8125rem; text-transform: uppercase; margin: 0.125rem 0 0 0;">
+      <p className="font-body text-sage text-label-lg uppercase tracking-wide mt-0.5" style="color: var(--sage); font-size: 0.8125rem; text-transform: uppercase; margin: 0.125rem 0 0 0;">
         Nguyên chất · Có truy xuất nguồn gốc
       </p>
     </div>
-    <div class="flex items-center gap-3 ml-auto" style="display: flex; align-items: center; gap: 0.75rem; margin-left: auto;">
-      <span class="font-mono text-amber text-body-xl font-bold" data-product-price-display style="color: var(--amber); font-family: monospace; font-size: 1.25rem; font-weight: 700;">
+    <div className="flex items-center gap-3 ml-auto" style="display: flex; align-items: center; gap: 0.75rem; margin-left: auto;">
+      <span className="font-mono text-amber text-body-xl font-bold" data-product-price-display style="color: var(--amber); font-family: monospace; font-size: 1.25rem; font-weight: 700;">
         {% if product != blank %}
           {{ product.price | money }}
         {% else %}
@@ -24,7 +24,7 @@
       </span>
       <a
         href="#san-pham"
-        class="inline-block bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-6 py-3 rounded-btn transition-colors duration-150 shadow-gold"
+        className="inline-block bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-6 py-3 rounded-btn transition-colors duration-150 shadow-gold"
         style="background-color: var(--gold); color: var(--dark); font-weight: 700; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;"
         aria-label="Đặt mua ngay"
       >
