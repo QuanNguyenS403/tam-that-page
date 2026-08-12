@@ -15,7 +15,7 @@ export function StickyCartBar() {
       aria-label="Thanh đặt hàng nhanh"
       className={`fixed bottom-0 inset-x-0 z-50 bg-forest/95 backdrop-blur-glass border-t border-jade shadow-glass transition-transform duration-300 ease-in-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
     >
-      <div className="max-w-full mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4">
         <div className="hidden sm:block">
           <p className="font-display text-amber text-display-sm font-bold leading-none">
             Tam Thất Bắc Hà Giang

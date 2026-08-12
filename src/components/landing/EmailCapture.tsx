@@ -33,7 +33,7 @@ export function EmailCapture() {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="Nhập địa chỉ email của bạn"
-            className="flex-1 px-5 py-3.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 outline-none focus:border-gold font-body text-body-base"
+            className="flex-1 px-5 py-3.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 outline-hidden focus:border-gold font-body text-body-base"
           />
           <button
             type="submit"

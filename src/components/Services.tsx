@@ -176,12 +176,12 @@ export function Services() {
               {/* Rope dimensional highlighting */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-700 to-transparent rounded-full opacity-80" />
               
-              {/* Deep rope shadow for realism */}
+              {/* Deep rope shadow-sm for realism */}
               <div className="absolute top-2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-950 to-transparent rounded-full opacity-70" />
               
-              {/* Multi-layer drop shadow */}
+              {/* Multi-layer drop shadow-sm */}
               <div className="absolute -bottom-3 left-0 right-0 h-4 bg-black/30 rounded-full blur-xl" />
-              <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-sm" />
+              <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-xs" />
             </div>
             
             {/* Heavy-duty wall anchor points */}
@@ -255,7 +255,7 @@ export function Services() {
                       </div>
                       
                       {/* Simple metal spring */}
-                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-2 bg-gradient-to-b from-gray-300 to-gray-500 rounded-sm shadow-sm">
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-2 bg-gradient-to-b from-gray-300 to-gray-500 rounded-sm shadow-xs">
                         {/* Spring coils */}
                         <div className="absolute top-0.5 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gray-400 rounded-full" />
                         <div className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gray-400 rounded-full" />
@@ -386,12 +386,12 @@ export function Services() {
               {/* Rope dimensional highlighting */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-700 to-transparent rounded-full opacity-80" />
               
-              {/* Deep rope shadow for realism */}
+              {/* Deep rope shadow-sm for realism */}
               <div className="absolute top-2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-950 to-transparent rounded-full opacity-70" />
               
-              {/* Multi-layer drop shadow */}
+              {/* Multi-layer drop shadow-sm */}
               <div className="absolute -bottom-3 left-0 right-0 h-4 bg-black/30 rounded-full blur-xl" />
-              <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-sm" />
+              <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-xs" />
             </div>
             
             {/* Heavy-duty wall anchor points */}
@@ -466,7 +466,7 @@ export function Services() {
                       </div>
                       
                       {/* Simple metal spring */}
-                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-2 bg-gradient-to-b from-gray-300 to-gray-500 rounded-sm shadow-sm">
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-2 bg-gradient-to-b from-gray-300 to-gray-500 rounded-sm shadow-xs">
                         {/* Spring coils */}
                         <div className="absolute top-0.5 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gray-400 rounded-full" />
                         <div className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gray-400 rounded-full" />

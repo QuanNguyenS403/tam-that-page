@@ -68,7 +68,7 @@ export function Footer() {
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="Nhập email của bạn"
-              className="px-4 py-2.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 text-body-sm outline-none focus:border-gold"
+              className="px-4 py-2.5 rounded-btn bg-stone-900 border border-stone-600 text-stone-100 placeholder:text-stone-300 text-body-sm outline-hidden focus:border-gold"
             />
             <button type="submit" className="bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-5 py-2.5 rounded-btn transition-colors shrink-0">
               {subscribed ? 'Đã Nhận ✓' : 'Đăng Ký'}

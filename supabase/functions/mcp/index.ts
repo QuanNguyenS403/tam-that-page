@@ -34,7 +34,7 @@ var get_product_info_default = defineTool({
 
 // src/lib/mcp/tools/list-faqs.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.25.0";
-import { z } from "npm:zod@^4.4.3";
+import { z } from "npm:zod@^3.24.2";
 var faqs = [
   { q: "What exactly is Panax notoginseng (Tam Th\u1EA5t)?", a: "Panax notoginseng, known in Vietnamese as Tam Th\u1EA5t, is a traditional herbal root used in Vietnamese and East Asian herbal wellness traditions. Tam Th\u1EA5t Qu\xE2n Nguy\u1EC5n uses it in a finely milled powder form. It is a traditional herbal wellness product and not a medicine." },
   { q: "How do I prepare a serving?", a: "Add one serving of powder to a cup of warm water, stir gently until dissolved, and drink as part of your morning or daily routine. Full instructions are inside every pack." },
@@ -67,7 +67,7 @@ var list_faqs_default = defineTool2({
 
 // src/lib/mcp/tools/list-reviews.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.25.0";
-import { z as z2 } from "npm:zod@^4.4.3";
+import { z as z2 } from "npm:zod@^3.24.2";
 var reviews = [
   { title: "The most thoughtful gift I have given this year.", body: "I bought the Family Pack for my parents during Lunar New Year. The packaging alone made such a strong impression. My mother keeps the box on her shelf. I will be ordering again.", name: "Cristiano Ronaldo", rating: 5 },
   { title: "Finally a Tam Th\u1EA5t product I can trust.", body: "I have tried several products online but always worried about the quality. This one feels completely different from the moment you open it. Clean, professional, and the powder texture is excellent.", name: "Elon Musk", rating: 5 },
