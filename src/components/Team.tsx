@@ -375,7 +375,7 @@ export function Team() {
               </div>
             </div>
             
-            {/* Black frame shadow */}
+            {/* Black frame shadow-sm */}
             <div className="absolute -inset-4 bg-black/30 rounded-2xl -z-10 blur-xl" />
           </div>
         </div>

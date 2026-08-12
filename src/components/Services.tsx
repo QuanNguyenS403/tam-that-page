@@ -176,10 +176,10 @@ export function Services() {
               {/* Rope dimensional highlighting */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-700 to-transparent rounded-full opacity-80" />
               
-              {/* Deep rope shadow for realism */}
+              {/* Deep rope shadow-sm for realism */}
               <div className="absolute top-2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-950 to-transparent rounded-full opacity-70" />
               
-              {/* Multi-layer drop shadow */}
+              {/* Multi-layer drop shadow-sm */}
               <div className="absolute -bottom-3 left-0 right-0 h-4 bg-black/30 rounded-full blur-xl" />
               <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-xs" />
             </div>
@@ -386,10 +386,10 @@ export function Services() {
               {/* Rope dimensional highlighting */}
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-700 to-transparent rounded-full opacity-80" />
               
-              {/* Deep rope shadow for realism */}
+              {/* Deep rope shadow-sm for realism */}
               <div className="absolute top-2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-yellow-950 to-transparent rounded-full opacity-70" />
               
-              {/* Multi-layer drop shadow */}
+              {/* Multi-layer drop shadow-sm */}
               <div className="absolute -bottom-3 left-0 right-0 h-4 bg-black/30 rounded-full blur-xl" />
               <div className="absolute -bottom-1 left-0 right-0 h-2 bg-black/50 rounded-full blur-xs" />
             </div>
