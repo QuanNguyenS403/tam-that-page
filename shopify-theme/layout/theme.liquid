@@ -24,7 +24,8 @@
       {{ 'tailwind.css' | asset_url | stylesheet_tag }}
     {%- endcomment -%}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    {{ 'theme-tokens.css' | asset_url | stylesheet_tag }}
+    <style type="text/tailwindcss">{% render 'theme-tokens' %}</style>
+
 
     {{ content_for_header }}
 
