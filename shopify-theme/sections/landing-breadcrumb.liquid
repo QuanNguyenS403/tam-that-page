@@ -1,0 +1,48 @@
+<div class="bg-cream border-b border-stone-300 py-2.5 px-4 md:px-8">
+  <nav aria-label="Breadcrumb" class="max-w-[1400px] mx-auto">
+    <ol class="flex items-center flex-wrap">
+      {%- for block in section.blocks -%}
+        <li class="inline-flex items-center" {{ block.shopify_attributes }}>
+          {%- unless forloop.first -%}
+            <span class="text-stone-300 mx-2" aria-hidden="true">/</span>
+          {%- endunless -%}
+          {%- if forloop.last -%}
+            <span class="font-body text-label-sm uppercase tracking-wide text-forest font-semibold" aria-current="page">{{ block.settings.label }}</span>
+          {%- else -%}
+            <a href="{{ block.settings.link | default: '#' }}" class="font-body text-label-sm text-stone-600 hover:text-forest transition-colors duration-150 uppercase tracking-wide">{{ block.settings.label }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </nav>
+</div>
+
+{% schema %}
+{
+  "name": "Breadcrumb",
+  "class": "landing-breadcrumb-section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "crumb",
+      "name": "Mục breadcrumb",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Nhãn", "default": "Trang Chủ" },
+        { "type": "url", "id": "link", "label": "Đường dẫn" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Breadcrumb",
+      "blocks": [
+        { "type": "crumb", "settings": { "label": "Trang Chủ", "link": "/" } },
+        { "type": "crumb", "settings": { "label": "Sản Phẩm", "link": "/collections/all" } },
+        { "type": "crumb", "settings": { "label": "TAM THẤT QUÂN NGUYỄN" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
