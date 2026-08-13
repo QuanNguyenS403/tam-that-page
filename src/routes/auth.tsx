@@ -1,6 +1,21 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+
+export const Route = createFileRoute("/auth")({
+  head: () => ({
+    meta: [
+      { title: "Đăng nhập — QuanNguyenS" },
+      { name: "description", content: "Đăng nhập hoặc tạo tài khoản QuanNguyenS để cấp quyền cho các ứng dụng kết nối." },
+      { property: "og:title", content: "Đăng nhập — QuanNguyenS" },
+      { property: "og:description", content: "Đăng nhập hoặc tạo tài khoản QuanNguyenS." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex" },
+    ],
+  }),
+  component: AuthPage,
+});
 
 function safeNext(raw: string | null): string {
   if (!raw) return "/";
@@ -8,9 +23,8 @@ function safeNext(raw: string | null): string {
   return raw;
 }
 
-export default function Auth() {
-  const [params] = useSearchParams();
-  const next = safeNext(params.get("next"));
+function AuthPage() {
+  const [next, setNext] = useState("/");
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +33,12 @@ export default function Auth() {
   const [info, setInfo] = useState<string | null>(null);
 
   useEffect(() => {
+    const target = safeNext(new URLSearchParams(window.location.search).get("next"));
+    setNext(target);
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) window.location.href = next;
+      if (data.session) window.location.href = target;
     });
-  }, [next]);
+  }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();

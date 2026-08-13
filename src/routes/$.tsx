@@ -1,6 +1,43 @@
+import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+
+export const Route = createFileRoute("/$")({
+  head: () => ({
+    meta: [
+      { title: "Không tìm thấy trang — QuanNguyenS" },
+      { name: "description", content: "Trang bạn tìm không tồn tại." },
+      { property: "og:title", content: "Không tìm thấy trang — QuanNguyenS" },
+      { property: "og:description", content: "Trang bạn tìm không tồn tại." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex" },
+    ],
+  }),
+  component: CatchAll,
+});
+
+const CONSENT_PATH = "/.lovable/oauth/consent";
+
+function CatchAll() {
+  const pathname = useLocation({ select: (s) => s.pathname });
+  if (pathname === CONSENT_PATH) return <OAuthConsent />;
+  return <NotFound />;
+}
+
+function NotFound() {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-canvas px-4">
+      <div className="text-center">
+        <h1 className="mb-4 font-display text-4xl text-stone-900">404</h1>
+        <p className="mb-4 font-body text-stone-600">Không tìm thấy trang bạn yêu cầu.</p>
+        <Link to="/" className="font-body text-accent underline">
+          Về trang chủ
+        </Link>
+      </div>
+    </main>
+  );
+}
 
 type OAuthNamespace = {
   getAuthorizationDetails: (id: string) => Promise<{ data: any; error: any }>;
@@ -12,9 +49,8 @@ function oauth(): OAuthNamespace {
   return (supabase.auth as unknown as { oauth: OAuthNamespace }).oauth;
 }
 
-export default function OAuthConsent() {
-  const [params] = useSearchParams();
-  const authorizationId = params.get("authorization_id") ?? "";
+function OAuthConsent() {
+  const [authorizationId, setAuthorizationId] = useState("");
   const [details, setDetails] = useState<any>(null);
   const [account, setAccount] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +59,9 @@ export default function OAuthConsent() {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (!authorizationId) return setError("Thiếu authorization_id.");
+      const id = new URLSearchParams(window.location.search).get("authorization_id") ?? "";
+      setAuthorizationId(id);
+      if (!id) return setError("Thiếu authorization_id.");
       const { data: sess } = await supabase.auth.getSession();
       if (!sess.session) {
         const next = window.location.pathname + window.location.search;
@@ -31,7 +69,7 @@ export default function OAuthConsent() {
         return;
       }
       if (active) setAccount(sess.session.user.email ?? null);
-      const { data, error } = await oauth().getAuthorizationDetails(authorizationId);
+      const { data, error } = await oauth().getAuthorizationDetails(id);
       if (!active) return;
       if (error) return setError(error.message);
       const immediate = data?.redirect_url ?? data?.redirect_to;
@@ -41,8 +79,10 @@ export default function OAuthConsent() {
       }
       setDetails(data);
     })();
-    return () => { active = false; };
-  }, [authorizationId]);
+    return () => {
+      active = false;
+    };
+  }, []);
 
   async function decide(approve: boolean) {
     setBusy(true);
@@ -50,9 +90,15 @@ export default function OAuthConsent() {
     const { data, error } = approve
       ? await oauth().approveAuthorization(authorizationId)
       : await oauth().denyAuthorization(authorizationId);
-    if (error) { setBusy(false); return setError(error.message); }
+    if (error) {
+      setBusy(false);
+      return setError(error.message);
+    }
     const target = data?.redirect_url ?? data?.redirect_to;
-    if (!target) { setBusy(false); return setError("Máy chủ ủy quyền không trả về địa chỉ chuyển hướng."); }
+    if (!target) {
+      setBusy(false);
+      return setError("Máy chủ ủy quyền không trả về địa chỉ chuyển hướng.");
+    }
     window.location.href = target;
   }
 
@@ -74,9 +120,7 @@ export default function OAuthConsent() {
             <h1 className="font-display text-2xl text-stone-900 mb-2">
               Kết nối {clientName} với QuanNguyenS
             </h1>
-            {account && (
-              <p className="font-body text-sm text-stone-600 mb-4">Đang đăng nhập với {account}</p>
-            )}
+            {account && <p className="font-body text-sm text-stone-600 mb-4">Đang đăng nhập với {account}</p>}
             <p className="font-body text-sm text-stone-700 mb-4">
               {clientName} sẽ có thể gọi các công cụ của ứng dụng này với danh nghĩa của bạn.
             </p>
@@ -89,10 +133,13 @@ export default function OAuthConsent() {
               <ul className="mb-4 space-y-1">
                 {scopes.map((s) => (
                   <li key={s} className="font-body text-sm text-stone-700">
-                    {s === "email" ? "Chia sẻ địa chỉ email của bạn"
-                      : s === "profile" ? "Chia sẻ hồ sơ cơ bản của bạn"
-                      : s === "openid" ? "Xác minh danh tính của bạn"
-                      : `Quyền bổ sung: ${s}`}
+                    {s === "email"
+                      ? "Chia sẻ địa chỉ email của bạn"
+                      : s === "profile"
+                        ? "Chia sẻ hồ sơ cơ bản của bạn"
+                        : s === "openid"
+                          ? "Xác minh danh tính của bạn"
+                          : `Quyền bổ sung: ${s}`}
                   </li>
                 ))}
               </ul>
