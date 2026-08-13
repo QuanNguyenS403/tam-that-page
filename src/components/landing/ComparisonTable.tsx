@@ -51,12 +51,14 @@ export function ComparisonTable() {
                       key={i}
                       className={`font-body text-label-lg font-bold uppercase tracking-wide py-4 px-4 text-center relative ${i === BEST_COL ? 'text-amber' : 'text-stone-300'}`}
                     >
-                      {i === BEST_COL && (
-                        <span className="absolute -top-0 left-1/2 -translate-x-1/2 bg-gold text-dark text-label-sm font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-b-badge whitespace-nowrap">
-                          Tiết Kiệm Nhất
-                        </span>
-                      )}
-                      <span className="mt-2 block">{h}</span>
+                      <div className="flex flex-col items-center justify-center h-full">
+                        {i === BEST_COL && (
+                          <span className="bg-gold text-dark text-label-sm font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-b-badge whitespace-nowrap mb-1">
+                            Tiết Kiệm Nhất
+                          </span>
+                        )}
+                        <span className="block">{h}</span>
+                      </div>
                     </th>
                   ))}
                 </tr>
