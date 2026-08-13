@@ -21,7 +21,7 @@ export function VideoModule() {
           {"\n"}
         </h2>
 
-        <div className="relative w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-video bg-dark shadow-glass">
+        <div className="relative w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-[9/16] bg-dark shadow-glass">
           <video
             ref={videoRef}
             src={newVideo}
