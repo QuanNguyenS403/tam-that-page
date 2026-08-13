@@ -1,0 +1,58 @@
+{%- liquid
+  assign bg = section.settings.bg_color
+  assign fg = section.settings.text_color
+-%}
+<div
+  class="overflow-hidden py-2 landing-announcement"
+  style="--bar-bg: {{ bg }}; --bar-fg: {{ fg }}; background-color: var(--bar-bg); color: var(--bar-fg);"
+  role="banner"
+  aria-label="{{ section.settings.aria_label | escape }}"
+>
+  <div class="flex whitespace-nowrap animate-marquee" aria-hidden="true" style="animation-duration: {{ section.settings.speed }}s;">
+    {%- for i in (1..2) -%}
+      {%- for block in section.blocks -%}
+        <span
+          class="inline-block font-body text-label-lg font-medium uppercase tracking-widest px-12"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.message }}
+        </span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Thanh thông báo",
+  "class": "landing-announcement-section",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#1b3a2d" },
+    { "type": "color", "id": "text_color", "label": "Màu chữ", "default": "#e8b75a" },
+    { "type": "range", "id": "speed", "label": "Tốc độ chạy chữ (giây)", "min": 8, "max": 60, "step": 2, "default": 22, "unit": "s" },
+    { "type": "text", "id": "aria_label", "label": "Nhãn trợ năng", "default": "Thông báo khuyến mãi" }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Thông điệp",
+      "settings": [
+        { "type": "text", "id": "message", "label": "Nội dung", "default": "🌿 Miễn phí vận chuyển đơn từ 500K" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Thanh thông báo",
+      "blocks": [
+        { "type": "message", "settings": { "message": "🌿 Miễn phí vận chuyển đơn từ 500K" } },
+        { "type": "message", "settings": { "message": "✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH" } },
+        { "type": "message", "settings": { "message": "🏔️ TUYỂN CHỌN TỪ VÙNG NGUYÊN LIỆU HÀ GIANG" } },
+        { "type": "message", "settings": { "message": "🎁 Miễn phí hộp quà cao cấp cho đơn từ 2 sản phẩm" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
