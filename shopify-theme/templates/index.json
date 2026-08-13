@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "announcement": { "type": "landing-announcement-bar" },
+    "header": { "type": "landing-header" },
+    "breadcrumb": { "type": "landing-breadcrumb" },
+    "hero": { "type": "landing-product-hero" },
+    "trust": { "type": "landing-trust-strip" },
+    "heritage": { "type": "landing-heritage-banner" },
+    "authenticity": { "type": "landing-authenticity" },
+    "video": { "type": "landing-video" },
+    "features": { "type": "landing-features" }
+  },
+  "order": [
+    "announcement",
+    "header",
+    "breadcrumb",
+    "hero",
+    "trust",
+    "heritage",
+    "authenticity",
+    "video",
+    "features"
+  ]
+}

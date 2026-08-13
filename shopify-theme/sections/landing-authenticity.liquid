@@ -1,0 +1,72 @@
+<section
+  id="tinh-xac-thuc"
+  aria-label="Bằng chứng chất lượng"
+  class="bg-canvas py-section-sm md:py-section-md"
+  style="--section-bg: {{ section.settings.bg_color }}; background-color: var(--section-bg);"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="opacity-0 translate-y-6" data-reveal>
+        <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">{{ section.settings.eyebrow }}</p>
+        <h2 class="font-display text-display-md text-forest mb-5 leading-[1.2]">{{ section.settings.heading }}</h2>
+        <div class="font-body text-body-lg text-stone-600 mb-8 max-w-content leading-relaxed">{{ section.settings.description }}</div>
+
+        <div class="flex flex-col gap-5">
+          {%- for block in section.blocks -%}
+            <div class="flex gap-4 items-start" {{ block.shopify_attributes }}>
+              <span class="text-2xl mt-0.5 flex-shrink-0" role="img" aria-hidden="true">{{ block.settings.icon }}</span>
+              <div>
+                <h3 class="font-body text-body-base font-bold text-stone-900 mb-1">{{ block.settings.title }}</h3>
+                <p class="font-body text-body-sm text-stone-600 leading-relaxed">{{ block.settings.body }}</p>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="relative rounded-card overflow-hidden aspect-[4/3] bg-pale-fern opacity-0 translate-y-6" data-reveal>
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'w-full h-full object-cover', alt: section.settings.image_alt }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bằng chứng chất lượng",
+  "class": "landing-authenticity-section",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#faf7f2" },
+    { "type": "text", "id": "eyebrow", "label": "Chữ dẫn", "default": "Chứng Minh Không Bằng Lời Nói" },
+    { "type": "text", "id": "heading", "label": "Tiêu đề", "default": "Điều gì giúp bạn nhận biết một sản phẩm Tam thất đáng tin cậy?" },
+    { "type": "richtext", "id": "description", "label": "Mô tả", "default": "<p>Tam thất Bắc được tuyển chọn từ vùng nguyên liệu Hà Giang, kiểm tra và đóng gói cẩn thận trước khi đến tay bạn.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Ảnh" },
+    { "type": "text", "id": "image_alt", "label": "Mô tả ảnh", "default": "Hình ảnh thực tế nguyên liệu Tam Thất Bắc Hà Giang" }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Luận điểm",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Biểu tượng", "default": "🌿" },
+        { "type": "text", "id": "title", "label": "Tiêu đề", "default": "Nguyên liệu tuyển chọn" },
+        { "type": "textarea", "id": "body", "label": "Nội dung", "default": "Tam thất Bắc được lựa chọn từ vùng nguyên liệu Hà Giang trước khi đưa vào chế biến." }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Bằng chứng chất lượng",
+      "blocks": [
+        { "type": "proof", "settings": { "icon": "🌿", "title": "Nguyên liệu tuyển chọn", "body": "Tam thất Bắc được lựa chọn từ vùng nguyên liệu Hà Giang trước khi đưa vào chế biến." } },
+        { "type": "proof", "settings": { "icon": "📦", "title": "Đóng gói cẩn thận", "body": "Sản phẩm được đóng gói kín giúp giữ hương thơm và hạn chế ẩm trong quá trình bảo quản." } },
+        { "type": "proof", "settings": { "icon": "🔬", "title": "Kiểm tra chất lượng", "body": "Nguyên liệu được kiểm tra trước khi đóng gói nhằm đảm bảo chất lượng ổn định." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

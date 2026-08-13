@@ -1,0 +1,204 @@
+<section
+  id="san-pham"
+  aria-label="Thông tin sản phẩm"
+  class="bg-canvas py-section-sm md:py-section-md"
+  style="--section-bg: {{ section.settings.bg_color }}; background-color: var(--section-bg);"
+>
+  <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 lg:gap-14 items-start">
+
+      <product-gallery class="flex flex-col gap-3">
+        <div class="relative overflow-hidden rounded-card bg-parchment aspect-square">
+          <img
+            data-gallery-main
+            src="{{ section.settings.image_1 | image_url: width: 1200 }}"
+            alt="{{ section.settings.image_alt | escape }}"
+            class="w-full h-full object-contain"
+            loading="eager"
+            width="1200" height="1200"
+          >
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          {%- for i in (1..4) -%}
+            {%- assign key = 'image_' | append: i -%}
+            {%- assign img = section.settings[key] -%}
+            {%- if img != blank -%}
+              <button
+                type="button"
+                data-gallery-thumb
+                data-src="{{ img | image_url: width: 1200 }}"
+                data-alt="{{ section.settings.image_alt | escape }} {{ i }}"
+                aria-label="Xem ảnh {{ i }}"
+                class="aspect-square rounded-[8px] overflow-hidden bg-parchment border-2 border-stone-300 hover:border-sage transition-all duration-200"
+              >
+                {{ img | image_url: width: 400 | image_tag: loading: 'lazy', class: 'w-full h-full object-contain', alt: section.settings.image_alt }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </product-gallery>
+
+      <div class="flex flex-col gap-5 opacity-0 translate-y-6" data-reveal>
+        <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage">{{ section.settings.eyebrow }}</p>
+
+        <h1 class="font-body text-2xl sm:text-3xl font-bold text-forest leading-relaxed tracking-tight text-pretty">
+          {{ section.settings.heading }}
+        </h1>
+
+        <div class="flex items-center gap-3">
+          <span class="text-gold text-body-lg tracking-tight" aria-label="{{ section.settings.rating_label | escape }}">★★★★★</span>
+          <a href="#danh-gia" class="font-body text-body-sm text-stone-600 underline underline-offset-2 hover:text-forest transition-colors">{{ section.settings.review_count_label }}</a>
+          <span class="w-px h-4 bg-stone-300"></span>
+          <span class="font-body text-body-sm text-trust-green font-semibold">{{ section.settings.sold_label }}</span>
+        </div>
+
+        <div class="font-body text-body-lg text-stone-600 leading-relaxed max-w-content">{{ section.settings.description }}</div>
+
+        <variant-picker class="flex flex-col gap-5">
+          <div>
+            <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-stone-600 mb-2">{{ section.settings.variant_label }}</p>
+            <div class="flex flex-col sm:flex-row gap-2">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'variant' -%}
+                  <button
+                    type="button"
+                    data-variant
+                    data-variant-id="{{ block.settings.variant_id }}"
+                    data-price="{{ block.settings.price }}"
+                    data-compare="{{ block.settings.compare_price }}"
+                    data-savings="{{ block.settings.savings }}"
+                    data-stock="{{ block.settings.stock_text | escape }}"
+                    aria-pressed="false"
+                    {{ block.shopify_attributes }}
+                    class="relative flex-1 flex flex-col items-center justify-center text-center px-3 pt-5 pb-3.5 rounded-card border-2 border-stone-300 hover:border-sage bg-canvas transition-all duration-200"
+                  >
+                    {%- if block.settings.is_best -%}
+                      <span class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gold text-dark font-body text-[10px] leading-tight font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-badge shadow-xs">{{ block.settings.badge }}</span>
+                    {%- endif -%}
+                    <span class="block font-body text-body-sm font-semibold text-stone-900 text-center leading-tight">{{ block.settings.label }}</span>
+                    <span class="block font-mono text-body-sm text-forest font-medium mt-1 text-center">{{ block.settings.price }}</span>
+                  </button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+
+          <div class="flex items-baseline gap-3 flex-wrap">
+            <span data-variant-price class="font-mono text-price-xl font-bold text-forest"></span>
+            <span data-variant-compare class="font-body text-body-base text-stone-600 line-through"></span>
+            <span data-variant-savings class="bg-amber/30 text-stone-900 font-body text-label-lg font-bold uppercase tracking-wide px-2.5 py-1 rounded-badge"></span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-alert-amber animate-pulse inline-block"></span>
+            <p data-variant-stock class="font-body text-body-sm text-alert-amber font-semibold"></p>
+          </div>
+
+          <add-to-cart class="block">
+            <form action="{{ routes.cart_add_url }}" method="post" class="flex flex-col sm:flex-row gap-3">
+              <input type="hidden" name="id" data-variant-id-input value="">
+              <input type="hidden" name="quantity" value="1">
+              <button
+                type="submit"
+                class="relative flex-1 overflow-hidden bg-forest text-amber font-body font-bold text-body-base uppercase tracking-widest py-4 px-6 rounded-btn hover:bg-jade transition-colors duration-200 animate-pulse focus:outline-hidden focus-visible:ring-2 focus-visible:ring-gold"
+                aria-label="Thêm vào giỏ hàng và đặt mua ngay"
+              >
+                <span class="absolute inset-0 bg-gradient-to-r from-transparent via-amber/20 to-transparent bg-[length:200%_100%] animate-shimmer pointer-events-none"></span>
+                <span class="relative" data-atc-label>{{ section.settings.cta_label }}</span>
+              </button>
+              <a href="{{ section.settings.secondary_link }}" class="flex-shrink-0 border-2 border-forest text-forest font-body font-semibold text-body-sm uppercase tracking-widest py-4 px-5 rounded-btn text-center hover:bg-pale-fern transition-colors duration-200">
+                {{ section.settings.secondary_label }}
+              </a>
+            </form>
+          </add-to-cart>
+        </variant-picker>
+
+        <p class="font-body text-body-sm text-stone-600">{{ section.settings.shipping_note }}</p>
+
+        <div class="flex flex-wrap gap-2 pt-1">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'badge' -%}
+              <span class="bg-pale-fern text-forest font-body text-label-sm font-semibold uppercase tracking-wide px-3 py-1.5 rounded-badge border border-sage/30" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Đồng bộ variant id đang chọn vào form thêm giỏ hàng
+  document.addEventListener('click', function (event) {
+    var option = event.target.closest('[data-variant]');
+    if (!option) return;
+    var input = document.querySelector('[data-variant-id-input]');
+    if (input) input.value = option.dataset.variantId || '';
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hero sản phẩm",
+  "class": "landing-product-hero-section",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#faf7f2" },
+    { "type": "text", "id": "eyebrow", "label": "Chữ dẫn", "default": "TAM THẤT BẮC HÀ GIANG NGUYÊN CHẤT" },
+    { "type": "text", "id": "heading", "label": "Tiêu đề H1", "default": "Tam thất nguyên chất 7 năm tuổi. Nghiền theo từng mẻ nhỏ để giữ trọn hương vị tự nhiên." },
+    { "type": "richtext", "id": "description", "label": "Mô tả", "default": "<p>Tam thất là một dược liệu được sử dụng lâu đời trong y học cổ truyền. Chất lượng của củ phụ thuộc vào vùng trồng, thời gian sinh trưởng, quy trình sơ chế và cách bảo quản sau thu hoạch.</p>" },
+    { "type": "image_picker", "id": "image_1", "label": "Ảnh 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Ảnh 2" },
+    { "type": "image_picker", "id": "image_3", "label": "Ảnh 3" },
+    { "type": "image_picker", "id": "image_4", "label": "Ảnh 4" },
+    { "type": "text", "id": "image_alt", "label": "Mô tả ảnh (alt)", "default": "Tam Thất Bắc Nguyên Chất Hà Giang" },
+    { "type": "text", "id": "rating_label", "label": "Nhãn đánh giá", "default": "5 sao" },
+    { "type": "text", "id": "review_count_label", "label": "Số lượt đánh giá", "default": "1.248 đánh giá thực" },
+    { "type": "text", "id": "sold_label", "label": "Số đơn đã bán", "default": "Đã bán 5.000+ đơn" },
+    { "type": "text", "id": "variant_label", "label": "Nhãn chọn gói", "default": "Chọn Gói:" },
+    { "type": "text", "id": "cta_label", "label": "Nhãn nút chính", "default": "🛒 Đặt Mua Ngay — Giao Trong 2 Ngày" },
+    { "type": "text", "id": "secondary_label", "label": "Nhãn nút phụ", "default": "Xem Cách Dùng ↓" },
+    { "type": "url", "id": "secondary_link", "label": "Liên kết nút phụ", "default": "/#cach-dung" },
+    { "type": "text", "id": "shipping_note", "label": "Ghi chú giao hàng", "default": "🚚 Đặt trước 17:00 → Giao ngay hôm nay" }
+  ],
+  "blocks": [
+    {
+      "type": "variant",
+      "name": "Gói sản phẩm",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Tên gói", "default": "Gói Dùng Thử 100g" },
+        { "type": "text", "id": "price", "label": "Giá", "default": "299.000 ₫" },
+        { "type": "text", "id": "compare_price", "label": "Giá gốc", "default": "450.000 ₫" },
+        { "type": "text", "id": "savings", "label": "Mức tiết kiệm", "default": "33%" },
+        { "type": "text", "id": "stock_text", "label": "Thông báo tồn kho", "default": "Chỉ còn 23 hộp trong kho — đặt ngay để đảm bảo hàng" },
+        { "type": "text", "id": "variant_id", "label": "Variant ID Shopify" },
+        { "type": "checkbox", "id": "is_best", "label": "Gắn nhãn nổi bật", "default": false },
+        { "type": "text", "id": "badge", "label": "Nội dung nhãn", "default": "Tiết Kiệm Nhất" }
+      ]
+    },
+    {
+      "type": "badge",
+      "name": "Huy hiệu tin cậy",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Nội dung", "default": "✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Hero sản phẩm",
+      "blocks": [
+        { "type": "variant", "settings": { "label": "Gói Dùng Thử 100g", "price": "299.000 ₫", "compare_price": "450.000 ₫", "savings": "33%", "stock_text": "Chỉ còn 23 hộp trong kho — đặt ngay để đảm bảo hàng" } },
+        { "type": "variant", "settings": { "label": "Gói Gia Đình 300g", "price": "750.000 ₫", "compare_price": "900.000 ₫", "savings": "17%", "stock_text": "Chỉ còn 41 hộp trong kho — đặt ngay để đảm bảo hàng" } },
+        { "type": "variant", "settings": { "label": "Gói Tích Lũy 500g", "price": "1.150.000 ₫", "compare_price": "1.500.000 ₫", "savings": "23%", "stock_text": "Chỉ còn 15 hộp trong kho — đặt ngay để đảm bảo hàng", "is_best": true, "badge": "Tiết Kiệm Nhất" } },
+        { "type": "badge", "settings": { "text": "✓ ĐỔI TRẢ TRONG 30 NGÀY THEO CHÍNH SÁCH" } },
+        { "type": "badge", "settings": { "text": "✓ TUYỂN CHỌN TỪ VÙNG NGUYÊN LIỆU HÀ GIANG" } },
+        { "type": "badge", "settings": { "text": "✓ XAY MỊN TỪ CỦ NGUYÊN CHẤT" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+<section
+  id="cong-dung"
+  aria-label="Đặc điểm nổi bật"
+  class="bg-canvas py-section-sm md:py-section-md"
+  style="--section-bg: {{ section.settings.bg_color }}; background-color: var(--section-bg);"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8">
+    <div class="text-center mb-10 md:mb-14">
+      <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">{{ section.settings.eyebrow }}</p>
+      <h2 class="font-display text-display-md text-forest max-w-content mx-auto leading-[1.2]">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      {%- for block in section.blocks -%}
+        <div
+          class="group bg-cream border border-stone-300 rounded-card p-6 hover:shadow-card-hover hover:-translate-y-1 hover:border-sage transition-all duration-300 cursor-default opacity-0 translate-y-6"
+          data-reveal
+          style="transition-delay: {{ forloop.index0 | times: 80 }}ms;"
+          {{ block.shopify_attributes }}
+        >
+          <span class="text-3xl mb-4 block" role="img" aria-hidden="true">{{ block.settings.icon }}</span>
+          <p class="font-body text-label-sm font-bold uppercase tracking-widest text-sage mb-1.5">{{ block.settings.label }}</p>
+          <h3 class="font-body text-body-base font-bold text-stone-900 mb-2 leading-snug">{{ block.settings.title }}</h3>
+          <p class="font-body text-body-sm text-stone-600 leading-relaxed">{{ block.settings.body }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lưới đặc điểm",
+  "class": "landing-features-section",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#faf7f2" },
+    { "type": "text", "id": "eyebrow", "label": "Chữ dẫn", "default": "Tại Sao Khác Biệt" },
+    { "type": "text", "id": "heading", "label": "Tiêu đề", "default": "Sáu lý do khiến Tam Thất Quân Nguyễn không thể so sánh với hàng chợ" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Đặc điểm",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Biểu tượng", "default": "🌿" },
+        { "type": "text", "id": "label", "label": "Nhãn", "default": "NGUYÊN LIỆU TUYỂN CHỌN" },
+        { "type": "text", "id": "title", "label": "Tiêu đề", "default": "Hàm Lượng Hoạt Chất Cao" },
+        { "type": "textarea", "id": "body", "label": "Nội dung", "default": "Chỉ sử dụng Tam thất Bắc được lựa chọn theo tiêu chuẩn của thương hiệu." }
+      ]
+    }
+  ],
+  "max_blocks": 9,
+  "presets": [
+    {
+      "name": "Lưới đặc điểm",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "💊", "label": "NGUYÊN LIỆU TUYỂN CHỌN", "title": "Hàm Lượng Hoạt Chất Cao", "body": "Chỉ sử dụng Tam thất Bắc được lựa chọn theo tiêu chuẩn của thương hiệu." } },
+        { "type": "feature", "settings": { "icon": "🚫", "label": "KHÔNG PHA TRỘN", "title": "100% Tam thất Bắc xay mịn", "body": "Không phụ gia, không chất tạo màu, không lưu huỳnh. Phơi tự nhiên và sấy lạnh bảo toàn dưỡng chất tối đa." } },
+        { "type": "feature", "settings": { "icon": "🏔️", "label": "SƠ CHẾ CẨN THẬN", "title": "Nguyên liệu được làm sạch, sấy và nghiền phù hợp", "body": "Người Mông Hà Giang phơi Tam Thất trên giàn tre trong gió núi 45–60 ngày." } },
+        { "type": "feature", "settings": { "icon": "🌿", "label": "TUYỂN CHỌN NGUYÊN LIỆU", "title": "Chỉ sử dụng Tam thất Bắc được lựa chọn kỹ trước khi xay", "body": "Nguyên liệu được lựa chọn từ vùng nguyên liệu Hà Giang và kiểm tra trước khi đưa vào chế biến." } },
+        { "type": "feature", "settings": { "icon": "🌱", "label": "NGHIỀN THEO TỪNG MẺ", "title": "Giúp sản phẩm luôn mới, hạn chế lưu kho quá lâu", "body": "Tam Thất phải 7 năm mới đủ Saponin để thu hoạch." } },
+        { "type": "feature", "settings": { "icon": "♻️", "label": "ĐÓNG GÓI KÍN", "title": "Giúp bảo quản tốt hơn trong quá trình sử dụng", "body": "Túi kraft tái chế, hộp carton FSC, túi hút chân không kéo dài thời gian bảo quản 18 tháng." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

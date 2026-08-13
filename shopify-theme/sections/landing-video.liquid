@@ -1,0 +1,73 @@
+<section
+  id="quy-trinh-san-xuat"
+  aria-label="Video quy trình sản xuất"
+  class="bg-cream py-section-sm md:py-section-md"
+  style="--section-bg: {{ section.settings.bg_color }}; background-color: var(--section-bg);"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3 text-center">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="font-display text-display-md text-forest text-center max-w-content mx-auto leading-[1.2] mb-10">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <video-player class="relative block w-full max-w-wide mx-auto rounded-card overflow-hidden aspect-[{{ section.settings.ratio }}] bg-dark shadow-glass">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: image_size: '1200x', playsinline: true, controls: false, preload: 'metadata', class: 'w-full h-full object-cover' }}
+      {%- else -%}
+        <video
+          class="w-full h-full object-cover"
+          src="{{ section.settings.video_url }}"
+          poster="{{ section.settings.poster | image_url: width: 1200 }}"
+          playsinline
+          preload="metadata"
+        ></video>
+      {%- endif -%}
+
+      <div data-video-overlay>
+        <div class="absolute inset-0 bg-dark/30 backdrop-blur-[2px] pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <button type="button" data-video-play aria-label="Phát video quy trình sản xuất" class="bg-amber/90 hover:bg-amber text-dark w-16 h-16 rounded-full flex items-center justify-center shadow-gold transition-all duration-200 hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 translate-x-0.5"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </video-player>
+
+    {%- if section.settings.caption != blank -%}
+      <p class="text-center font-body text-body-sm text-stone-600 mt-3">{{ section.settings.caption }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video quy trình",
+  "class": "landing-video-section",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#f2ede3" },
+    { "type": "text", "id": "eyebrow", "label": "Chữ dẫn" },
+    { "type": "text", "id": "heading", "label": "Tiêu đề" },
+    { "type": "video", "id": "video", "label": "Video tải lên Shopify" },
+    { "type": "url", "id": "video_url", "label": "Hoặc URL video (mp4)" },
+    { "type": "image_picker", "id": "poster", "label": "Ảnh poster" },
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "Tỷ lệ khung hình",
+      "options": [
+        { "value": "9/16", "label": "Dọc 9:16" },
+        { "value": "1/1", "label": "Vuông 1:1" },
+        { "value": "4/3", "label": "4:3" },
+        { "value": "16/9", "label": "Ngang 16:9" }
+      ],
+      "default": "9/16"
+    },
+    { "type": "text", "id": "caption", "label": "Chú thích" }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "Video quy trình", "blocks": [] }]
+}
+{% endschema %}
