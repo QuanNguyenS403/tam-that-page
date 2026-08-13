@@ -1,0 +1,92 @@
+<sticky-header class="sticky top-0 z-50 transition-all duration-300 block bg-transparent">
+  <mobile-nav>
+    <nav class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 flex items-center justify-between h-16 md:h-20" aria-label="Điều hướng chính">
+      <a href="{{ section.settings.logo_url | default: routes.root_url }}" class="font-display text-display-sm text-forest font-bold">
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo | image_url: width: 320 | image_tag: loading: 'eager', class: 'h-9 w-auto', alt: section.settings.brand_name }}
+        {%- else -%}
+          {{ section.settings.brand_name }}
+        {%- endif -%}
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'link' -%}
+            <li {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.link }}" class="font-body text-body-sm font-medium text-stone-900 hover:text-forest transition-colors duration-200 uppercase tracking-wide">
+                {{ block.settings.label }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="{{ section.settings.cta_link }}" class="hidden sm:inline-block bg-forest text-amber font-body font-semibold text-label-lg uppercase tracking-widest px-5 py-2.5 rounded-btn hover:bg-jade transition-colors duration-200 shadow-xs hover:shadow-gold">
+          {{ section.settings.cta_label }}
+        </a>
+        <button type="button" data-nav-toggle aria-expanded="false" aria-label="Mở menu" class="lg:hidden text-stone-900">
+          <svg data-icon-open xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg data-icon-close hidden xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div data-nav-panel hidden class="lg:hidden border-t border-stone-300 bg-canvas/98 backdrop-blur-glass">
+      <ul class="px-4 py-4 flex flex-col gap-3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'link' -%}
+            <li>
+              <a href="{{ block.settings.link }}" class="block py-2 font-body text-body-base font-medium text-stone-900 hover:text-forest uppercase tracking-wide">
+                {{ block.settings.label }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+        <li class="pt-2">
+          <a href="{{ section.settings.cta_link }}" class="block text-center bg-forest text-amber font-body font-semibold text-label-lg uppercase tracking-widest px-5 py-3 rounded-btn hover:bg-jade">
+            {{ section.settings.cta_label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mobile-nav>
+</sticky-header>
+
+{% schema %}
+{
+  "name": "Header landing",
+  "class": "landing-header-section",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Tên thương hiệu", "default": "QuanNguyenS" },
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "url", "id": "logo_url", "label": "Liên kết logo" },
+    { "type": "text", "id": "cta_label", "label": "Nhãn nút CTA", "default": "Đặt Mua Ngay" },
+    { "type": "url", "id": "cta_link", "label": "Liên kết CTA", "default": "/#san-pham" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Liên kết menu",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Nhãn", "default": "Công Dụng" },
+        { "type": "url", "id": "link", "label": "Đường dẫn" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Header landing",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Công Dụng", "link": "/#cong-dung" } },
+        { "type": "link", "settings": { "label": "Cách Dùng", "link": "/#cach-dung" } },
+        { "type": "link", "settings": { "label": "Đánh Giá", "link": "/#danh-gia" } },
+        { "type": "link", "settings": { "label": "Bảng So Sánh", "link": "/#bang-so-sanh" } },
+        { "type": "link", "settings": { "label": "Hỏi & Đáp", "link": "/#faq" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
