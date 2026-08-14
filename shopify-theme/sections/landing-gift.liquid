@@ -1,0 +1,83 @@
+<section
+  id="qua-tang"
+  aria-label="Ý nghĩa quà tặng"
+  class="bg-dark text-stone-100 py-section-sm md:py-section-md overflow-hidden"
+  style="background-color: {{ section.settings.bg_color }};"
+>
+  <div class="max-w-wide mx-auto px-4 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="opacity-0 translate-y-6" data-reveal>
+        <p class="font-body text-label-lg font-semibold uppercase tracking-widest text-sage mb-3">{{ section.settings.eyebrow }}</p>
+        <h2 class="font-display text-display-md text-amber mb-6 leading-[1.2]">{{ section.settings.heading }}</h2>
+
+        <div class="space-y-4 font-body text-body-lg text-stone-300 leading-relaxed">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'paragraph' -%}
+              <p class="{% if block.settings.highlight %}font-semibold text-amber{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.cta_label != blank -%}
+          <a
+            href="{{ section.settings.cta_link | default: '#san-pham' }}"
+            class="inline-block mt-8 bg-gold hover:bg-amber text-dark font-body font-bold text-label-lg uppercase tracking-widest px-6 py-3.5 rounded-btn transition-colors duration-200 shadow-gold"
+          >{{ section.settings.cta_label }}</a>
+        {%- endif -%}
+      </div>
+
+      <div class="aspect-square rounded-card overflow-hidden bg-forest/40 border border-stone-600 opacity-0 translate-y-6" data-reveal>
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'w-full h-full object-cover' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quà tặng",
+  "tag": "section",
+  "class": "landing-gift-section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Màu nền", "default": "#14181a" },
+    { "type": "text", "id": "eyebrow", "label": "Chữ dẫn", "default": "Món Quà Ý Nghĩa" },
+    { "type": "text", "id": "heading", "label": "Tiêu đề", "default": "Món quà dành cho những người bạn quan tâm" },
+    { "type": "image_picker", "id": "image", "label": "Hình ảnh" },
+    { "type": "text", "id": "cta_label", "label": "Nhãn nút", "default": "Chọn Quà Ngay →" },
+    { "type": "url", "id": "cta_link", "label": "Liên kết nút" }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Đoạn văn",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Nội dung", "default": "Nội dung đoạn văn." },
+        { "type": "checkbox", "id": "highlight", "label": "Làm nổi bật", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Quà tặng",
+      "blocks": [
+        { "type": "paragraph", "settings": { "text": "Rượu rồi sẽ cạn. Bánh ngọt thưởng thức một lần rồi qua. Giỏ quà trang trí thường bị xếp vào một góc." } },
+        { "type": "paragraph", "settings": { "text": "Tam Thất Quân Nguyễn thì khác. Đó là món quà gửi gắm thông điệp cá nhân sâu sắc — bạn chọn sức khỏe thay vì thói quen, chọn chất lượng thay vì sự tiện lợi." } },
+        { "type": "paragraph", "settings": { "text": "Dù là mừng thọ cha mẹ, quà biếu Tết, mừng nghỉ hưu hay lời cảm ơn đối tác quan trọng — đây là món quà phản ánh sự tinh tế của người tặng." } },
+        { "type": "paragraph", "settings": { "text": "Bởi vì món quà tuyệt vời nhất không phải là đắt nhất, mà là tâm huyết nhất.", "highlight": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}
